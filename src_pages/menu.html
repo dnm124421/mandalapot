@@ -1,0 +1,1558 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Grand Menu | Spice & Soul — Authentic Indian Fine Dining</title>
+  <meta name="description" content="Explore the Grand Menu at Spice & Soul — a curated collection of authentic Indian dishes from Tandoor Grills to Mughlai Curries, Biryanis, Breads, and Desserts.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Playfair+Display:ital,wght@0,600;0,700;0,900;1,600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#8f4e00",
+            "on-primary": "#ffffff",
+            "primary-container": "#ff9933",
+            "on-primary-container": "#693800",
+            "secondary": "#755b00",
+            "on-secondary": "#ffffff",
+            "secondary-container": "#fecb32",
+            "background": "#fff8f5",
+            "surface": "#fff8f5",
+            "surface-dim": "#e8d7cb",
+            "on-surface": "#231a13",
+            "on-surface-variant": "#554336",
+            "outline": "#887364",
+            "inverse-surface": "#392e27",
+            "tertiary": "#006685",
+            "error": "#ba1a1a",
+          },
+          fontFamily: {
+            "display": ["Playfair Display", "serif"],
+            "headline": ["Playfair Display", "serif"],
+            "body": ["Montserrat", "sans-serif"],
+            "label": ["Montserrat", "sans-serif"],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body { background-color: #fff8f5; color: #231a13; }
+    .glass-nav { backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); background: rgba(255, 244, 225, 0.75) !important; border-bottom: 1px solid rgba(254, 203, 50, 0.35) !important; box-shadow: 0 4px 30px rgba(143, 78, 0, 0.05); }
+    .gold-button {
+      background: linear-gradient(135deg, #ff9933 0%, #ffcc33 100%);
+      box-shadow: 0 4px 15px rgba(255, 153, 51, 0.3);
+      transition: all 0.3s ease;
+    }
+    .gold-button:hover { transform: scale(1.02); }
+    .mandala-pattern {
+      background-image: radial-gradient(#8f4e00 0.5px, transparent 0.5px), radial-gradient(#8f4e00 0.5px, #fff8f5 0.5px);
+      background-size: 40px 40px; background-position: 0 0, 20px 20px; opacity: 0.05;
+      position: absolute; top: 0; left: 0; right: 0; bottom: 0; z-index: 0; pointer-events: none;
+    }
+    .hide-scrollbar::-webkit-scrollbar { display: none; }
+    .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    
+    /* Menu item hover */
+    .menu-item { transition: all 0.25s ease; border-left: 3px solid transparent; }
+    .menu-item:hover { border-left-color: #ff9933; padding-left: 12px; background: rgba(255,153,51,0.04); border-radius: 0 8px 8px 0; }
+    
+    /* Category section */
+    .category-section { scroll-margin-top: 110px; }
+    
+    /* Filter button active state */
+    .filter-btn.active { background: #8f4e00; color: white; border-color: #8f4e00; }
+    
+    /* Hero */
+    .menu-hero-bg {
+      background: linear-gradient(135deg, #1a0a00 0%, #3d1f00 40%, #1a0a00 100%);
+    }
+    .decorative-line {
+      display: flex; align-items: center; gap: 16px; margin: 0 auto;
+    }
+    .decorative-line::before, .decorative-line::after {
+      content: ''; flex: 1; height: 1px; background: linear-gradient(to right, transparent, #ff9933, transparent);
+    }
+
+    /* Price dot */
+    .price-dot {
+      flex: 1;
+      border-bottom: 2px dotted #e8d7cb;
+      margin: 0 8px;
+      position: relative;
+      top: -4px;
+    }
+
+    /* Veg / Non-veg dot */
+    .veg-dot { display:inline-block; width:12px; height:12px; border:2px solid #2e7d32; border-radius:50%; position:relative; }
+    .veg-dot::after { content:''; position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:6px; height:6px; background:#2e7d32; border-radius:50%; }
+    .nonveg-dot { display:inline-block; width:12px; height:12px; border:2px solid #ba1a1a; border-radius:50%; position:relative; }
+    .nonveg-dot::after { content:''; position:absolute; top:2px; left:2px; width:0; height:0; border-left:5px solid transparent; border-right:5px solid transparent; border-bottom:8px solid #ba1a1a; transform:translate(-2px,-4px) scale(0.6); }
+
+    /* Section header gold underline */
+    .section-title {
+      position: relative; display: inline-block;
+    }
+    .section-title::after {
+      content: ''; display: block; margin: 8px auto 0;
+      width: 60%; height: 2px;
+      background: linear-gradient(90deg, transparent, #ff9933, transparent);
+    }
+
+    /* Tag pill */
+    .tag { display:inline-flex; align-items:center; gap:4px; font-size:10px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; padding:2px 8px; border-radius:999px; }
+
+    @keyframes fadeInUp {
+      from { opacity:0; transform:translateY(20px); }
+      to { opacity:1; transform:translateY(0); }
+    }
+    .animate-fade-in-up { animation: fadeInUp 0.5s ease forwards; }
+  </style>
+</head>
+<body class="font-body antialiased selection:bg-primary-container selection:text-on-surface relative pt-20">
+
+  <!-- Nav -->
+  <nav class="glass-nav fixed w-full z-50 top-0 border-b border-surface-dim">
+    <div class="max-w-[1400px] mx-auto px-4 lg:px-8 h-20 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-2 text-primary font-display font-bold text-2xl md:text-3xl">
+        <span class="material-symbols-outlined text-3xl">local_fire_department</span>
+        Spice &amp; Soul
+      </a>
+      <div class="hidden md:flex items-center gap-8 text-on-surface font-label text-sm uppercase tracking-wider font-semibold">
+        <a href="menu.html" class="text-primary transition">Menu</a>
+        <a href="about.html" class="hover:text-primary transition">About Us</a>
+        <a href="reservations.html" class="hover:text-primary transition">Reservations</a>
+        <a href="gallery.html" class="hover:text-primary transition">Gallery</a>
+        <a href="reviews.html" class="hover:text-primary transition">Reviews</a>
+        <a href="contact.html" class="hover:text-primary transition">Contact</a>
+      </div>
+      <a href="reservations.html" class="gold-button hidden md:inline-flex px-6 py-2.5 rounded text-sm font-bold uppercase tracking-wider text-on-surface">Book Table</a>
+      <button class="md:hidden text-on-surface"><span class="material-symbols-outlined text-3xl">menu</span></button>
+    </div>
+  </nav>
+
+  <!-- Hero Banner -->
+  <header class="menu-hero-bg relative py-28 overflow-hidden text-center">
+    <div class="absolute inset-0 opacity-10">
+      <img src="assets/images/1517248135467-4c7edcad34c4.jpg" alt="Restaurant" class="w-full h-full object-cover mix-blend-overlay">
+    </div>
+    <div class="relative z-10 max-w-3xl mx-auto px-4">
+      <p class="font-label text-xs uppercase tracking-[0.3em] text-primary-container mb-4">Est. 2008 · Mumbai, India</p>
+      <h1 class="font-display text-6xl md:text-7xl lg:text-8xl text-white mb-6" style="text-shadow:0 4px 30px rgba(255,153,51,0.3)">The Grand Menu</h1>
+      <div class="decorative-line max-w-xs mx-auto mb-6">
+        <span class="text-primary-container text-xl">✦</span>
+      </div>
+      <p class="text-white/70 text-lg font-light leading-relaxed">
+        A curated journey through India's royal kitchens — heirloom recipes reimagined for the modern connoisseur
+      </p>
+    </div>
+  </header>
+
+  <!-- Sticky Filter Bar -->
+  <div class="sticky top-20 z-40 bg-surface/95 backdrop-blur-md border-b border-surface-dim py-3 shadow-sm">
+    <div class="max-w-[1400px] mx-auto px-4 lg:px-8">
+      <div class="flex overflow-x-auto hide-scrollbar gap-2 pb-1 items-center">
+        <button onclick="scrollToSection('all')" class="filter-btn active px-5 py-2 rounded-full bg-primary text-white font-label text-xs uppercase tracking-wider whitespace-nowrap transition border border-primary">All</button>
+        <button onclick="scrollToSection('soups')" class="filter-btn px-5 py-2 rounded-full border border-outline text-on-surface-variant hover:bg-surface-dim font-label text-xs uppercase tracking-wider whitespace-nowrap transition">Soups &amp; Shorba</button>
+        <button onclick="scrollToSection('starters-veg')" class="filter-btn px-5 py-2 rounded-full border border-outline text-on-surface-variant hover:bg-surface-dim font-label text-xs uppercase tracking-wider whitespace-nowrap transition">Veg Starters</button>
+        <button onclick="scrollToSection('starters-nonveg')" class="filter-btn px-5 py-2 rounded-full border border-outline text-on-surface-variant hover:bg-surface-dim font-label text-xs uppercase tracking-wider whitespace-nowrap transition">Non-Veg Starters</button>
+        <button onclick="scrollToSection('tandoor-veg')" class="filter-btn px-5 py-2 rounded-full border border-outline text-on-surface-variant hover:bg-surface-dim font-label text-xs uppercase tracking-wider whitespace-nowrap transition">Tandoor Veg</button>
+        <button onclick="scrollToSection('tandoor-nonveg')" class="filter-btn px-5 py-2 rounded-full border border-outline text-on-surface-variant hover:bg-surface-dim font-label text-xs uppercase tracking-wider whitespace-nowrap transition">Tandoor Non-Veg</button>
+        <button onclick="scrollToSection('curries-veg')" class="filter-btn px-5 py-2 rounded-full border border-outline text-on-surface-variant hover:bg-surface-dim font-label text-xs uppercase tracking-wider whitespace-nowrap transition">Veg Curries</button>
+        <button onclick="scrollToSection('curries-nonveg')" class="filter-btn px-5 py-2 rounded-full border border-outline text-on-surface-variant hover:bg-surface-dim font-label text-xs uppercase tracking-wider whitespace-nowrap transition">Non-Veg Curries</button>
+        <button onclick="scrollToSection('biryani')" class="filter-btn px-5 py-2 rounded-full border border-outline text-on-surface-variant hover:bg-surface-dim font-label text-xs uppercase tracking-wider whitespace-nowrap transition">Biryani &amp; Rice</button>
+        <button onclick="scrollToSection('breads')" class="filter-btn px-5 py-2 rounded-full border border-outline text-on-surface-variant hover:bg-surface-dim font-label text-xs uppercase tracking-wider whitespace-nowrap transition">Indian Breads</button>
+        <button onclick="scrollToSection('sides')" class="filter-btn px-5 py-2 rounded-full border border-outline text-on-surface-variant hover:bg-surface-dim font-label text-xs uppercase tracking-wider whitespace-nowrap transition">Sides &amp; Raita</button>
+        <button onclick="scrollToSection('desserts')" class="filter-btn px-5 py-2 rounded-full border border-outline text-on-surface-variant hover:bg-surface-dim font-label text-xs uppercase tracking-wider whitespace-nowrap transition">Desserts</button>
+        <button onclick="scrollToSection('beverages')" class="filter-btn px-5 py-2 rounded-full border border-outline text-on-surface-variant hover:bg-surface-dim font-label text-xs uppercase tracking-wider whitespace-nowrap transition">Beverages</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Legend Bar -->
+  <div class="bg-surface-dim/50 py-3 border-b border-surface-dim">
+    <div class="max-w-[1400px] mx-auto px-4 lg:px-8 flex flex-wrap gap-6 items-center justify-center text-xs text-on-surface-variant font-label">
+      <span class="flex items-center gap-2"><span class="veg-dot"></span> Vegetarian</span>
+      <span class="flex items-center gap-2"><span class="nonveg-dot"></span> Non-Vegetarian</span>
+      <span class="flex items-center gap-2"><span class="text-base">🌶</span> Spicy</span>
+      <span class="flex items-center gap-2"><span class="text-base">⭐</span> Chef's Special</span>
+      <span class="flex items-center gap-2"><span class="text-base">🏆</span> Bestseller</span>
+      <span class="flex items-center gap-2"><span class="text-base">✨</span> New Addition</span>
+    </div>
+  </div>
+
+  <main class="max-w-[1400px] mx-auto px-4 lg:px-8 py-16">
+
+    <!-- ==================== SOUPS & SHORBA ==================== -->
+    <section id="soups" class="category-section mb-20">
+      <div class="text-center mb-12">
+        <p class="font-label text-xs uppercase tracking-[0.2em] text-primary mb-2">To Begin</p>
+        <h2 class="font-display text-4xl md:text-5xl text-on-surface section-title">Soups &amp; Shorba</h2>
+        <p class="text-on-surface-variant mt-4 max-w-xl mx-auto">Warm, aromatic broths and classic Indian soups to awaken the palate</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-0">
+
+        <div class="menu-item p-5 border-b border-surface-dim">
+          <div class="flex items-start justify-between gap-4">
+            <div class="flex-1">
+              <div class="flex items-center gap-2 mb-1">
+                <span class="veg-dot"></span>
+                <h3 class="font-display text-lg font-bold text-on-surface">Tomato Shorba</h3>
+              </div>
+              <p class="text-on-surface-variant text-sm leading-relaxed">Velvety roasted tomato soup tempered with cumin, ginger and fresh cream</p>
+              <div class="flex gap-2 mt-2">
+                <span class="tag bg-secondary-container text-on-surface">🌶 Medium</span>
+              </div>
+            </div>
+            <div class="text-right shrink-0">
+              <span class="font-display text-xl font-bold text-primary">₹295</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-item p-5 border-b border-surface-dim">
+          <div class="flex items-start justify-between gap-4">
+            <div class="flex-1">
+              <div class="flex items-center gap-2 mb-1">
+                <span class="nonveg-dot"></span>
+                <h3 class="font-display text-lg font-bold text-on-surface">Murgh Shorba</h3>
+              </div>
+              <p class="text-on-surface-variant text-sm leading-relaxed">Delicate chicken consommé infused with saffron, cardamom and freshly ground pepper</p>
+              <div class="flex gap-2 mt-2">
+                <span class="tag bg-amber-100 text-amber-800">⭐ Chef's Special</span>
+              </div>
+            </div>
+            <div class="text-right shrink-0">
+              <span class="font-display text-xl font-bold text-primary">₹325</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-item p-5 border-b border-surface-dim">
+          <div class="flex items-start justify-between gap-4">
+            <div class="flex-1">
+              <div class="flex items-center gap-2 mb-1">
+                <span class="veg-dot"></span>
+                <h3 class="font-display text-lg font-bold text-on-surface">Dal Shorba</h3>
+              </div>
+              <p class="text-on-surface-variant text-sm leading-relaxed">Yellow lentil soup with turmeric, asafoetida and a mustard seed tempering</p>
+            </div>
+            <div class="text-right shrink-0">
+              <span class="font-display text-xl font-bold text-primary">₹265</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-item p-5 border-b border-surface-dim">
+          <div class="flex items-start justify-between gap-4">
+            <div class="flex-1">
+              <div class="flex items-center gap-2 mb-1">
+                <span class="nonveg-dot"></span>
+                <h3 class="font-display text-lg font-bold text-on-surface">Lamb Paya Shorba</h3>
+              </div>
+              <p class="text-on-surface-variant text-sm leading-relaxed">Slow-simmered lamb trotter broth from Old Delhi, rich with bone marrow and warming spices</p>
+              <div class="flex gap-2 mt-2">
+                <span class="tag bg-red-100 text-red-800">🌶 Spicy</span>
+                <span class="tag bg-amber-100 text-amber-800">🏆 Bestseller</span>
+              </div>
+            </div>
+            <div class="text-right shrink-0">
+              <span class="font-display text-xl font-bold text-primary">₹395</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-item p-5 border-b border-surface-dim">
+          <div class="flex items-start justify-between gap-4">
+            <div class="flex-1">
+              <div class="flex items-center gap-2 mb-1">
+                <span class="veg-dot"></span>
+                <h3 class="font-display text-lg font-bold text-on-surface">Mulligatawny</h3>
+              </div>
+              <p class="text-on-surface-variant text-sm leading-relaxed">Anglo-Indian heritage soup with lentils, coconut milk, apple and curry leaf essence</p>
+            </div>
+            <div class="text-right shrink-0">
+              <span class="font-display text-xl font-bold text-primary">₹285</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-item p-5 border-b border-surface-dim">
+          <div class="flex items-start justify-between gap-4">
+            <div class="flex-1">
+              <div class="flex items-center gap-2 mb-1">
+                <span class="nonveg-dot"></span>
+                <h3 class="font-display text-lg font-bold text-on-surface">Jhinga Nariyal Shorba</h3>
+              </div>
+              <p class="text-on-surface-variant text-sm leading-relaxed">Coastal prawn and fresh coconut broth with lemongrass and kaffir lime</p>
+              <div class="flex gap-2 mt-2">
+                <span class="tag bg-blue-100 text-blue-800">✨ New</span>
+              </div>
+            </div>
+            <div class="text-right shrink-0">
+              <span class="font-display text-xl font-bold text-primary">₹445</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <div class="border-t-2 border-dashed border-surface-dim my-4 opacity-60"></div>
+
+    <!-- ==================== VEG STARTERS ==================== -->
+    <section id="starters-veg" class="category-section mb-20 mt-16">
+      <div class="text-center mb-12">
+        <p class="font-label text-xs uppercase tracking-[0.2em] text-primary mb-2">Small Plates</p>
+        <h2 class="font-display text-4xl md:text-5xl text-on-surface section-title">Vegetarian Starters</h2>
+        <p class="text-on-surface-variant mt-4 max-w-xl mx-auto">Garden-fresh bites, crisp pakoras and chaat delights straight from India's vibrant street food culture</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-0">
+
+        <div class="menu-item p-5 border-b border-surface-dim">
+          <div class="flex items-start justify-between gap-4">
+            <div class="flex-1">
+              <div class="flex items-center gap-2 mb-1"><span class="veg-dot"></span>
+                <h3 class="font-display text-lg font-bold text-on-surface">Samosa Chaat</h3>
+              </div>
+              <p class="text-on-surface-variant text-sm">Crispy pastry filled with spiced potato, topped with tangy tamarind chutney, mint water and sev</p>
+              <div class="flex gap-2 mt-2"><span class="tag bg-amber-100 text-amber-800">🏆 Bestseller</span></div>
+            </div>
+            <span class="font-display text-xl font-bold text-primary shrink-0">₹325</span>
+          </div>
+        </div>
+
+        <div class="menu-item p-5 border-b border-surface-dim">
+          <div class="flex items-start justify-between gap-4">
+            <div class="flex-1">
+              <div class="flex items-center gap-2 mb-1"><span class="veg-dot"></span>
+                <h3 class="font-display text-lg font-bold text-on-surface">Dahi Puri</h3>
+              </div>
+              <p class="text-on-surface-variant text-sm">Crispy hollow shells filled with spiced chickpeas, sweet yogurt, tamarind and mint water</p>
+            </div>
+            <span class="font-display text-xl font-bold text-primary shrink-0">₹295</span>
+          </div>
+        </div>
+
+        <div class="menu-item p-5 border-b border-surface-dim">
+          <div class="flex items-start justify-between gap-4">
+            <div class="flex-1">
+              <div class="flex items-center gap-2 mb-1"><span class="veg-dot"></span>
+                <h3 class="font-display text-lg font-bold text-on-surface">Paneer Tikka</h3>
+              </div>
+              <p class="text-on-surface-variant text-sm">Cubes of cottage cheese marinated in spiced yogurt, roasted in clay oven with capsicum and onion</p>
+              <div class="flex gap-2 mt-2"><span class="tag bg-amber-100 text-amber-800">⭐ Chef's Special</span></div>
+            </div>
+            <span class="font-display text-xl font-bold text-primary shrink-0">₹485</span>
+          </div>
+        </div>
+
+        <div class="menu-item p-5 border-b border-surface-dim">
+          <div class="flex items-start justify-between gap-4">
+            <div class="flex-1">
+              <div class="flex items-center gap-2 mb-1"><span class="veg-dot"></span>
+                <h3 class="font-display text-lg font-bold text-on-surface">Hara Bhara Kebab</h3>
+              </div>
+              <p class="text-on-surface-variant text-sm">Pan-seared patties of spinach, green peas and mint, served with dill-flecked hung curd</p>
+            </div>
+            <span class="font-display text-xl font-bold text-primary shrink-0">₹375</span>
+          </div>
+        </div>
+
+        <div class="menu-item p-5 border-b border-surface-dim">
+          <div class="flex items-start justify-between gap-4">
+            <div class="flex-1">
+              <div class="flex items-center gap-2 mb-1"><span class="veg-dot"></span>
+                <h3 class="font-display text-lg font-bold text-on-surface">Kachori Chaat</h3>
+              </div>
+              <p class="text-on-surface-variant text-sm">Flaky lentil-stuffed kachoris smashed and dressed in yogurt, chutneys and crispy boondi</p>
+              <div class="flex gap-2 mt-2"><span class="tag bg-red-100 text-red-800">🌶 Medium</span></div>
+            </div>
+            <span class="font-display text-xl font-bold text-primary shrink-0">₹345</span>
+          </div>
+        </div>
+
+        <div class="menu-item p-5 border-b border-surface-dim">
+          <div class="flex items-start justify-between gap-4">
+            <div class="flex-1">
+              <div class="flex items-center gap-2 mb-1"><span class="veg-dot"></span>
+                <h3 class="font-display text-lg font-bold text-on-surface">Pav Bhaji Fondue</h3>
+              </div>
+              <p class="text-on-surface-variant text-sm">Mumbai's iconic street spiced vegetable mash, elevated with aged cheddar, served with toasted pav</p>
+              <div class="flex gap-2 mt-2"><span class="tag bg-blue-100 text-blue-800">✨ New</span></div>
+            </div>
+            <span class="font-display text-xl font-bold text-primary shrink-0">₹425</span>
+          </div>
+        </div>
+
+        <div class="menu-item p-5 border-b border-surface-dim">
+          <div class="flex items-start justify-between gap-4">
+            <div class="flex-1">
+              <div class="flex items-center gap-2 mb-1"><span class="veg-dot"></span>
+                <h3 class="font-display text-lg font-bold text-on-surface">Aloo Tikki</h3>
+              </div>
+              <p class="text-on-surface-variant text-sm">Crispy spiced potato cakes with pomegranate seeds, chana masala and green chutney drizzle</p>
+            </div>
+            <span class="font-display text-xl font-bold text-primary shrink-0">₹295</span>
+          </div>
+        </div>
+
+        <div class="menu-item p-5 border-b border-surface-dim">
+          <div class="flex items-start justify-between gap-4">
+            <div class="flex-1">
+              <div class="flex items-center gap-2 mb-1"><span class="veg-dot"></span>
+                <h3 class="font-display text-lg font-bold text-on-surface">Mushroom Galawat</h3>
+              </div>
+              <p class="text-on-surface-variant text-sm">Lucknawi-style melt-in-mouth mushroom kebabs on crispy paratha with pickled onions</p>
+              <div class="flex gap-2 mt-2"><span class="tag bg-amber-100 text-amber-800">⭐ Chef's Special</span></div>
+            </div>
+            <span class="font-display text-xl font-bold text-primary shrink-0">₹445</span>
+          </div>
+        </div>
+
+        <div class="menu-item p-5 border-b border-surface-dim">
+          <div class="flex items-start justify-between gap-4">
+            <div class="flex-1">
+              <div class="flex items-center gap-2 mb-1"><span class="veg-dot"></span>
+                <h3 class="font-display text-lg font-bold text-on-surface">Veg Shami Kebab</h3>
+              </div>
+              <p class="text-on-surface-variant text-sm">Chana dal and raw banana patties with fried onions and royal garam masala — a Hyderabadi classic</p>
+            </div>
+            <span class="font-display text-xl font-bold text-primary shrink-0">₹365</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <div class="border-t-2 border-dashed border-surface-dim my-4 opacity-60"></div>
+
+    <!-- ==================== NON-VEG STARTERS ==================== -->
+    <section id="starters-nonveg" class="category-section mb-20 mt-16">
+      <div class="text-center mb-12">
+        <p class="font-label text-xs uppercase tracking-[0.2em] text-primary mb-2">From the Grill &amp; Kitchen</p>
+        <h2 class="font-display text-4xl md:text-5xl text-on-surface section-title">Non-Veg Starters</h2>
+        <p class="text-on-surface-variant mt-4 max-w-xl mx-auto">Hand-pounded kebabs, grilled meats and coastal bites to set the stage</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-0">
+
+        <div class="menu-item p-5 border-b border-surface-dim">
+          <div class="flex items-start justify-between gap-4">
+            <div class="flex-1">
+              <div class="flex items-center gap-2 mb-1"><span class="nonveg-dot"></span>
+                <h3 class="font-display text-lg font-bold text-on-surface">Seekh Kebab</h3>
+              </div>
+              <p class="text-on-surface-variant text-sm">Spiced minced lamb and beef skewers cooked in clay oven, served with roomali roti and mint chutney</p>
+              <div class="flex gap-2 mt-2"><span class="tag bg-amber-100 text-amber-800">🏆 Bestseller</span></div>
+            </div>
+            <span class="font-display text-xl font-bold text-primary shrink-0">₹565</span>
+          </div>
+        </div>
+
+        <div class="menu-item p-5 border-b border-surface-dim">
+          <div class="flex items-start justify-between gap-4">
+            <div class="flex-1">
+              <div class="flex items-center gap-2 mb-1"><span class="nonveg-dot"></span>
+                <h3 class="font-display text-lg font-bold text-on-surface">Malai Tikka</h3>
+              </div>
+              <p class="text-on-surface-variant text-sm">Tender chicken breast marinated in saffron, cream and cardamom, slow-grilled for a smoky finish</p>
+              <div class="flex gap-2 mt-2"><span class="tag bg-amber-100 text-amber-800">⭐ Chef's Special</span></div>
+            </div>
+            <span class="font-display text-xl font-bold text-primary shrink-0">₹595</span>
+          </div>
+        </div>
+
+        <div class="menu-item p-5 border-b border-surface-dim">
+          <div class="flex items-start justify-between gap-4">
+            <div class="flex-1">
+              <div class="flex items-center gap-2 mb-1"><span class="nonveg-dot"></span>
+                <h3 class="font-display text-lg font-bold text-on-surface">Galouti Kebab</h3>
+              </div>
+              <p class="text-on-surface-variant text-sm">Lucknow's legendary 160-spice minced lamb patties so tender they melt on the tongue. Served with warqi paratha</p>
+              <div class="flex gap-2 mt-2"><span class="tag bg-amber-100 text-amber-800">⭐ Signature</span></div>
+            </div>
+            <span class="font-display text-xl font-bold text-primary shrink-0">₹695</span>
+          </div>
+        </div>
+
+        <div class="menu-item p-5 border-b border-surface-dim">
+          <div class="flex items-start justify-between gap-4">
+            <div class="flex-1">
+              <div class="flex items-center gap-2 mb-1"><span class="nonveg-dot"></span>
+                <h3 class="font-display text-lg font-bold text-on-surface">Amritsari Fish Tikka</h3>
+              </div>
+              <p class="text-on-surface-variant text-sm">Crispy ajwain-battered river sole, deep-fried golden, with lemon and pickled green chilli</p>
+              <div class="flex gap-2 mt-2"><span class="tag bg-red-100 text-red-800">🌶 Medium</span></div>
+            </div>
+            <span class="font-display text-xl font-bold text-primary shrink-0">₹625</span>
+          </div>
+        </div>
+
+        <div class="menu-item p-5 border-b border-surface-dim">
+          <div class="flex items-start justify-between gap-4">
+            <div class="flex-1">
+              <div class="flex items-center gap-2 mb-1"><span class="nonveg-dot"></span>
+                <h3 class="font-display text-lg font-bold text-on-surface">Chilli Chicken 65</h3>
+              </div>
+              <p class="text-on-surface-variant text-sm">South Indian-style crispy fried chicken tossed with curry leaves, dried red chillies and lime</p>
+              <div class="flex gap-2 mt-2"><span class="tag bg-red-100 text-red-800">🌶 Spicy</span><span class="tag bg-amber-100 text-amber-800">🏆 Bestseller</span></div>
+            </div>
+            <span class="font-display text-xl font-bold text-primary shrink-0">₹545</span>
+          </div>
+        </div>
+
+        <div class="menu-item p-5 border-b border-surface-dim">
+          <div class="flex items-start justify-between gap-4">
+            <div class="flex-1">
+              <div class="flex items-center gap-2 mb-1"><span class="nonveg-dot"></span>
+                <h3 class="font-display text-lg font-bold text-on-surface">Jhinga Koliwada</h3>
+              </div>
+              <p class="text-on-surface-variant text-sm">Maharashtrian fishermen's recipe — whole prawns in a spiced besan batter, fried and finished with kokum</p>
+              <div class="flex gap-2 mt-2"><span class="tag bg-blue-100 text-blue-800">✨ New</span></div>
+            </div>
+            <span class="font-display text-xl font-bold text-primary shrink-0">₹745</span>
+          </div>
+        </div>
+
+        <div class="menu-item p-5 border-b border-surface-dim">
+          <div class="flex items-start justify-between gap-4">
+            <div class="flex-1">
+              <div class="flex items-center gap-2 mb-1"><span class="nonveg-dot"></span>
+                <h3 class="font-display text-lg font-bold text-on-surface">Murgh Hariyali Tikka</h3>
+              </div>
+              <p class="text-on-surface-variant text-sm">Chicken marinated in fresh herb paste of coriander, mint and spinach, grilled over charcoal</p>
+            </div>
+            <span class="font-display text-xl font-bold text-primary shrink-0">₹565</span>
+          </div>
+        </div>
+
+        <div class="menu-item p-5 border-b border-surface-dim">
+          <div class="flex items-start justify-between gap-4">
+            <div class="flex-1">
+              <div class="flex items-center gap-2 mb-1"><span class="nonveg-dot"></span>
+                <h3 class="font-display text-lg font-bold text-on-surface">Keema Shami</h3>
+              </div>
+              <p class="text-on-surface-variant text-sm">Classic Hyderabadi minced meat and chana dal patties, pan-fried with fried onions and fresh mint</p>
+            </div>
+            <span class="font-display text-xl font-bold text-primary shrink-0">₹545</span>
+          </div>
+        </div>
+
+        <div class="menu-item p-5 border-b border-surface-dim">
+          <div class="flex items-start justify-between gap-4">
+            <div class="flex-1">
+              <div class="flex items-center gap-2 mb-1"><span class="nonveg-dot"></span>
+                <h3 class="font-display text-lg font-bold text-on-surface">Tandoori Pomfret</h3>
+              </div>
+              <p class="text-on-surface-variant text-sm">Whole pomfret marinated in ajwain, raw papaya and kachri paste, roasted whole in clay oven</p>
+              <div class="flex gap-2 mt-2"><span class="tag bg-amber-100 text-amber-800">⭐ Chef's Special</span></div>
+            </div>
+            <span class="font-display text-xl font-bold text-primary shrink-0">₹895</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <div class="border-t-2 border-dashed border-surface-dim my-4 opacity-60"></div>
+
+    <!-- ==================== TANDOOR VEG ==================== -->
+    <section id="tandoor-veg" class="category-section mb-20 mt-16">
+      <div class="text-center mb-12">
+        <p class="font-label text-xs uppercase tracking-[0.2em] text-primary mb-2">From the Clay Oven</p>
+        <h2 class="font-display text-4xl md:text-5xl text-on-surface section-title">Tandoor — Vegetarian</h2>
+        <p class="text-on-surface-variant mt-4 max-w-xl mx-auto">Slow-fired in our traditional 900°C tandoor — caramelized outsides, smoky centres</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-0">
+
+        <div class="menu-item p-5 border-b border-surface-dim">
+          <div class="flex items-start justify-between gap-4">
+            <div class="flex-1"><div class="flex items-center gap-2 mb-1"><span class="veg-dot"></span>
+              <h3 class="font-display text-lg font-bold text-on-surface">Paneer Achari Tikka</h3></div>
+              <p class="text-on-surface-variant text-sm">Cottage cheese in a pickling spice marinade with mustard oil, fennel and kalonji</p>
+              <div class="flex gap-2 mt-2"><span class="tag bg-red-100 text-red-800">🌶 Medium</span></div>
+            </div>
+            <span class="font-display text-xl font-bold text-primary shrink-0">₹525</span>
+          </div>
+        </div>
+
+        <div class="menu-item p-5 border-b border-surface-dim">
+          <div class="flex items-start justify-between gap-4">
+            <div class="flex-1"><div class="flex items-center gap-2 mb-1"><span class="veg-dot"></span>
+              <h3 class="font-display text-lg font-bold text-on-surface">Broccoli Zafrani Tikka</h3></div>
+              <p class="text-on-surface-variant text-sm">Charred broccoli florets in a saffron cream marinade with mace and white pepper</p>
+              <div class="flex gap-2 mt-2"><span class="tag bg-blue-100 text-blue-800">✨ New</span></div>
+            </div>
+            <span class="font-display text-xl font-bold text-primary shrink-0">₹495</span>
+          </div>
+        </div>
+
+        <div class="menu-item p-5 border-b border-surface-dim">
+          <div class="flex items-start justify-between gap-4">
+            <div class="flex-1"><div class="flex items-center gap-2 mb-1"><span class="veg-dot"></span>
+              <h3 class="font-display text-lg font-bold text-on-surface">Tandoori Aloo</h3></div>
+              <p class="text-on-surface-variant text-sm">Whole baby potatoes stuffed with spiced cashew paste and slow-roasted in the clay oven</p>
+            </div>
+            <span class="font-display text-xl font-bold text-primary shrink-0">₹425</span>
+          </div>
+        </div>
+
+        <div class="menu-item p-5 border-b border-surface-dim">
+          <div class="flex items-start justify-between gap-4">
+            <div class="flex-1"><div class="flex items-center gap-2 mb-1"><span class="veg-dot"></span>
+              <h3 class="font-display text-lg font-bold text-on-surface">Subz Seekh</h3></div>
+              <p class="text-on-surface-variant text-sm">Mixed vegetable and paneer skewers with cashews, green chillies and fresh herbs</p>
+            </div>
+            <span class="font-display text-xl font-bold text-primary shrink-0">₹455</span>
+          </div>
+        </div>
+
+        <div class="menu-item p-5 border-b border-surface-dim">
+          <div class="flex items-start justify-between gap-4">
+            <div class="flex-1"><div class="flex items-center gap-2 mb-1"><span class="veg-dot"></span>
+              <h3 class="font-display text-lg font-bold text-on-surface">Tandoori Gobi</h3></div>
+              <p class="text-on-surface-variant text-sm">Whole cauliflower marinated in amritsari masala and roasted until deeply charred at the edges</p>
+              <div class="flex gap-2 mt-2"><span class="tag bg-amber-100 text-amber-800">🏆 Bestseller</span></div>
+            </div>
+            <span class="font-display text-xl font-bold text-primary shrink-0">₹545</span>
+          </div>
+        </div>
+
+        <div class="menu-item p-5 border-b border-surface-dim">
+          <div class="flex items-start justify-between gap-4">
+            <div class="flex-1"><div class="flex items-center gap-2 mb-1"><span class="veg-dot"></span>
+              <h3 class="font-display text-lg font-bold text-on-surface">Tandoori Asparagus</h3></div>
+              <p class="text-on-surface-variant text-sm">Fresh asparagus spears marinated in ajwain and lemon, fire-roasted and finished with chaat masala</p>
+              <div class="flex gap-2 mt-2"><span class="tag bg-blue-100 text-blue-800">✨ New</span></div>
+            </div>
+            <span class="font-display text-xl font-bold text-primary shrink-0">₹545</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <div class="border-t-2 border-dashed border-surface-dim my-4 opacity-60"></div>
+
+    <!-- ==================== TANDOOR NON-VEG ==================== -->
+    <section id="tandoor-nonveg" class="category-section mb-20 mt-16">
+      <div class="text-center mb-12">
+        <p class="font-label text-xs uppercase tracking-[0.2em] text-primary mb-2">From the Clay Oven</p>
+        <h2 class="font-display text-4xl md:text-5xl text-on-surface section-title">Tandoor — Non-Vegetarian</h2>
+        <p class="text-on-surface-variant mt-4 max-w-xl mx-auto">Marinated overnight, fired in tradition — the soul of Indian grilling</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-0">
+
+        <div class="menu-item p-5 border-b border-surface-dim">
+          <div class="flex items-start justify-between gap-4">
+            <div class="flex-1"><div class="flex items-center gap-2 mb-1"><span class="nonveg-dot"></span>
+              <h3 class="font-display text-lg font-bold text-on-surface">Tandoori Murgh (Half)</h3></div>
+              <p class="text-on-surface-variant text-sm">Whole chicken marinated 24 hours in yogurt, chilli, ginger and garlic paste — the original classic</p>
+              <div class="flex gap-2 mt-2"><span class="tag bg-amber-100 text-amber-800">🏆 Icon Dish</span></div>
+            </div>
+            <span class="font-display text-xl font-bold text-primary shrink-0">₹695</span>
+          </div>
+        </div>
+
+        <div class="menu-item p-5 border-b border-surface-dim">
+          <div class="flex items-start justify-between gap-4">
+            <div class="flex-1"><div class="flex items-center gap-2 mb-1"><span class="nonveg-dot"></span>
+              <h3 class="font-display text-lg font-bold text-on-surface">Barra Kebab</h3></div>
+              <p class="text-on-surface-variant text-sm">Loin of lamb marinated in raw papaya, khus khus and fresh spices — grilled to medium-rare perfection</p>
+              <div class="flex gap-2 mt-2"><span class="tag bg-amber-100 text-amber-800">⭐ Chef's Special</span></div>
+            </div>
+            <span class="font-display text-xl font-bold text-primary shrink-0">₹895</span>
+          </div>
+        </div>
+
+        <div class="menu-item p-5 border-b border-surface-dim">
+          <div class="flex items-start justify-between gap-4">
+            <div class="flex-1"><div class="flex items-center gap-2 mb-1"><span class="nonveg-dot"></span>
+              <h3 class="font-display text-lg font-bold text-on-surface">Chapli Kebab</h3></div>
+              <p class="text-on-surface-variant text-sm">Peshwari-style flat minced beef patties with pomegranate seeds, coriander and green chilli</p>
+              <div class="flex gap-2 mt-2"><span class="tag bg-red-100 text-red-800">🌶 Spicy</span></div>
+            </div>
+            <span class="font-display text-xl font-bold text-primary shrink-0">₹645</span>
+          </div>
+        </div>
+
+        <div class="menu-item p-5 border-b border-surface-dim">
+          <div class="flex items-start justify-between gap-4">
+            <div class="flex-1"><div class="flex items-center gap-2 mb-1"><span class="nonveg-dot"></span>
+              <h3 class="font-display text-lg font-bold text-on-surface">Achari Jhinga</h3></div>
+              <p class="text-on-surface-variant text-sm">Tiger prawns in a robust pickling spice marinade — grilled in the tandoor with a squeeze of lime</p>
+            </div>
+            <span class="font-display text-xl font-bold text-primary shrink-0">₹945</span>
+          </div>
+        </div>
+
+        <div class="menu-item p-5 border-b border-surface-dim">
+          <div class="flex items-start justify-between gap-4">
+            <div class="flex-1"><div class="flex items-center gap-2 mb-1"><span class="nonveg-dot"></span>
+              <h3 class="font-display text-lg font-bold text-on-surface">Raan-e-Sikandari</h3></div>
+              <p class="text-on-surface-variant text-sm">Whole leg of lamb slow-marinated for 48 hours in 32 spices, dum-braised then finished in the tandoor (serves 2–3)</p>
+              <div class="flex gap-2 mt-2"><span class="tag bg-amber-100 text-amber-800">⭐ Signature</span></div>
+            </div>
+            <span class="font-display text-xl font-bold text-primary shrink-0">₹2,495</span>
+          </div>
+        </div>
+
+        <div class="menu-item p-5 border-b border-surface-dim">
+          <div class="flex items-start justify-between gap-4">
+            <div class="flex-1"><div class="flex items-center gap-2 mb-1"><span class="nonveg-dot"></span>
+              <h3 class="font-display text-lg font-bold text-on-surface">Kaali Mirch Murgh</h3></div>
+              <p class="text-on-surface-variant text-sm">Chicken tikka coated in a coarse black pepper and green coriander crust, grilled to a charred finish</p>
+              <div class="flex gap-2 mt-2"><span class="tag bg-red-100 text-red-800">🌶 Hot</span></div>
+            </div>
+            <span class="font-display text-xl font-bold text-primary shrink-0">₹595</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <div class="border-t-2 border-dashed border-surface-dim my-4 opacity-60"></div>
+
+    <!-- ==================== CURRIES VEG ==================== -->
+    <section id="curries-veg" class="category-section mb-20 mt-16">
+      <div class="text-center mb-12">
+        <p class="font-label text-xs uppercase tracking-[0.2em] text-primary mb-2">Slow Simmered</p>
+        <h2 class="font-display text-4xl md:text-5xl text-on-surface section-title">Vegetarian Curries</h2>
+        <p class="text-on-surface-variant mt-4 max-w-xl mx-auto">India's most soul-warming curries — cooked low and slow in hand-ground spice pastes</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-0">
+
+        <div class="menu-item p-5 border-b border-surface-dim">
+          <div class="flex items-start justify-between gap-4">
+            <div class="flex-1"><div class="flex items-center gap-2 mb-1"><span class="veg-dot"></span>
+              <h3 class="font-display text-lg font-bold text-on-surface">Dal Makhani</h3></div>
+              <p class="text-on-surface-variant text-sm">Black lentils and kidney beans simmered overnight in a copper pot with tomato, butter and cream — a Delhi icon</p>
+              <div class="flex gap-2 mt-2"><span class="tag bg-amber-100 text-amber-800">🏆 Bestseller</span></div>
+            </div>
+            <span class="font-display text-xl font-bold text-primary shrink-0">₹475</span>
+          </div>
+        </div>
+
+        <div class="menu-item p-5 border-b border-surface-dim">
+          <div class="flex items-start justify-between gap-4">
+            <div class="flex-1"><div class="flex items-center gap-2 mb-1"><span class="veg-dot"></span>
+              <h3 class="font-display text-lg font-bold text-on-surface">Palak Paneer</h3></div>
+              <p class="text-on-surface-variant text-sm">Farmhouse cottage cheese in vibrant fresh-spinach gravy, finished with cream and nutmeg</p>
+            </div>
+            <span class="font-display text-xl font-bold text-primary shrink-0">₹495</span>
+          </div>
+        </div>
+
+        <div class="menu-item p-5 border-b border-surface-dim">
+          <div class="flex items-start justify-between gap-4">
+            <div class="flex-1"><div class="flex items-center gap-2 mb-1"><span class="veg-dot"></span>
+              <h3 class="font-display text-lg font-bold text-on-surface">Shahi Paneer</h3></div>
+              <p class="text-on-surface-variant text-sm">Mogul-era recipe — paneer in a rich saffron-laced cashew nut and onion gravy</p>
+              <div class="flex gap-2 mt-2"><span class="tag bg-amber-100 text-amber-800">⭐ Chef's Special</span></div>
+            </div>
+            <span class="font-display text-xl font-bold text-primary shrink-0">₹545</span>
+          </div>
+        </div>
+
+        <div class="menu-shahi p-5 border-b border-surface-dim menu-item">
+          <div class="flex items-start justify-shahi gap-4">
+            <div class="flex-1"><div class="flex items-center gap-2 mb-1"><span class="veg-dot"></span>
+              <h3 class="font-display text-lg font-bold text-on-surface">Baingan Bharta</h3></div>
+              <p class="text-on-surface-variant text-sm">Wood-fire roasted aubergine mash with mustard oil, green chillies and fresh coriander</p>
+              <div class="flex gap-2 mt-2"><span class="tag bg-red-100 text-red-800">🌶 Medium</span></div>
+            </div>
+            <span class="font-display text-xl font-bold text-primary shrink-0">₹445</span>
+          </div>
+        </div>
+
+        <div class="menu-item p-5 border-b border-surface-dim">
+          <div class="flex items-start justify-between gap-4">
+            <div class="flex-1"><div class="flex items-center gap-2 mb-1"><span class="veg-dot"></span>
+              <h3 class="font-display text-lg font-bold text-on-surface">Navratan Korma</h3></div>
+              <p class="text-on-surface-variant text-sm">Nine-gem Mughal curry of mixed vegetables and paneer in a fragrant cashew and rose water gravy</p>
+            </div>
+            <span class="font-display text-xl font-bold text-primary shrink-0">₹525</span>
+          </div>
+        </div>
+
+        <div class="menu-item p-5 border-b border-surface-dim">
+          <div class="flex items-start justify-between gap-4">
+            <div class="flex-1"><div class="flex items-center gap-2 mb-1"><span class="veg-dot"></span>
+              <h3 class="font-display text-lg font-bold text-on-surface">Chana Masala</h3></div>
+              <p class="text-on-surface-variant text-sm">Amritsari-style whole chickpeas in a robust tamarind-tomato gravy — bold, tangy and deeply satisfying</p>
+              <div class="flex gap-2 mt-2"><span class="tag bg-red-100 text-red-800">🌶 Medium</span></div>
+            </div>
+            <span class="font-display text-xl font-bold text-primary shrink-0">₹425</span>
+          </div>
+        </div>
+
+        <div class="menu-item p-5 border-b border-surface-dim">
+          <div class="flex items-start justify-between gap-4">
+            <div class="flex-1"><div class="flex items-center gap-2 mb-1"><span class="veg-dot"></span>
+              <h3 class="font-display text-lg font-bold text-on-surface">Kadai Paneer</h3></div>
+              <p class="text-on-surface-variant text-sm">Paneer and capsicum tossed in freshly-pounded kadai masala with whole spices and tomato</p>
+            </div>
+            <span class="font-display text-xl font-bold text-primary shrink-0">₹515</span>
+          </div>
+        </div>
+
+        <div class="menu-item p-5 border-b border-surface-dim">
+          <div class="flex items-start justify-between gap-4">
+            <div class="flex-1"><div class="flex items-center gap-2 mb-1"><span class="veg-dot"></span>
+              <h3 class="font-display text-lg font-bold text-on-surface">Methi Malai Matar</h3></div>
+              <p class="text-on-surface-variant text-sm">Fresh peas and fenugreek leaves in a silky cream and cashew sauce — mild and aromatic</p>
+            </div>
+            <span class="font-display text-xl font-bold text-primary shrink-0">₹465</span>
+          </div>
+        </div>
+
+        <div class="menu-item p-5 border-b border-surface-dim">
+          <div class="flex items-start justify-between gap-4">
+            <div class="flex-1"><div class="flex items-center gap-2 mb-1"><span class="veg-dot"></span>
+              <h3 class="font-display text-lg font-bold text-on-surface">Tarka Dal</h3></div>
+              <p class="text-on-surface-variant text-sm">Yellow lentils with a two-stage tempering of ghee, cumin, garlic and Kashmiri chilli</p>
+            </div>
+            <span class="font-display text-xl font-bold text-primary shrink-0">₹385</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <div class="border-t-2 border-dashed border-surface-dim my-4 opacity-60"></div>
+
+    <!-- ==================== CURRIES NON-VEG ==================== -->
+    <section id="curries-nonveg" class="category-section mb-20 mt-16">
+      <div class="text-center mb-12">
+        <p class="font-label text-xs uppercase tracking-[0.2em] text-primary mb-2">Braised &amp; Slow-Cooked</p>
+        <h2 class="font-display text-4xl md:text-5xl text-on-surface section-title">Non-Veg Curries</h2>
+        <p class="text-on-surface-variant mt-4 max-w-xl mx-auto">Rich gravies crafted from recipes spanning the Himalayan foothills to the Malabar coast</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-0">
+
+        <div class="menu-item p-5 border-b border-surface-dim">
+          <div class="flex items-start justify-between gap-4">
+            <div class="flex-1"><div class="flex items-center gap-2 mb-1"><span class="nonveg-dot"></span>
+              <h3 class="font-display text-lg font-bold text-on-surface">Butter Chicken</h3></div>
+              <p class="text-on-surface-variant text-sm">Tender tandoori chicken in a velvety tomato-fenugreek-butter sauce — the dish that conquered the world</p>
+              <div class="flex gap-2 mt-2"><span class="tag bg-amber-100 text-amber-800">🏆 Icon Dish</span></div>
+            </div>
+            <span class="font-display text-xl font-bold text-primary shrink-0">₹625</span>
+          </div>
+        </div>
+
+        <div class="menu-item p-5 border-b border-surface-dim">
+          <div class="flex items-start justify-between gap-4">
+            <div class="flex-1"><div class="flex items-center gap-2 mb-1"><span class="nonveg-dot"></span>
+              <h3 class="font-display text-lg font-bold text-on-surface">Lamb Rogan Josh</h3></div>
+              <p class="text-on-surface-variant text-sm">Kashmiri valley lamb slow-cooked in ratanjot-coloured, fennel-scented gravy — Wazwan tradition</p>
+              <div class="flex gap-2 mt-2"><span class="tag bg-red-100 text-red-800">🌶 Medium</span><span class="tag bg-amber-100 text-amber-800">⭐ Signature</span></div>
+            </div>
+            <span class="font-display text-xl font-bold text-primary shrink-0">₹795</span>
+          </div>
+        </div>
+
+        <div class="menu-item p-5 border-b border-surface-dim">
+          <div class="flex items-start justify-between gap-4">
+            <div class="flex-1"><div class="flex items-center gap-2 mb-1"><span class="nonveg-dot"></span>
+              <h3 class="font-display text-lg font-bold text-on-surface">Goan Fish Curry</h3></div>
+              <p class="text-on-surface-variant text-sm">Kingfish in a bright coconut and tamarind gravy with kokum, red chilli and fresh curry leaves</p>
+              <div class="flex gap-2 mt-2"><span class="tag bg-red-100 text-red-800">🌶 Hot</span></div>
+            </div>
+            <span class="font-display text-xl font-bold text-primary shrink-0">₹725</span>
+          </div>
+        </div>
+
+        <div class="menu-item p-5 border-b border-surface-dim">
+          <div class="flex items-start justify-between gap-4">
+            <div class="flex-1"><div class="flex items-center gap-2 mb-1"><span class="nonveg-dot"></span>
+              <h3 class="font-display text-lg font-bold text-on-surface">Murgh Makhani (Mughlai)</h3></div>
+              <p class="text-on-surface-variant text-sm">The royal court version — slow-braised chicken in a saffron and rosewater-scented almond gravy</p>
+              <div class="flex gap-2 mt-2"><span class="tag bg-amber-100 text-amber-800">⭐ Chef's Special</span></div>
+            </div>
+            <span class="font-display text-xl font-bold text-primary shrink-0">₹695</span>
+          </div>
+        </div>
+
+        <div class="menu-item p-5 border-b border-surface-dim">
+          <div class="flex items-start justify-between gap-4">
+            <div class="flex-1"><div class="flex items-center gap-2 mb-1"><span class="nonveg-dot"></span>
+              <h3 class="font-display text-lg font-bold text-on-surface">Mutton Nihari</h3></div>
+              <p class="text-on-surface-variant text-sm">Old Delhi's dawn stew — lamb shanks braised overnight in bone broth with 19 whole spices. Topped with fried ginger</p>
+              <div class="flex gap-2 mt-2"><span class="tag bg-amber-100 text-amber-800">🏆 Heritage Recipe</span></div>
+            </div>
+            <span class="font-display text-xl font-bold text-primary shrink-0">₹845</span>
+          </div>
+        </div>
+
+        <div class="menu-item p-5 border-b border-surface-dim">
+          <div class="flex items-start justify-between gap-4">
+            <div class="flex-1"><div class="flex items-center gap-2 mb-1"><span class="nonveg-dot"></span>
+              <h3 class="font-display text-lg font-bold text-on-surface">Chettinad Chicken</h3></div>
+              <p class="text-on-surface-variant text-sm">Tamil Nadu's boldest curry — kalpasi, marathi mokku and freshly-ground kalpasi masala in a dry-roasted gravy</p>
+              <div class="flex gap-2 mt-2"><span class="tag bg-red-100 text-red-800">🌶🌶 Very Hot</span></div>
+            </div>
+            <span class="font-display text-xl font-bold text-primary shrink-0">₹695</span>
+          </div>
+        </div>
+
+        <div class="menu-item p-5 border-b border-surface-dim">
+          <div class="flex items-start justify-between gap-4">
+            <div class="flex-1"><div class="flex items-center gap-2 mb-1"><span class="nonveg-dot"></span>
+              <h3 class="font-display text-lg font-bold text-on-surface">Prawn Masala</h3></div>
+              <p class="text-on-surface-variant text-sm">Jumbo tiger prawns in a spiced Maharashtrian onion-tomato masala with fresh kokum and curry leaves</p>
+            </div>
+            <span class="font-display text-xl font-bold text-primary shrink-0">₹895</span>
+          </div>
+        </div>
+
+        <div class="menu-item p-5 border-b border-surface-dim">
+          <div class="flex items-start justify-between gap-4">
+            <div class="flex-1"><div class="flex items-center gap-2 mb-1"><span class="nonveg-dot"></span>
+              <h3 class="font-display text-lg font-bold text-on-surface">Keema Matar</h3></div>
+              <p class="text-on-surface-variant text-sm">Punjabi minced lamb and green peas in a fiery home-style gravy — rich, bold and deeply comforting</p>
+              <div class="flex gap-2 mt-2"><span class="tag bg-red-100 text-red-800">🌶 Medium</span></div>
+            </div>
+            <span class="font-display text-xl font-bold text-primary shrink-0">₹695</span>
+          </div>
+        </div>
+
+        <div class="menu-item p-5 border-b border-surface-dim">
+          <div class="flex items-start justify-between gap-4">
+            <div class="flex-1"><div class="flex items-center gap-2 mb-1"><span class="nonveg-dot"></span>
+              <h3 class="font-display text-lg font-bold text-on-surface">Chicken Coorgi Curry</h3></div>
+              <p class="text-on-surface-variant text-sm">Kodava-style pandi-inspired chicken with kachampuli vinegar and black pepper — Karnataka's finest</p>
+              <div class="flex gap-2 mt-2"><span class="tag bg-blue-100 text-blue-800">✨ New</span></div>
+            </div>
+            <span class="font-display text-xl font-bold text-primary shrink-0">₹695</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <div class="border-t-2 border-dashed border-surface-dim my-4 opacity-60"></div>
+
+    <!-- ==================== BIRYANI & RICE ==================== -->
+    <section id="biryani" class="category-section mb-20 mt-16">
+      <div class="text-center mb-12">
+        <p class="font-label text-xs uppercase tracking-[0.2em] text-primary mb-2">Dum-Pukht Tradition</p>
+        <h2 class="font-display text-4xl md:text-5xl text-on-surface section-title">Biryani, Pulao &amp; Rice</h2>
+        <p class="text-on-surface-variant mt-4 max-w-xl mx-auto">Sealed, slow-steamed and saffron-kissed — each vessel a treasure chest of aroma</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-0">
+
+        <div class="menu-item p-5 border-b border-surface-dim">
+          <div class="flex items-start justify-between gap-4">
+            <div class="flex-1"><div class="flex items-center gap-2 mb-1"><span class="nonveg-dot"></span>
+              <h3 class="font-display text-lg font-bold text-on-surface">Hyderabadi Dum Biryani</h3></div>
+              <p class="text-on-surface-variant text-sm">Authentic Nizam-era biryani — marinated chicken layered with saffron rice, fried onions and fresh mint, sealed in dough</p>
+              <div class="flex gap-2 mt-2"><span class="tag bg-amber-100 text-amber-800">🏆 Signature</span></div>
+            </div>
+            <span class="font-display text-xl font-bold text-primary shrink-0">₹795</span>
+          </div>
+        </div>
+
+        <div class="menu-item p-5 border-b border-surface-dim">
+          <div class="flex items-start justify-between gap-4">
+            <div class="flex-1"><div class="flex items-center gap-2 mb-1"><span class="nonveg-dot"></span>
+              <h3 class="font-display text-lg font-bold text-on-surface">Mutton Biryani</h3></div>
+              <p class="text-on-surface-variant text-sm">On-the-bone tender mutton slow dum-cooked with caramelized onions, aged basmati and aromatic attar</p>
+              <div class="flex gap-2 mt-2"><span class="tag bg-amber-100 text-amber-800">⭐ Chef's Recommendation</span></div>
+            </div>
+            <span class="font-display text-xl font-bold text-primary shrink-0">₹945</span>
+          </div>
+        </div>
+
+        <div class="menu-item p-5 border-b border-surface-dim">
+          <div class="flex items-start justify-between gap-4">
+            <div class="flex-1"><div class="flex items-center gap-2 mb-1"><span class="nonveg-dot"></span>
+              <h3 class="font-display text-lg font-bold text-on-surface">Prawn Biryani</h3></div>
+              <p class="text-on-surface-variant text-sm">Tiger prawns cooked Malabar style with green masala, coconut milk and aged seeraga samba rice</p>
+              <div class="flex gap-2 mt-2"><span class="tag bg-red-100 text-red-800">🌶 Medium</span></div>
+            </div>
+            <span class="font-display text-xl font-bold text-primary shrink-0">₹1,095</span>
+          </div>
+        </div>
+
+        <div class="menu-item p-5 border-b border-surface-dim">
+          <div class="flex items-start justify-between gap-4">
+            <div class="flex-1"><div class="flex items-center gap-2 mb-1"><span class="veg-dot"></span>
+              <h3 class="font-display text-lg font-bold text-on-surface">Subz Dum Biryani</h3></div>
+              <p class="text-on-surface-variant text-sm">Seasonal vegetables layered with saffron basmati and a spice blend of 14 whole aromatics</p>
+            </div>
+            <span class="font-display text-xl font-bold text-primary shrink-0">₹645</span>
+          </div>
+        </div>
+
+        <div class="menu-item p-5 border-b border-surface-dim">
+          <div class="flex items-start justify-between gap-4">
+            <div class="flex-1"><div class="flex items-center gap-2 mb-1"><span class="veg-dot"></span>
+              <h3 class="font-display text-lg font-bold text-on-surface">Peas Pulao</h3></div>
+              <p class="text-on-surface-variant text-sm">Fragrant basmati with garden peas, whole spices and a sprinkle of fresh dill — light and delicate</p>
+            </div>
+            <span class="font-display text-xl font-bold text-primary shrink-0">₹395</span>
+          </div>
+        </div>
+
+        <div class="menu-item p-5 border-b border-surface-dim">
+          <div class="flex items-start justify-between gap-4">
+            <div class="flex-1"><div class="flex items-center gap-2 mb-1"><span class="nonveg-dot"></span>
+              <h3 class="font-display text-lg font-bold text-on-surface">Lucknawi Chicken Pulao</h3></div>
+              <p class="text-on-surface-variant text-sm">Lucknow's celebrated yakhni pulao — chicken cooked with a delicate yogurt-based yakhni stock and rose water</p>
+              <div class="flex gap-2 mt-2"><span class="tag bg-amber-100 text-amber-800">⭐ Heritage</span></div>
+            </div>
+            <span class="font-display text-xl font-bold text-primary shrink-0">₹745</span>
+          </div>
+        </div>
+
+        <div class="menu-item p-5 border-b border-surface-dim">
+          <div class="flex items-start justify-between gap-4">
+            <div class="flex-1"><div class="flex items-center gap-2 mb-1"><span class="veg-dot"></span>
+              <h3 class="font-display text-lg font-bold text-on-surface">Paneer Biryani</h3></div>
+              <p class="text-on-surface-variant text-sm">Marinated tandoori paneer layered with saffron basmati, fried onions, cashews and dry fruits</p>
+            </div>
+            <span class="font-display text-xl font-bold text-primary shrink-0">₹695</span>
+          </div>
+        </div>
+
+        <div class="menu-item p-5 border-b border-surface-dim">
+          <div class="flex items-start justify-between gap-4">
+            <div class="flex-1"><div class="flex items-center gap-2 mb-1"><span class="veg-dot"></span>
+              <h3 class="font-display text-lg font-bold text-on-surface">Steamed Basmati Rice</h3></div>
+              <p class="text-on-surface-variant text-sm">Long-grain aged basmati, simply steamed — the perfect accompaniment</p>
+            </div>
+            <span class="font-display text-xl font-bold text-primary shrink-0">₹195</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <div class="border-t-2 border-dashed border-surface-dim my-4 opacity-60"></div>
+
+    <!-- ==================== INDIAN BREADS ==================== -->
+    <section id="breads" class="category-section mb-20 mt-16">
+      <div class="text-center mb-12">
+        <p class="font-label text-xs uppercase tracking-[0.2em] text-primary mb-2">From the Tandoor</p>
+        <h2 class="font-display text-4xl md:text-5xl text-on-surface section-title">Indian Breads</h2>
+        <p class="text-on-surface-variant mt-4 max-w-xl mx-auto">Pulled, rolled and fire-kissed — our breads are baked fresh to order, every time</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-0">
+
+        <div class="menu-item p-5 border-b border-surface-dim">
+          <div class="flex items-start justify-between gap-2">
+            <div class="flex-1"><div class="flex items-center gap-2 mb-1"><span class="veg-dot"></span>
+              <h3 class="font-display text-base font-bold text-on-surface">Butter Naan</h3></div>
+              <p class="text-on-surface-variant text-xs">Leavened bread brushed with cultured butter</p>
+            </div>
+            <span class="font-display text-lg font-bold text-primary shrink-0">₹85</span>
+          </div>
+        </div>
+
+        <div class="menu-item p-5 border-b border-surface-dim">
+          <div class="flex items-start justify-between gap-2">
+            <div class="flex-1"><div class="flex items-center gap-2 mb-1"><span class="veg-dot"></span>
+              <h3 class="font-display text-base font-bold text-on-surface">Garlic Naan</h3></div>
+              <p class="text-on-surface-variant text-xs">Leavened bread with minced garlic and coriander</p>
+            </div>
+            <span class="font-display text-lg font-bold text-primary shrink-0">₹95</span>
+          </div>
+        </div>
+
+        <div class="menu-item p-5 border-b border-surface-dim">
+          <div class="flex items-start justify-between gap-2">
+            <div class="flex-1"><div class="flex items-center gap-2 mb-1"><span class="veg-dot"></span>
+              <h3 class="font-display text-base font-bold text-on-surface">Peshwari Naan</h3></div>
+              <p class="text-on-surface-variant text-xs">Sweet naan filled with coconut, almonds and sultanas</p>
+            </div>
+            <span class="font-display text-lg font-bold text-primary shrink-0">₹145</span>
+          </div>
+        </div>
+
+        <div class="menu-item p-5 border-b border-surface-dim">
+          <div class="flex items-start justify-between gap-2">
+            <div class="flex-1"><div class="flex items-center gap-2 mb-1"><span class="veg-dot"></span>
+              <h3 class="font-display text-base font-bold text-on-surface">Paneer Kulcha</h3></div>
+              <p class="text-on-surface-variant text-xs">Stuffed bread with spiced cottage cheese and onion</p>
+            </div>
+            <span class="font-display text-lg font-bold text-primary shrink-0">₹165</span>
+          </div>
+        </div>
+
+        <div class="menu-item p-5 border-b border-surface-dim">
+          <div class="flex items-start justify-between gap-2">
+            <div class="flex-1"><div class="flex items-center gap-2 mb-1"><span class="veg-dot"></span>
+              <h3 class="font-display text-base font-bold text-on-surface">Aloo Paratha</h3></div>
+              <p class="text-on-surface-variant text-xs">Whole-wheat bread stuffed with spiced potato, served with white butter</p>
+            </div>
+            <span class="font-display text-lg font-bold text-primary shrink-0">₹145</span>
+          </div>
+        </div>
+
+        <div class="menu-item p-5 border-b border-surface-dim">
+          <div class="flex items-start justify-between gap-2">
+            <div class="flex-1"><div class="flex items-center gap-2 mb-1"><span class="veg-dot"></span>
+              <h3 class="font-display text-base font-bold text-on-surface">Missi Roti</h3></div>
+              <p class="text-on-surface-variant text-xs">Gram flour flatbread with carom seeds and ghee — a Punjabi classic</p>
+            </div>
+            <span class="font-display text-lg font-bold text-primary shrink-0">₹95</span>
+          </div>
+        </div>
+
+        <div class="menu-item p-5 border-b border-surface-dim">
+          <div class="flex items-start justify-between gap-2">
+            <div class="flex-1"><div class="flex items-center gap-2 mb-1"><span class="veg-dot"></span>
+              <h3 class="font-display text-base font-bold text-on-surface">Warqi Paratha</h3></div>
+              <p class="text-on-surface-variant text-xs">Flaky layered Lucknawi bread glazed with ghee — best with curries</p>
+              <div class="flex gap-2 mt-1"><span class="tag bg-amber-100 text-amber-800">⭐ Signature</span></div>
+            </div>
+            <span class="font-display text-lg font-bold text-primary shrink-0">₹175</span>
+          </div>
+        </div>
+
+        <div class="menu-item p-5 border-b border-surface-dim">
+          <div class="flex items-start justify-between gap-2">
+            <div class="flex-1"><div class="flex items-center gap-2 mb-1"><span class="veg-dot"></span>
+              <h3 class="font-display text-base font-bold text-on-surface">Roomali Roti</h3></div>
+              <p class="text-on-surface-variant text-xs">Paper-thin "handkerchief" bread cooked on an inverted griddle, soft and delicate</p>
+            </div>
+            <span class="font-display text-lg font-bold text-primary shrink-0">₹75</span>
+          </div>
+        </div>
+
+        <div class="menu-item p-5 border-b border-surface-dim">
+          <div class="flex items-start justify-between gap-2">
+            <div class="flex-1"><div class="flex items-center gap-2 mb-1"><span class="veg-dot"></span>
+              <h3 class="font-display text-base font-bold text-on-surface">Tandoori Roti</h3></div>
+              <p class="text-on-surface-variant text-xs">Wholemeal unleavened bread cooked on the walls of the tandoor</p>
+            </div>
+            <span class="font-display text-lg font-bold text-primary shrink-0">₹65</span>
+          </div>
+        </div>
+
+        <div class="menu-item p-5 border-b border-surface-dim">
+          <div class="flex items-start justify-between gap-2">
+            <div class="flex-1"><div class="flex items-center gap-2 mb-1"><span class="veg-dot"></span>
+              <h3 class="font-display text-base font-bold text-on-surface">Bhatura</h3></div>
+              <p class="text-on-surface-variant text-xs">Deep-fried leavened puffed bread — the perfect partner for Chana Masala</p>
+            </div>
+            <span class="font-display text-lg font-bold text-primary shrink-0">₹85</span>
+          </div>
+        </div>
+
+        <div class="menu-item p-5 border-b border-surface-dim">
+          <div class="flex items-start justify-between gap-2">
+            <div class="flex-1"><div class="flex items-center gap-2 mb-1"><span class="veg-dot"></span>
+              <h3 class="font-display text-base font-bold text-on-surface">Onion Kulcha</h3></div>
+              <p class="text-on-surface-variant text-xs">Tandoor-baked stuffed bread with caramelized onion, dill and chilli</p>
+            </div>
+            <span class="font-display text-lg font-bold text-primary shrink-0">₹145</span>
+          </div>
+        </div>
+
+        <div class="menu-item p-5 border-b border-surface-dim">
+          <div class="flex items-start justify-between gap-2">
+            <div class="flex-1"><div class="flex items-center gap-2 mb-1"><span class="veg-dot"></span>
+              <h3 class="font-display text-base font-bold text-on-surface">Puri (2 pieces)</h3></div>
+              <p class="text-on-surface-variant text-xs">Light puffed whole-wheat deep-fried discs</p>
+            </div>
+            <span class="font-display text-lg font-bold text-primary shrink-0">₹75</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <div class="border-t-2 border-dashed border-surface-dim my-4 opacity-60"></div>
+
+    <!-- ==================== SIDES & RAITA ==================== -->
+    <section id="sides" class="category-section mb-20 mt-16">
+      <div class="text-center mb-12">
+        <p class="font-label text-xs uppercase tracking-[0.2em] text-primary mb-2">Accompaniments</p>
+        <h2 class="font-display text-4xl md:text-5xl text-on-surface section-title">Sides, Raita &amp; Pickles</h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-0">
+
+        <div class="menu-item p-5 border-b border-surface-dim">
+          <div class="flex items-start justify-between gap-2">
+            <div class="flex-1"><div class="flex items-center gap-2 mb-1"><span class="veg-dot"></span>
+              <h3 class="font-display text-base font-bold text-on-surface">Boondi Raita</h3></div>
+              <p class="text-on-surface-variant text-xs">Chilled yogurt with tiny fried gram flour pearls and roasted cumin</p>
+            </div>
+            <span class="font-display text-lg font-bold text-primary shrink-0">₹125</span>
+          </div>
+        </div>
+
+        <div class="menu-item p-5 border-b border-surface-dim">
+          <div class="flex items-start justify-between gap-2">
+            <div class="flex-1"><div class="flex items-center gap-2 mb-1"><span class="veg-dot"></span>
+              <h3 class="font-display text-base font-bold text-on-surface">Pineapple Raita</h3></div>
+              <p class="text-on-surface-variant text-xs">Sweet-tangy pineapple in thick yogurt with black salt and mint</p>
+            </div>
+            <span class="font-display text-lg font-bold text-primary shrink-0">₹145</span>
+          </div>
+        </div>
+
+        <div class="menu-item p-5 border-b border-surface-dim">
+          <div class="flex items-start justify-between gap-2">
+            <div class="flex-1"><div class="flex items-center gap-2 mb-1"><span class="veg-dot"></span>
+              <h3 class="font-display text-base font-bold text-on-surface">Dahi</h3></div>
+              <p class="text-on-surface-variant text-xs">Set curd from full-fat buffalo milk</p>
+            </div>
+            <span class="font-display text-lg font-bold text-primary shrink-0">₹95</span>
+          </div>
+        </div>
+
+        <div class="menu-item p-5 border-b border-surface-dim">
+          <div class="flex items-start justify-between gap-2">
+            <div class="flex-1"><div class="flex items-center gap-2 mb-1"><span class="veg-dot"></span>
+              <h3 class="font-display text-base font-bold text-on-surface">Kachumber Salad</h3></div>
+              <p class="text-on-surface-variant text-xs">Diced cucumber, tomato, onion with lemon and roasted cumin</p>
+            </div>
+            <span class="font-display text-lg font-bold text-primary shrink-0">₹145</span>
+          </div>
+        </div>
+
+        <div class="menu-item p-5 border-b border-surface-dim">
+          <div class="flex items-start justify-between gap-2">
+            <div class="flex-1"><div class="flex items-center gap-2 mb-1"><span class="veg-dot"></span>
+              <h3 class="font-display text-base font-bold text-on-surface">Mixed Pickle</h3></div>
+              <p class="text-on-surface-variant text-xs">House selection of seasonal lime, mango and chilli achaar</p>
+            </div>
+            <span class="font-display text-lg font-bold text-primary shrink-0">₹75</span>
+          </div>
+        </div>
+
+        <div class="menu-item p-5 border-b border-surface-dim">
+          <div class="flex items-start justify-between gap-2">
+            <div class="flex-1"><div class="flex items-center gap-2 mb-1"><span class="veg-dot"></span>
+              <h3 class="font-display text-base font-bold text-on-surface">Papad Basket</h3></div>
+              <p class="text-on-surface-variant text-xs">Oven-roasted and fried papads with three chutneys</p>
+            </div>
+            <span class="font-display text-lg font-bold text-primary shrink-0">₹95</span>
+          </div>
+        </div>
+
+        <div class="menu-item p-5 border-b border-surface-dim">
+          <div class="flex items-start justify-between gap-2">
+            <div class="flex-1"><div class="flex items-center gap-2 mb-1"><span class="veg-dot"></span>
+              <h3 class="font-display text-base font-bold text-on-surface">Chutney Trio</h3></div>
+              <p class="text-on-surface-variant text-xs">Tamarind, mint-coriander and sweet onion chutney</p>
+            </div>
+            <span class="font-display text-lg font-bold text-primary shrink-0">₹85</span>
+          </div>
+        </div>
+
+        <div class="menu-item p-5 border-b border-surface-dim">
+          <div class="flex items-start justify-between gap-2">
+            <div class="flex-1"><div class="flex items-center gap-2 mb-1"><span class="veg-dot"></span>
+              <h3 class="font-display text-base font-bold text-on-surface">Onion Rings &amp; Lemon</h3></div>
+              <p class="text-on-surface-variant text-xs">Sliced onions with fresh lemon and chaat masala — the classic Indian accompaniment</p>
+            </div>
+            <span class="font-display text-lg font-bold text-primary shrink-0">₹55</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <div class="border-t-2 border-dashed border-surface-dim my-4 opacity-60"></div>
+
+    <!-- ==================== DESSERTS ==================== -->
+    <section id="desserts" class="category-section mb-20 mt-16">
+      <div class="text-center mb-12">
+        <p class="font-label text-xs uppercase tracking-[0.2em] text-primary mb-2">Sweet Endings</p>
+        <h2 class="font-display text-4xl md:text-5xl text-on-surface section-title">Mithai &amp; Desserts</h2>
+        <p class="text-on-surface-variant mt-4 max-w-xl mx-auto">India's most loved sweets reimagined as refined dessert experiences</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-0">
+
+        <div class="menu-item p-5 border-b border-surface-dim">
+          <div class="flex items-start justify-between gap-4">
+            <div class="flex-1"><div class="flex items-center gap-2 mb-1"><span class="veg-dot"></span>
+              <h3 class="font-display text-lg font-bold text-on-surface">Gulab Jamun</h3></div>
+              <p class="text-on-surface-variant text-sm">Soft milk-solid dumplings soaked in rose and cardamom syrup, served warm with vanilla kulfi</p>
+              <div class="flex gap-2 mt-2"><span class="tag bg-amber-100 text-amber-800">🏆 Must Try</span></div>
+            </div>
+            <span class="font-display text-xl font-bold text-primary shrink-0">₹345</span>
+          </div>
+        </div>
+
+        <div class="menu-item p-5 border-b border-surface-dim">
+          <div class="flex items-start justify-between gap-4">
+            <div class="flex-1"><div class="flex items-center gap-2 mb-1"><span class="veg-dot"></span>
+              <h3 class="font-display text-lg font-bold text-on-surface">Shahi Tukda</h3></div>
+              <p class="text-on-surface-variant text-sm">Old Hyderabad bread pudding in reduced saffron milk, drizzled with silver leaf and pistachios</p>
+              <div class="flex gap-2 mt-2"><span class="tag bg-amber-100 text-amber-800">⭐ Royal Heritage</span></div>
+            </div>
+            <span class="font-display text-xl font-bold text-primary shrink-0">₹395</span>
+          </div>
+        </div>
+
+        <div class="menu-item p-5 border-b border-surface-dim">
+          <div class="flex items-start justify-between gap-4">
+            <div class="flex-1"><div class="flex items-center gap-2 mb-1"><span class="veg-dot"></span>
+              <h3 class="font-display text-lg font-bold text-on-surface">Mango Kulfi</h3></div>
+              <p class="text-on-surface-variant text-sm">Alphonso mango and cardamom slow-frozen in traditional tin moulds, served with rabdi</p>
+              <div class="flex gap-2 mt-2"><span class="tag bg-blue-100 text-blue-800">✨ Seasonal</span></div>
+            </div>
+            <span class="font-display text-xl font-bold text-primary shrink-0">₹345</span>
+          </div>
+        </div>
+
+        <div class="menu-item p-5 border-b border-surface-dim">
+          <div class="flex items-start justify-between gap-4">
+            <div class="flex-1"><div class="flex items-center gap-2 mb-1"><span class="veg-dot"></span>
+              <h3 class="font-display text-lg font-bold text-on-surface">Gajar Halwa</h3></div>
+              <p class="text-on-surface-variant text-sm">Winter red carrot pudding slow-cooked in pure ghee with khoya, cardamom and silver leaf</p>
+              <div class="flex gap-2 mt-2"><span class="tag bg-blue-100 text-blue-800">✨ Winter Special</span></div>
+            </div>
+            <span class="font-display text-xl font-bold text-primary shrink-0">₹325</span>
+          </div>
+        </div>
+
+        <div class="menu-item p-5 border-b border-surface-dim">
+          <div class="flex items-start justify-between gap-4">
+            <div class="flex-1"><div class="flex items-center gap-2 mb-1"><span class="veg-dot"></span>
+              <h3 class="font-display text-lg font-bold text-on-surface">Kheer</h3></div>
+              <p class="text-on-surface-variant text-sm">Bengali-style creamy rice pudding with saffron, cardamom, rose and thinly sliced almonds</p>
+            </div>
+            <span class="font-display text-xl font-bold text-primary shrink-0">₹295</span>
+          </div>
+        </div>
+
+        <div class="menu-item p-5 border-b border-surface-dim">
+          <div class="flex items-start justify-between gap-4">
+            <div class="flex-1"><div class="flex items-center gap-2 mb-1"><span class="veg-dot"></span>
+              <h3 class="font-display text-lg font-bold text-on-surface">Rasmalai</h3></div>
+              <p class="text-on-surface-variant text-sm">Soft Bengali cottage cheese discs simmered in reduced saffron milk with cardamom and rose petals</p>
+              <div class="flex gap-2 mt-2"><span class="tag bg-amber-100 text-amber-800">🏆 Bestseller</span></div>
+            </div>
+            <span class="font-display text-xl font-bold text-primary shrink-0">₹375</span>
+          </div>
+        </div>
+
+        <div class="menu-item p-5 border-b border-surface-dim">
+          <div class="flex items-start justify-between gap-4">
+            <div class="flex-1"><div class="flex items-center gap-2 mb-1"><span class="veg-dot"></span>
+              <h3 class="font-display text-lg font-bold text-on-surface">Phirni</h3></div>
+              <p class="text-on-surface-variant text-sm">Ground rice pudding set in earthen bowls with kewra, saffron and blanched pistachios</p>
+            </div>
+            <span class="font-display text-xl font-bold text-primary shrink-0">₹295</span>
+          </div>
+        </div>
+
+        <div class="menu-item p-5 border-b border-surface-dim">
+          <div class="flex items-start justify-between gap-4">
+            <div class="flex-1"><div class="flex items-center gap-2 mb-1"><span class="veg-dot"></span>
+              <h3 class="font-display text-lg font-bold text-on-surface">Jalebi with Rabdi</h3></div>
+              <p class="text-on-surface-variant text-sm">Crispy fried spirals soaked in sugar syrup served with chilled thickened milk — a royal combination</p>
+            </div>
+            <span class="font-display text-xl font-bold text-primary shrink-0">₹345</span>
+          </div>
+        </div>
+
+        <div class="menu-item p-5 border-b border-surface-dim">
+          <div class="flex items-start justify-between gap-4">
+            <div class="flex-1"><div class="flex items-center gap-2 mb-1"><span class="veg-dot"></span>
+              <h3 class="font-display text-lg font-bold text-on-surface">Mishti Doi</h3></div>
+              <p class="text-on-surface-variant text-sm">Caramelized sweetened yogurt fermented in earthen pots — a Bengali treasure</p>
+              <div class="flex gap-2 mt-2"><span class="tag bg-blue-100 text-blue-800">✨ New</span></div>
+            </div>
+            <span class="font-display text-xl font-bold text-primary shrink-0">₹265</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <div class="border-t-2 border-dashed border-surface-dim my-4 opacity-60"></div>
+
+    <!-- ==================== BEVERAGES ==================== -->
+    <section id="beverages" class="category-section mb-20 mt-16">
+      <div class="text-center mb-12">
+        <p class="font-label text-xs uppercase tracking-[0.2em] text-primary mb-2">Liquid Luxury</p>
+        <h2 class="font-display text-4xl md:text-5xl text-on-surface section-title">Beverages</h2>
+        <p class="text-on-surface-variant mt-4 max-w-xl mx-auto">From cooling lassis to artisan masala chai — India's finest drinks</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-0">
+
+        <div class="menu-item p-5 border-b border-surface-dim">
+          <div class="flex items-start justify-between gap-2">
+            <div class="flex-1"><div class="flex items-center gap-2 mb-1"><span class="veg-dot"></span>
+              <h3 class="font-display text-base font-bold text-on-surface">Sweet Lassi</h3></div>
+              <p class="text-on-surface-variant text-xs">Whipped yogurt drink with rose water and cardamom</p>
+              <div class="flex gap-2 mt-1"><span class="tag bg-amber-100 text-amber-800">🏆 Bestseller</span></div>
+            </div>
+            <span class="font-display text-lg font-bold text-primary shrink-0">₹195</span>
+          </div>
+        </div>
+
+        <div class="menu-item p-5 border-b border-surface-dim">
+          <div class="flex items-start justify-between gap-2">
+            <div class="flex-1"><div class="flex items-center gap-2 mb-1"><span class="veg-dot"></span>
+              <h3 class="font-display text-base font-bold text-on-surface">Mango Lassi</h3></div>
+              <p class="text-on-surface-variant text-xs">Alphonso mango pulp blended with chilled yogurt</p>
+            </div>
+            <span class="font-display text-lg font-bold text-primary shrink-0">₹245</span>
+          </div>
+        </div>
+
+        <div class="menu-item p-5 border-b border-surface-dim">
+          <div class="flex items-start justify-between gap-2">
+            <div class="flex-1"><div class="flex items-center gap-2 mb-1"><span class="veg-dot"></span>
+              <h3 class="font-display text-base font-bold text-on-surface">Salted Lassi</h3></div>
+              <p class="text-on-surface-variant text-xs">Tangy buttermilk with toasted cumin and fresh mint</p>
+            </div>
+            <span class="font-display text-lg font-bold text-primary shrink-0">₹175</span>
+          </div>
+        </div>
+
+        <div class="menu-item p-5 border-b border-surface-dim">
+          <div class="flex items-start justify-between gap-2">
+            <div class="flex-1"><div class="flex items-center gap-2 mb-1"><span class="veg-dot"></span>
+              <h3 class="font-display text-base font-bold text-on-surface">Masala Chai</h3></div>
+              <p class="text-on-surface-variant text-xs">Brewed with ginger, cardamom, cloves, cinnamon and full-fat milk</p>
+            </div>
+            <span class="font-display text-lg font-bold text-primary shrink-0">₹125</span>
+          </div>
+        </div>
+
+        <div class="menu-item p-5 border-b border-surface-dim">
+          <div class="flex items-start justify-between gap-2">
+            <div class="flex-1"><div class="flex items-center gap-2 mb-1"><span class="veg-dot"></span>
+              <h3 class="font-display text-base font-bold text-on-surface">Rose Sharbat</h3></div>
+              <p class="text-on-surface-variant text-xs">Chilled rose syrup drink with basil seeds and lime — a Mughal summer cooler</p>
+            </div>
+            <span class="font-display text-lg font-bold text-primary shrink-0">₹175</span>
+          </div>
+        </div>
+
+        <div class="menu-item p-5 border-b border-surface-dim">
+          <div class="flex items-start justify-between gap-2">
+            <div class="flex-1"><div class="flex items-center gap-2 mb-1"><span class="veg-dot"></span>
+              <h3 class="font-display text-base font-bold text-on-surface">Fresh Lime Soda</h3></div>
+              <p class="text-on-surface-variant text-xs">Chilled fresh lime with soda — sweet, salty or with jaljeera</p>
+            </div>
+            <span class="font-display text-lg font-bold text-primary shrink-0">₹95</span>
+          </div>
+        </div>
+
+        <div class="menu-item p-5 border-b border-surface-dim">
+          <div class="flex items-start justify-between gap-2">
+            <div class="flex-1"><div class="flex items-center gap-2 mb-1"><span class="veg-dot"></span>
+              <h3 class="font-display text-base font-bold text-on-surface">Thandai</h3></div>
+              <p class="text-on-surface-variant text-xs">Chilled almond, rose and spice milk — a festival classic served year-round</p>
+              <div class="flex gap-2 mt-1"><span class="tag bg-amber-100 text-amber-800">⭐ House Special</span></div>
+            </div>
+            <span class="font-display text-lg font-bold text-primary shrink-0">₹245</span>
+          </div>
+        </div>
+
+        <div class="menu-item p-5 border-b border-surface-dim">
+          <div class="flex items-start justify-between gap-2">
+            <div class="flex-1"><div class="flex items-center gap-2 mb-1"><span class="veg-dot"></span>
+              <h3 class="font-display text-base font-bold text-on-surface">Kokum Sherbet</h3></div>
+              <p class="text-on-surface-variant text-xs">Coastal Goan digestif drink with sun-dried kokum, cumin and black salt</p>
+            </div>
+            <span class="font-display text-lg font-bold text-primary shrink-0">₹155</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== FOOTER LEGEND ==================== -->
+    <div class="mt-8 py-8 border-t border-b border-surface-dim">
+      <div class="flex flex-wrap justify-center gap-8 text-sm text-on-surface-variant font-label tracking-wider">
+        <span class="flex items-center gap-2"><span class="veg-dot"></span> Vegetarian</span>
+        <span class="flex items-center gap-2"><span class="nonveg-dot"></span> Non-Vegetarian</span>
+        <span class="flex items-center gap-2"><span class="text-lg">🌶</span> Spice Level</span>
+        <span class="flex items-center gap-2"><span class="text-lg">⭐</span> Chef's Special</span>
+        <span class="flex items-center gap-2"><span class="text-lg">🏆</span> Bestseller</span>
+        <span class="flex items-center gap-2"><span class="text-lg">✨</span> New Addition</span>
+      </div>
+      <p class="text-center mt-6 text-sm text-on-surface-variant italic">
+        All prices in Indian Rupees (₹) and are inclusive of applicable taxes. Please inform your server about any allergies or dietary requirements. Dishes may contain nuts, dairy and gluten.
+      </p>
+      <p class="text-center mt-2 text-xs text-on-surface-variant/60">
+        Menu is seasonal and subject to change. We source the freshest ingredients for your dining pleasure.
+      </p>
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-surface-dim py-16 border-t border-outline-variant">
+    <div class="max-w-[1400px] mx-auto px-4 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-10 md:gap-8 mb-12">
+        <div class="col-span-1 md:col-span-1">
+          <a href="index.html" class="flex items-center gap-2 text-primary font-display font-bold text-2xl mb-4">
+            <span class="material-symbols-outlined">local_fire_department</span>
+            Spice &amp; Soul
+          </a>
+          <p class="text-on-surface-variant text-sm font-label uppercase tracking-widest mb-6">Where Heritage Meets Haute Cuisine</p>
+          <div class="flex gap-4">
+            <a href="#" class="text-on-surface hover:text-primary transition"><span class="material-symbols-outlined">photo_camera</span></a>
+            <a href="#" class="text-on-surface hover:text-primary transition"><span class="material-symbols-outlined">thumb_up</span></a>
+            <a href="#" class="text-on-surface hover:text-primary transition"><span class="material-symbols-outlined">alternate_email</span></a>
+          </div>
+        </div>
+        <div>
+          <h4 class="font-label text-sm uppercase font-bold tracking-widest text-on-surface mb-6">Explore</h4>
+          <ul class="space-y-3 text-on-surface-variant text-sm">
+            <li><a href="menu.html" class="hover:text-primary transition">Menu</a></li>
+            <li><a href="about.html" class="hover:text-primary transition">About Us</a></li>
+            <li><a href="reservations.html" class="hover:text-primary transition">Reservations</a></li>
+            <li><a href="gallery.html" class="hover:text-primary transition">Gallery</a></li>
+            <li><a href="reviews.html" class="hover:text-primary transition">Reviews</a></li>
+            <li><a href="blog.html" class="hover:text-primary transition">Blog</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-label text-sm uppercase font-bold tracking-widest text-on-surface mb-6">Contact</h4>
+          <ul class="space-y-3 text-on-surface-variant text-sm">
+            <li class="flex items-start gap-2"><span class="material-symbols-outlined text-[18px]">location_on</span> 12, Rajpath Lane, Colaba, Mumbai</li>
+            <li class="flex items-center gap-2"><span class="material-symbols-outlined text-[18px]">call</span> +91-22-4567-8900</li>
+            <li class="flex items-center gap-2"><span class="material-symbols-outlined text-[18px]">mail</span> dine@spiceandsoul.in</li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-label text-sm uppercase font-bold tracking-widest text-on-surface mb-6">Hours</h4>
+          <ul class="space-y-3 text-on-surface-variant text-sm">
+            <li>Mon–Thu: 12:00 PM – 11:00 PM</li>
+            <li>Fri–Sun: 12:00 PM – Midnight</li>
+          </ul>
+        </div>
+      </div>
+      <div class="pt-8 border-t border-outline-variant text-center text-on-surface-variant text-sm">
+        <p>&copy; 2025 Spice &amp; Soul. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function scrollToSection(id) {
+      if (id === 'all') { window.scrollTo({ top: 0, behavior: 'smooth' }); }
+      else {
+        const el = document.getElementById(id);
+        if (el) el.scrollIntoView({ behavior: 'smooth' });
+      }
+      // Update active button
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active', 'bg-primary', 'text-white', 'border-primary'));
+      event.target.classList.add('active', 'bg-primary', 'text-white', 'border-primary');
+    }
+  </script>
+
+</body>
+</html>

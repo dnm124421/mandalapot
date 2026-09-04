@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reviews & Accolades | Spice & Soul</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Playfair+Display:ital,wght@0,600;0,700;0,900;1,600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#8f4e00",
+            "on-primary": "#ffffff",
+            "primary-container": "#ff9933",
+            "on-primary-container": "#693800",
+            "secondary": "#755b00",
+            "on-secondary": "#ffffff",
+            "secondary-container": "#fecb32",
+            "background": "#fff8f5",
+            "surface": "#fff8f5",
+            "surface-dim": "#e8d7cb",
+            "on-surface": "#231a13",
+            "on-surface-variant": "#554336",
+            "outline": "#887364",
+            "inverse-surface": "#392e27",
+            "tertiary": "#006685",
+            "error": "#ba1a1a",
+          },
+          fontFamily: {
+            "display": ["Playfair Display", "serif"],
+            "headline": ["Playfair Display", "serif"],
+            "body": ["Montserrat", "sans-serif"],
+            "label": ["Montserrat", "sans-serif"],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body { background-color: #fff8f5; color: #231a13; }
+    .glass-nav { backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); background: rgba(255, 244, 225, 0.75) !important; border-bottom: 1px solid rgba(254, 203, 50, 0.35) !important; box-shadow: 0 4px 30px rgba(143, 78, 0, 0.05); }
+    .gold-button {
+      background: linear-gradient(135deg, #ff9933 0%, #ffcc33 100%);
+      box-shadow: 0 4px 15px rgba(255, 153, 51, 0.3);
+      transition: all 0.3s ease;
+    }
+    .gold-button:hover { transform: scale(1.02); }
+    .mandala-pattern {
+      background-image: radial-gradient(#8f4e00 0.5px, transparent 0.5px), radial-gradient(#8f4e00 0.5px, #fff8f5 0.5px);
+      background-size: 40px 40px; background-position: 0 0, 20px 20px; opacity: 0.05;
+      position: absolute; top: 0; left: 0; right: 0; bottom: 0; z-index: 0; pointer-events: none;
+    }
+    .critic-card {
+      border: 1px solid rgba(254, 203, 50, 0.2);
+      transition: all 0.4s ease;
+    }
+    .critic-card:hover {
+      border-color: #ff9933;
+      box-shadow: 0 10px 30px rgba(143, 78, 0, 0.08);
+      transform: translateY(-2px);
+    }
+  </style>
+</head>
+<body class="font-body antialiased selection:bg-primary-container selection:text-on-surface relative pt-20">
+
+  <!-- Nav -->
+  <nav class="glass-nav fixed w-full z-50 top-0 border-b border-surface-dim">
+    <div class="max-w-[1200px] mx-auto px-4 lg:px-8 h-20 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-2 text-primary font-display font-bold text-2xl md:text-3xl">
+        <span class="material-symbols-outlined text-3xl">local_fire_department</span>
+        Spice & Soul
+      </a>
+      <div class="hidden md:flex items-center gap-8 text-on-surface font-label text-sm uppercase tracking-wider font-semibold">
+        <a href="menu.html" class="hover:text-primary transition">Menu</a>
+        <a href="about.html" class="hover:text-primary transition">About Us</a>
+        <a href="reservations.html" class="hover:text-primary transition">Reservations</a>
+        <a href="gallery.html" class="hover:text-primary transition">Gallery</a>
+        <a href="reviews.html" class="text-primary transition">Reviews</a>
+        <a href="contact.html" class="hover:text-primary transition">Contact</a>
+      </div>
+      <a href="reservations.html" class="gold-button hidden md:inline-flex px-6 py-2.5 rounded text-sm font-bold uppercase tracking-wider text-on-surface">Book Table</a>
+      <button class="md:hidden text-on-surface"><span class="material-symbols-outlined text-3xl">menu</span></button>
+    </div>
+  </nav>
+
+  <!-- Hero Banner -->
+  <header class="relative py-24 bg-surface-container overflow-hidden text-center border-b border-outline-variant">
+    <div class="mandala-pattern"></div>
+    <div class="relative z-10 max-w-3xl mx-auto px-4">
+      <p class="font-label text-sm uppercase tracking-widest text-primary mb-3">Guest Experiences</p>
+      <h1 class="font-display text-5xl md:text-6xl text-on-surface font-bold mb-6">Voices of Our Guests</h1>
+      <p class="text-on-surface-variant text-lg leading-relaxed max-w-xl mx-auto">
+        Read about dining journeys shared by food critics, guidebooks, and valued patrons from all over the world.
+      </p>
+    </div>
+  </header>
+
+  <!-- Critic & Media Reviews Section -->
+  <section class="py-20 bg-surface">
+    <div class="max-w-[1200px] mx-auto px-4 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="font-display text-3xl md:text-4xl text-on-surface font-bold">Critical Acclaim</h2>
+        <div class="w-16 h-0.5 bg-primary mx-auto mt-4"></div>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Critic 1 -->
+        <div class="critic-card bg-white p-8 rounded-2xl flex flex-col justify-between">
+          <div>
+            <div class="flex items-center gap-1 text-secondary-container mb-4">
+              <span class="material-symbols-outlined fill-current">star</span>
+              <span class="material-symbols-outlined fill-current">star</span>
+              <span class="material-symbols-outlined fill-current">star</span>
+              <span class="material-symbols-outlined fill-current">star</span>
+              <span class="material-symbols-outlined fill-current">star</span>
+            </div>
+            <p class="font-display italic text-lg text-on-surface-variant mb-6">
+              "Spice & Soul does not just cook food; they weave poetry on a plate. The Chef's Tasting Menu is an unforgettable tour across India's forgotten spice fields."
+            </p>
+          </div>
+          <div class="border-t border-surface-dim pt-4 mt-4">
+            <h4 class="font-bold text-on-surface text-sm uppercase tracking-wider">The London Times</h4>
+            <p class="text-xs text-primary font-label uppercase mt-0.5">Michelin Star Guide</p>
+          </div>
+        </div>
+
+        <!-- Critic 2 -->
+        <div class="critic-card bg-white p-8 rounded-2xl flex flex-col justify-between">
+          <div>
+            <div class="flex items-center gap-1 text-secondary-container mb-4">
+              <span class="material-symbols-outlined fill-current">star</span>
+              <span class="material-symbols-outlined fill-current">star</span>
+              <span class="material-symbols-outlined fill-current">star</span>
+              <span class="material-symbols-outlined fill-current">star</span>
+              <span class="material-symbols-outlined fill-current">star</span>
+            </div>
+            <p class="font-display italic text-lg text-on-surface-variant mb-6">
+              "An absolute culinary revelation. The Butter Chicken is velvety, complex, and without doubt the finest preparation found outside of Old Delhi."
+            </p>
+          </div>
+          <div class="border-t border-surface-dim pt-4 mt-4">
+            <h4 class="font-bold text-on-surface text-sm uppercase tracking-wider">Sofia K., Food Critic</h4>
+            <p class="text-xs text-primary font-label uppercase mt-0.5">Global Fine Dining Review</p>
+          </div>
+        </div>
+
+        <!-- Critic 3 -->
+        <div class="critic-card bg-white p-8 rounded-2xl flex flex-col justify-between">
+          <div>
+            <div class="flex items-center gap-1 text-secondary-container mb-4">
+              <span class="material-symbols-outlined fill-current">star</span>
+              <span class="material-symbols-outlined fill-current">star</span>
+              <span class="material-symbols-outlined fill-current">star</span>
+              <span class="material-symbols-outlined fill-current">star</span>
+              <span class="material-symbols-outlined fill-current">star</span>
+            </div>
+            <p class="font-display italic text-lg text-on-surface-variant mb-6">
+              "The design details, warm candlelit ambiance, and stellar hospitality match the complexity of the food. Highly recommended."
+            </p>
+          </div>
+          <div class="border-t border-surface-dim pt-4 mt-4">
+            <h4 class="font-bold text-on-surface text-sm uppercase tracking-wider">Le Parisien Gastronome</h4>
+            <p class="text-xs text-primary font-label uppercase mt-0.5">International Travel Guide</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Ratings Statistics & Breakdown Section -->
+  <section class="py-16 bg-surface-dim/40 border-y border-outline-variant">
+    <div class="max-w-[1200px] mx-auto px-4 lg:px-8">
+      <div class="bg-white rounded-3xl p-8 md:p-12 shadow-xl flex flex-col md:flex-row gap-12 items-center">
+        <!-- Average Score Column -->
+        <div class="w-full md:w-1/3 text-center border-b md:border-b-0 md:border-r border-surface-dim pb-8 md:pb-0 md:pr-12">
+          <h3 class="text-7xl font-bold text-on-surface mb-2 font-display">4.9</h3>
+          <div class="flex justify-center items-center gap-1 text-secondary-container mb-3">
+            <span class="material-symbols-outlined fill-current text-2xl">star</span>
+            <span class="material-symbols-outlined fill-current text-2xl">star</span>
+            <span class="material-symbols-outlined fill-current text-2xl">star</span>
+            <span class="material-symbols-outlined fill-current text-2xl">star</span>
+            <span class="material-symbols-outlined fill-current text-2xl">star</span>
+          </div>
+          <p class="text-on-surface-variant font-label text-sm uppercase tracking-wider">Based on 1,480+ Reviews</p>
+        </div>
+
+        <!-- Rating Progress Bars Column -->
+        <div class="w-full md:w-1/3 space-y-4">
+          <h4 class="font-label text-xs uppercase font-bold tracking-wider text-on-surface mb-4">Rating Breakdown</h4>
+          
+          <!-- Food Bar -->
+          <div>
+            <div class="flex justify-between text-xs text-on-surface-variant mb-1 font-semibold">
+              <span>Food Quality</span>
+              <span>5.0 / 5.0</span>
+            </div>
+            <div class="w-full h-2 bg-surface-dim rounded-full overflow-hidden">
+              <div class="bg-primary h-full rounded-full" style="width: 100%;"></div>
+            </div>
+          </div>
+
+          <!-- Ambiance Bar -->
+          <div>
+            <div class="flex justify-between text-xs text-on-surface-variant mb-1 font-semibold">
+              <span>Ambiance</span>
+              <span>4.9 / 5.0</span>
+            </div>
+            <div class="w-full h-2 bg-surface-dim rounded-full overflow-hidden">
+              <div class="bg-primary h-full rounded-full" style="width: 98%;"></div>
+            </div>
+          </div>
+
+          <!-- Service Bar -->
+          <div>
+            <div class="flex justify-between text-xs text-on-surface-variant mb-1 font-semibold">
+              <span>Service</span>
+              <span>4.8 / 5.0</span>
+            </div>
+            <div class="w-full h-2 bg-surface-dim rounded-full overflow-hidden">
+              <div class="bg-primary h-full rounded-full" style="width: 96%;"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CTA Column -->
+        <div class="w-full md:w-1/3 text-center md:pl-12 flex flex-col items-center">
+          <h4 class="font-display text-2xl font-bold mb-4 text-on-surface">Share Your Story</h4>
+          <p class="text-on-surface-variant text-sm mb-6 leading-relaxed">
+            Dined with us recently? We would love to hear your feedback on your dining experience.
+          </p>
+          <button onclick="toggleReviewModal()" class="gold-button px-8 py-3 rounded font-bold uppercase tracking-wider text-sm text-on-surface w-full sm:w-auto">
+            Write A Review
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Detailed Reviews Grid -->
+  <section class="py-20 bg-surface">
+    <div class="max-w-[1200px] mx-auto px-4 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="font-display text-3xl font-bold">Patron Testimonials</h2>
+        <div class="w-16 h-0.5 bg-primary mx-auto mt-4"></div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8" id="reviews-container">
+        <!-- Review 1 -->
+        <div class="bg-white p-8 rounded-2xl shadow-sm border border-surface-dim relative flex flex-col justify-between">
+          <div>
+            <div class="flex items-center gap-1 text-secondary-container mb-4">
+              <span class="material-symbols-outlined fill-current text-[18px]">star</span>
+              <span class="material-symbols-outlined fill-current text-[18px]">star</span>
+              <span class="material-symbols-outlined fill-current text-[18px]">star</span>
+              <span class="material-symbols-outlined fill-current text-[18px]">star</span>
+              <span class="material-symbols-outlined fill-current text-[18px]">star</span>
+            </div>
+            <p class="text-on-surface-variant leading-relaxed mb-6 italic text-sm">
+              "The Dum Biryani was absolutely spectacular. The rice was perfectly separate, fragrant, and layered with tender spices. The service was impeccable."
+            </p>
+          </div>
+          <div class="flex items-center gap-3 border-t border-surface-dim pt-4">
+            <div class="w-10 h-10 rounded-full bg-primary/10 text-primary font-bold flex items-center justify-center text-sm">PM</div>
+            <div>
+              <h5 class="font-bold text-on-surface text-sm">Priya M.</h5>
+              <p class="text-xs text-on-surface-variant">Mumbai — Dined 2 weeks ago</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Review 2 -->
+        <div class="bg-white p-8 rounded-2xl shadow-sm border border-surface-dim relative flex flex-col justify-between">
+          <div>
+            <div class="flex items-center gap-1 text-secondary-container mb-4">
+              <span class="material-symbols-outlined fill-current text-[18px]">star</span>
+              <span class="material-symbols-outlined fill-current text-[18px]">star</span>
+              <span class="material-symbols-outlined fill-current text-[18px]">star</span>
+              <span class="material-symbols-outlined fill-current text-[18px]">star</span>
+              <span class="material-symbols-outlined fill-current text-[18px]">star</span>
+            </div>
+            <p class="text-on-surface-variant leading-relaxed mb-6 italic text-sm">
+              "The ambiance is breathtaking. Warm lighting, traditional music playing softly in the background. Highly recommend booking a table in advance."
+            </p>
+          </div>
+          <div class="flex items-center gap-3 border-t border-surface-dim pt-4">
+            <div class="w-10 h-10 rounded-full bg-primary/10 text-primary font-bold flex items-center justify-center text-sm">JR</div>
+            <div>
+              <h5 class="font-bold text-on-surface text-sm">James R.</h5>
+              <p class="text-xs text-on-surface-variant">London — Dined 1 month ago</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Review 3 -->
+        <div class="bg-white p-8 rounded-2xl shadow-sm border border-surface-dim relative flex flex-col justify-between">
+          <div>
+            <div class="flex items-center gap-1 text-secondary-container mb-4">
+              <span class="material-symbols-outlined fill-current text-[18px]">star</span>
+              <span class="material-symbols-outlined fill-current text-[18px]">star</span>
+              <span class="material-symbols-outlined fill-current text-[18px]">star</span>
+              <span class="material-symbols-outlined fill-current text-[18px]">star</span>
+              <span class="material-symbols-outlined fill-current text-[18px]">star</span>
+            </div>
+            <p class="text-on-surface-variant leading-relaxed mb-6 italic text-sm">
+              "Had the Paneer Tikka and garlic naan. Softest paneer I've ever had. Truly gourmet experience and extremely beautiful presentation."
+            </p>
+          </div>
+          <div class="flex items-center gap-3 border-t border-surface-dim pt-4">
+            <div class="w-10 h-10 rounded-full bg-primary/10 text-primary font-bold flex items-center justify-center text-sm">SK</div>
+            <div>
+              <h5 class="font-bold text-on-surface text-sm">Sofia K.</h5>
+              <p class="text-xs text-on-surface-variant">New York — Dined 3 days ago</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Review 4 -->
+        <div class="bg-white p-8 rounded-2xl shadow-sm border border-surface-dim relative flex flex-col justify-between">
+          <div>
+            <div class="flex items-center gap-1 text-secondary-container mb-4">
+              <span class="material-symbols-outlined fill-current text-[18px]">star</span>
+              <span class="material-symbols-outlined fill-current text-[18px]">star</span>
+              <span class="material-symbols-outlined fill-current text-[18px]">star</span>
+              <span class="material-symbols-outlined fill-current text-[18px]">star</span>
+              <span class="material-symbols-outlined fill-current text-[18px]">star</span>
+            </div>
+            <p class="text-on-surface-variant leading-relaxed mb-6 italic text-sm">
+              "We hosted a private family event in the Heritage Arch Room. The coordinator was very responsive and customized the menu perfectly. The wine pairing recommendation was stellar."
+            </p>
+          </div>
+          <div class="flex items-center gap-3 border-t border-surface-dim pt-4">
+            <div class="w-10 h-10 rounded-full bg-primary/10 text-primary font-bold flex items-center justify-center text-sm">AD</div>
+            <div>
+              <h5 class="font-bold text-on-surface text-sm">Aarav D.</h5>
+              <p class="text-xs text-on-surface-variant">Delhi — Dined 1 week ago</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Review 5 -->
+        <div class="bg-white p-8 rounded-2xl shadow-sm border border-surface-dim relative flex flex-col justify-between">
+          <div>
+            <div class="flex items-center gap-1 text-secondary-container mb-4">
+              <span class="material-symbols-outlined fill-current text-[18px]">star</span>
+              <span class="material-symbols-outlined fill-current text-[18px]">star</span>
+              <span class="material-symbols-outlined fill-current text-[18px]">star</span>
+              <span class="material-symbols-outlined fill-current text-[18px]">star</span>
+              <span class="material-symbols-outlined fill-current text-[18px]">star</span>
+            </div>
+            <p class="text-on-surface-variant leading-relaxed mb-6 italic text-sm">
+              "Saffron Gulab Jamun dessert is out of this world! Melt in the mouth texture. The plating looked like a contemporary art painting."
+            </p>
+          </div>
+          <div class="flex items-center gap-3 border-t border-surface-dim pt-4">
+            <div class="w-10 h-10 rounded-full bg-primary/10 text-primary font-bold flex items-center justify-center text-sm">EL</div>
+            <div>
+              <h5 class="font-bold text-on-surface text-sm">Emily L.</h5>
+              <p class="text-xs text-on-surface-variant">Paris — Dined 5 days ago</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Review 6 -->
+        <div class="bg-white p-8 rounded-2xl shadow-sm border border-surface-dim relative flex flex-col justify-between">
+          <div>
+            <div class="flex items-center gap-1 text-secondary-container mb-4">
+              <span class="material-symbols-outlined fill-current text-[18px]">star</span>
+              <span class="material-symbols-outlined fill-current text-[18px]">star</span>
+              <span class="material-symbols-outlined fill-current text-[18px]">star</span>
+              <span class="material-symbols-outlined fill-current text-[18px]">star</span>
+              <span class="material-symbols-outlined fill-current text-[18px]">star</span>
+            </div>
+            <p class="text-on-surface-variant leading-relaxed mb-6 italic text-sm">
+              "Best fine dining Indian restaurant I have ever experienced. Standard recipes, yet made with refined elements and top quality spices."
+            </p>
+          </div>
+          <div class="flex items-center gap-3 border-t border-surface-dim pt-4">
+            <div class="w-10 h-10 rounded-full bg-primary/10 text-primary font-bold flex items-center justify-center text-sm">RN</div>
+            <div>
+              <h5 class="font-bold text-on-surface text-sm">Rajesh N.</h5>
+              <p class="text-xs text-on-surface-variant">Bengaluru — Dined 3 weeks ago</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Write A Review Modal -->
+  <div id="review-modal" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm hidden flex items-center justify-center p-4">
+    <div class="bg-white rounded-3xl p-8 max-w-lg w-full relative shadow-2xl border border-surface-dim transform scale-95 transition-all duration-300">
+      <button onclick="toggleReviewModal()" class="absolute top-6 right-6 text-on-surface-variant hover:text-primary transition">
+        <span class="material-symbols-outlined text-3xl">close</span>
+      </button>
+      <h3 class="font-display text-3xl font-bold mb-2 text-on-surface">Write a Review</h3>
+      <p class="text-on-surface-variant text-sm mb-6">Tell us about your experience at Spice & Soul.</p>
+      
+      <form id="add-review-form" onsubmit="handleReviewSubmit(event)" class="space-y-4">
+        <div>
+          <label class="block font-label text-xs uppercase tracking-wider font-semibold text-on-surface mb-2">Your Rating</label>
+          <div class="flex gap-2 text-secondary-container" id="star-selector">
+            <span onclick="setRating(1)" class="material-symbols-outlined cursor-pointer text-3xl select-none hover:scale-110 transition">star</span>
+            <span onclick="setRating(2)" class="material-symbols-outlined cursor-pointer text-3xl select-none hover:scale-110 transition">star</span>
+            <span onclick="setRating(3)" class="material-symbols-outlined cursor-pointer text-3xl select-none hover:scale-110 transition">star</span>
+            <span onclick="setRating(4)" class="material-symbols-outlined cursor-pointer text-3xl select-none hover:scale-110 transition">star</span>
+            <span onclick="setRating(5)" class="material-symbols-outlined cursor-pointer text-3xl select-none hover:scale-110 transition">star</span>
+          </div>
+          <input type="hidden" id="form-rating-value" value="5" required>
+        </div>
+
+        <div>
+          <label for="review-name" class="block font-label text-xs uppercase tracking-wider font-semibold text-on-surface mb-1">Full Name</label>
+          <input type="text" id="review-name" required class="w-full rounded-lg border border-outline/30 bg-surface px-4 py-2 text-sm focus:border-primary focus:ring-1 focus:ring-primary outline-none transition">
+        </div>
+
+        <div>
+          <label for="review-location" class="block font-label text-xs uppercase tracking-wider font-semibold text-on-surface mb-1">Location</label>
+          <input type="text" id="review-location" placeholder="e.g. Mumbai, India" required class="w-full rounded-lg border border-outline/30 bg-surface px-4 py-2 text-sm focus:border-primary focus:ring-1 focus:ring-primary outline-none transition">
+        </div>
+
+        <div>
+          <label for="review-text" class="block font-label text-xs uppercase tracking-wider font-semibold text-on-surface mb-1">Your Review</label>
+          <textarea id="review-text" rows="4" required class="w-full rounded-lg border border-outline/30 bg-surface px-4 py-2 text-sm focus:border-primary focus:ring-1 focus:ring-primary outline-none transition resize-none"></textarea>
+        </div>
+
+        <button type="submit" class="gold-button w-full py-3.5 rounded-lg text-sm font-bold uppercase tracking-wider text-on-surface mt-2">
+          Submit Review
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-surface-dim py-16 border-t border-outline-variant">
+    <div class="max-w-[1200px] mx-auto px-4 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-10 md:gap-8 mb-12">
+        <div class="col-span-1 md:col-span-1">
+          <a href="index.html" class="flex items-center gap-2 text-primary font-display font-bold text-2xl mb-4">
+            <span class="material-symbols-outlined">local_fire_department</span>
+            Spice & Soul
+          </a>
+          <p class="text-on-surface-variant text-sm font-label uppercase tracking-widest mb-6">Where Heritage Meets Haute Cuisine</p>
+          <div class="flex gap-4">
+            <a href="#" class="text-on-surface hover:text-primary transition"><span class="material-symbols-outlined">photo_camera</span></a>
+            <a href="#" class="text-on-surface hover:text-primary transition"><span class="material-symbols-outlined">thumb_up</span></a>
+            <a href="#" class="text-on-surface hover:text-primary transition"><span class="material-symbols-outlined">alternate_email</span></a>
+          </div>
+        </div>
+        
+        <div>
+          <h4 class="font-label text-sm uppercase font-bold tracking-widest text-on-surface mb-6">Explore</h4>
+          <ul class="space-y-3 text-on-surface-variant text-sm">
+            <li><a href="menu.html" class="hover:text-primary transition">Menu</a></li>
+            <li><a href="about.html" class="hover:text-primary transition">About Us</a></li>
+            <li><a href="reservations.html" class="hover:text-primary transition">Reservations</a></li>
+            <li><a href="gallery.html" class="hover:text-primary transition">Gallery</a></li>
+            <li><a href="reviews.html" class="hover:text-primary transition">Reviews</a></li>
+            <li><a href="blog.html" class="hover:text-primary transition">Blog</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h4 class="font-label text-sm uppercase font-bold tracking-widest text-on-surface mb-6">Contact</h4>
+          <ul class="space-y-3 text-on-surface-variant text-sm">
+            <li class="flex items-start gap-2"><span class="material-symbols-outlined text-[18px]">location_on</span> 12, Rajpath Lane, Colaba, Mumbai</li>
+            <li class="flex items-center gap-2"><span class="material-symbols-outlined text-[18px]">call</span> +91-22-4567-8900</li>
+            <li class="flex items-center gap-2"><span class="material-symbols-outlined text-[18px]">mail</span> dine@spiceandsoul.in</li>
+          </ul>
+        </div>
+        
+        <div>
+          <h4 class="font-label text-sm uppercase font-bold tracking-widest text-on-surface mb-6">Hours</h4>
+          <ul class="space-y-3 text-on-surface-variant text-sm">
+            <li>Mon–Thu: 12:00 PM – 11:00 PM</li>
+            <li>Fri–Sun: 12:00 PM – Midnight</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="pt-8 border-t border-outline-variant text-center text-on-surface-variant text-sm">
+        <p>&copy; 2025 Spice & Soul. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    let currentRating = 5;
+
+    function toggleReviewModal() {
+      const modal = document.getElementById("review-modal");
+      modal.classList.toggle("hidden");
+      if (!modal.classList.contains("hidden")) {
+        setRating(5);
+        document.getElementById("add-review-form").reset();
+      }
+    }
+
+    function setRating(val) {
+      currentRating = val;
+      document.getElementById("form-rating-value").value = val;
+      const stars = document.querySelectorAll("#star-selector span");
+      stars.forEach((star, idx) => {
+        if (idx < val) {
+          star.classList.add("fill-current");
+          star.textContent = "star";
+        } else {
+          star.classList.remove("fill-current");
+          star.textContent = "star";
+          // If we want outline we can set it
+        }
+      });
+    }
+
+    function handleReviewSubmit(e) {
+      e.preventDefault();
+      
+      const name = document.getElementById("review-name").value;
+      const location = document.getElementById("review-location").value;
+      const text = document.getElementById("review-text").value;
+
+      // Create a new review card element
+      const card = document.createElement("div");
+      card.className = "bg-white p-8 rounded-2xl shadow-sm border border-surface-dim relative flex flex-col justify-between opacity-0 scale-95 transition-all duration-500";
+      
+      let starsHtml = "";
+      for (let i = 0; i < 5; i++) {
+        starsHtml += `<span class="material-symbols-outlined ${i < currentRating ? 'fill-current' : ''} text-[18px]">star</span>`;
+      }
+
+      const initials = name.split(" ").map(n => n[0]).join("").toUpperCase().substring(0, 2);
+
+      card.innerHTML = `
+        <div>
+          <div class="flex items-center gap-1 text-secondary-container mb-4">
+            ${starsHtml}
+          </div>
+          <p class="text-on-surface-variant leading-relaxed mb-6 italic text-sm">
+            "${text}"
+          </p>
+        </div>
+        <div class="flex items-center gap-3 border-t border-surface-dim pt-4">
+          <div class="w-10 h-10 rounded-full bg-primary/10 text-primary font-bold flex items-center justify-center text-sm">${initials}</div>
+          <div>
+            <h5 class="font-bold text-on-surface text-sm">${name}</h5>
+            <p class="text-xs text-on-surface-variant">${location} — Dined just now</p>
+          </div>
+        </div>
+      `;
+
+      // Insert new review at the beginning of the container
+      const container = document.getElementById("reviews-container");
+      container.insertBefore(card, container.firstChild);
+
+      // Close modal
+      toggleReviewModal();
+
+      // Trigger reveal animation
+      setTimeout(() => {
+        card.classList.remove("opacity-0", "scale-95");
+      }, 100);
+    }
+  </script>
+</body>
+</html>

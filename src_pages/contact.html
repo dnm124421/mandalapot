@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us | Spice & Soul</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Playfair+Display:ital,wght@0,600;0,700;0,900;1,600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#8f4e00",
+            "on-primary": "#ffffff",
+            "primary-container": "#ff9933",
+            "on-primary-container": "#693800",
+            "secondary": "#755b00",
+            "on-secondary": "#ffffff",
+            "secondary-container": "#fecb32",
+            "background": "#fff8f5",
+            "surface": "#fff8f5",
+            "surface-dim": "#e8d7cb",
+            "on-surface": "#231a13",
+            "on-surface-variant": "#554336",
+            "outline": "#887364",
+            "inverse-surface": "#392e27",
+            "tertiary": "#006685",
+            "error": "#ba1a1a",
+          },
+          fontFamily: {
+            "display": ["Playfair Display", "serif"],
+            "headline": ["Playfair Display", "serif"],
+            "body": ["Montserrat", "sans-serif"],
+            "label": ["Montserrat", "sans-serif"],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body { background-color: #fff8f5; color: #231a13; }
+    .glass-nav { backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); background: rgba(255, 244, 225, 0.75) !important; border-bottom: 1px solid rgba(254, 203, 50, 0.35) !important; box-shadow: 0 4px 30px rgba(143, 78, 0, 0.05); }
+    .gold-button {
+      background: linear-gradient(135deg, #ff9933 0%, #ffcc33 100%);
+      box-shadow: 0 4px 15px rgba(255, 153, 51, 0.3);
+      transition: all 0.3s ease;
+    }
+    .gold-button:hover { transform: scale(1.02); }
+    .mandala-pattern {
+      background-image: radial-gradient(#8f4e00 0.5px, transparent 0.5px), radial-gradient(#8f4e00 0.5px, #fff8f5 0.5px);
+      background-size: 40px 40px; background-position: 0 0, 20px 20px; opacity: 0.05;
+      position: absolute; top: 0; left: 0; right: 0; bottom: 0; z-index: 0; pointer-events: none;
+    }
+    
+    /* Form Styling */
+    .form-input {
+      width: 100%;
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid #dbc2b0;
+      padding: 0.75rem 0;
+      font-family: 'Montserrat', sans-serif;
+      color: #231a13;
+      transition: border-color 0.3s;
+    }
+    .form-input:focus {
+      outline: none;
+      border-bottom-color: #ff9933;
+      box-shadow: none;
+    }
+    .form-label {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #887364;
+      margin-bottom: 0.25rem;
+      display: block;
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body class="font-body antialiased selection:bg-primary-container selection:text-on-surface relative pt-20">
+
+  <!-- Nav -->
+  <nav class="glass-nav fixed w-full z-50 top-0 border-b border-surface-dim">
+    <div class="max-w-[1200px] mx-auto px-4 lg:px-8 h-20 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-2 text-primary font-display font-bold text-2xl md:text-3xl">
+        <span class="material-symbols-outlined text-3xl">local_fire_department</span>
+        Spice & Soul
+      </a>
+      <div class="hidden md:flex items-center gap-8 text-on-surface font-label text-sm uppercase tracking-wider font-semibold">
+        <a href="menu.html" class="hover:text-primary transition">Menu</a>
+        <a href="about.html" class="hover:text-primary transition">About Us</a>
+        <a href="reservations.html" class="hover:text-primary transition">Reservations</a>
+        <a href="gallery.html" class="hover:text-primary transition">Gallery</a>
+        <a href="reviews.html" class="hover:text-primary transition">Reviews</a>
+        <a href="contact.html" class="text-primary transition">Contact</a>
+      </div>
+      <a href="reservations.html" class="gold-button hidden md:inline-flex px-6 py-2.5 rounded text-sm font-bold uppercase tracking-wider text-on-surface">Book Table</a>
+      <button class="md:hidden text-on-surface"><span class="material-symbols-outlined text-3xl">menu</span></button>
+    </div>
+  </nav>
+
+  <!-- Contact Section -->
+  <section class="py-16 lg:py-24 max-w-[1200px] mx-auto px-4 lg:px-8 relative">
+    <div class="mandala-pattern"></div>
+    <div class="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24">
+      
+      <!-- Left Column -->
+      <div>
+        <h1 class="font-display text-5xl text-on-surface mb-8">Find Us</h1>
+        
+        <div class="space-y-8 mb-12">
+          <div class="flex items-start gap-4">
+            <span class="material-symbols-outlined text-primary text-3xl mt-1">location_on</span>
+            <div>
+              <h3 class="font-display text-2xl font-bold text-on-surface mb-1">Address</h3>
+              <p class="text-on-surface-variant text-lg">12, Rajpath Lane,<br>Colaba, Mumbai 400001</p>
+            </div>
+          </div>
+          
+          <div class="flex items-start gap-4">
+            <span class="material-symbols-outlined text-primary text-3xl mt-1">call</span>
+            <div>
+              <h3 class="font-display text-2xl font-bold text-on-surface mb-1">Phone</h3>
+              <p class="text-on-surface-variant text-lg">+91-22-4567-8900</p>
+            </div>
+          </div>
+          
+          <div class="flex items-start gap-4">
+            <span class="material-symbols-outlined text-primary text-3xl mt-1">mail</span>
+            <div>
+              <h3 class="font-display text-2xl font-bold text-on-surface mb-1">Email</h3>
+              <p class="text-on-surface-variant text-lg">dine@spiceandsoul.in</p>
+            </div>
+          </div>
+          
+          <div class="flex items-start gap-4">
+            <span class="material-symbols-outlined text-primary text-3xl mt-1">schedule</span>
+            <div>
+              <h3 class="font-display text-2xl font-bold text-on-surface mb-1">Hours</h3>
+              <ul class="text-on-surface-variant text-lg">
+                <li>Mon–Thu: 12:00 PM – 11:00 PM</li>
+                <li>Fri–Sun: 12:00 PM – Midnight</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="border-t border-surface-dim pt-8">
+          <h3 class="font-label text-sm uppercase tracking-widest text-on-surface font-semibold mb-4">Connect With Us</h3>
+          <div class="flex gap-4">
+            <a href="#" class="w-10 h-10 rounded-full border border-outline flex items-center justify-center text-on-surface hover:bg-primary hover:text-white hover:border-primary transition"><span class="material-symbols-outlined">photo_camera</span></a>
+            <a href="#" class="w-10 h-10 rounded-full border border-outline flex items-center justify-center text-on-surface hover:bg-primary hover:text-white hover:border-primary transition"><span class="material-symbols-outlined">thumb_up</span></a>
+            <a href="#" class="w-10 h-10 rounded-full border border-outline flex items-center justify-center text-on-surface hover:bg-primary hover:text-white hover:border-primary transition"><span class="material-symbols-outlined">alternate_email</span></a>
+          </div>
+        </div>
+
+        <!-- Contact Form -->
+        <div class="mt-16 bg-white p-8 rounded-lg border border-surface-dim shadow-sm">
+          <h3 class="font-display text-3xl text-on-surface mb-6">Send a Message</h3>
+          <form class="space-y-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div>
+                <label class="form-label">Full Name</label>
+                <input type="text" class="form-input" required>
+              </div>
+              <div>
+                <label class="form-label">Email Address</label>
+                <input type="email" class="form-input" required>
+              </div>
+            </div>
+            
+            <div>
+              <label class="form-label">Subject</label>
+              <select class="form-input cursor-pointer text-on-surface-variant">
+                <option>Reservation Enquiry</option>
+                <option>Feedback</option>
+                <option>Partnership</option>
+                <option>Press</option>
+                <option>Other</option>
+              </select>
+            </div>
+            
+            <div>
+              <label class="form-label">Message</label>
+              <textarea class="form-input resize-none" rows="4" required></textarea>
+            </div>
+            
+            <button type="submit" class="gold-button w-full py-4 rounded text-sm font-bold uppercase tracking-wider">Send Message</button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Right Column (Map) -->
+      <div class="h-full min-h-[500px] flex flex-col">
+        <div class="bg-surface-dim flex-1 rounded-lg border border-outline-variant relative overflow-hidden flex flex-col items-center justify-center text-center p-8 group">
+          <span class="material-symbols-outlined text-primary text-6xl mb-4 group-hover:scale-110 transition duration-500">map</span>
+          <h3 class="font-display text-2xl text-on-surface mb-2">Interactive Map</h3>
+          <p class="text-on-surface-variant mb-6">Explore our location in the heart of Mumbai's culinary district.</p>
+          <a href="#" class="px-8 py-3 rounded border border-primary text-primary font-bold uppercase tracking-wider text-sm hover:bg-primary hover:text-white transition">Get Directions</a>
+          <div class="absolute inset-0 bg-[url('assets/images/1524661135-423995f22d0b.jpg')] bg-cover bg-center opacity-10 pointer-events-none mix-blend-multiply"></div>
+        </div>
+      </div>
+      
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-surface-dim py-16 border-t border-outline-variant">
+    <div class="max-w-[1200px] mx-auto px-4 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-10 md:gap-8 mb-12">
+        <div class="col-span-1 md:col-span-1">
+          <a href="index.html" class="flex items-center gap-2 text-primary font-display font-bold text-2xl mb-4">
+            <span class="material-symbols-outlined">local_fire_department</span>
+            Spice & Soul
+          </a>
+          <p class="text-on-surface-variant text-sm font-label uppercase tracking-widest mb-6">Where Heritage Meets Haute Cuisine</p>
+          <div class="flex gap-4">
+            <a href="#" class="text-on-surface hover:text-primary transition"><span class="material-symbols-outlined">photo_camera</span></a>
+            <a href="#" class="text-on-surface hover:text-primary transition"><span class="material-symbols-outlined">thumb_up</span></a>
+            <a href="#" class="text-on-surface hover:text-primary transition"><span class="material-symbols-outlined">alternate_email</span></a>
+          </div>
+        </div>
+        
+        <div>
+          <h4 class="font-label text-sm uppercase font-bold tracking-widest text-on-surface mb-6">Explore</h4>
+          <ul class="space-y-3 text-on-surface-variant text-sm">
+            <li><a href="menu.html" class="hover:text-primary transition">Menu</a></li>
+            <li><a href="about.html" class="hover:text-primary transition">About Us</a></li>
+            <li><a href="reservations.html" class="hover:text-primary transition">Reservations</a></li>
+            <li><a href="gallery.html" class="hover:text-primary transition">Gallery</a></li>
+            <li><a href="reviews.html" class="hover:text-primary transition">Reviews</a></li>
+            <li><a href="blog.html" class="hover:text-primary transition">Blog</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h4 class="font-label text-sm uppercase font-bold tracking-widest text-on-surface mb-6">Contact</h4>
+          <ul class="space-y-3 text-on-surface-variant text-sm">
+            <li class="flex items-start gap-2"><span class="material-symbols-outlined text-[18px]">location_on</span> 12, Rajpath Lane, Colaba, Mumbai</li>
+            <li class="flex items-center gap-2"><span class="material-symbols-outlined text-[18px]">call</span> +91-22-4567-8900</li>
+            <li class="flex items-center gap-2"><span class="material-symbols-outlined text-[18px]">mail</span> dine@spiceandsoul.in</li>
+          </ul>
+        </div>
+        
+        <div>
+          <h4 class="font-label text-sm uppercase font-bold tracking-widest text-on-surface mb-6">Hours</h4>
+          <ul class="space-y-3 text-on-surface-variant text-sm">
+            <li>Mon–Thu: 12:00 PM – 11:00 PM</li>
+            <li>Fri–Sun: 12:00 PM – Midnight</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="pt-8 border-t border-outline-variant text-center text-on-surface-variant text-sm">
+        <p>&copy; 2025 Spice & Soul. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

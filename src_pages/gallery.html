@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gallery | Spice & Soul</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Playfair+Display:ital,wght@0,600;0,700;0,900;1,600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#8f4e00",
+            "on-primary": "#ffffff",
+            "primary-container": "#ff9933",
+            "on-primary-container": "#693800",
+            "secondary": "#755b00",
+            "on-secondary": "#ffffff",
+            "secondary-container": "#fecb32",
+            "background": "#fff8f5",
+            "surface": "#fff8f5",
+            "surface-dim": "#e8d7cb",
+            "on-surface": "#231a13",
+            "on-surface-variant": "#554336",
+            "outline": "#887364",
+            "inverse-surface": "#392e27",
+            "tertiary": "#006685",
+            "error": "#ba1a1a",
+          },
+          fontFamily: {
+            "display": ["Playfair Display", "serif"],
+            "headline": ["Playfair Display", "serif"],
+            "body": ["Montserrat", "sans-serif"],
+            "label": ["Montserrat", "sans-serif"],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body { background-color: #fff8f5; color: #231a13; }
+    .glass-nav { backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); background: rgba(255, 244, 225, 0.75) !important; border-bottom: 1px solid rgba(254, 203, 50, 0.35) !important; box-shadow: 0 4px 30px rgba(143, 78, 0, 0.05); }
+    .gold-button {
+      background: linear-gradient(135deg, #ff9933 0%, #ffcc33 100%);
+      box-shadow: 0 4px 15px rgba(255, 153, 51, 0.3);
+      transition: all 0.3s ease;
+    }
+    .gold-button:hover { transform: scale(1.02); }
+    .mandala-pattern {
+      background-image: radial-gradient(#8f4e00 0.5px, transparent 0.5px), radial-gradient(#8f4e00 0.5px, #fff8f5 0.5px);
+      background-size: 40px 40px; background-position: 0 0, 20px 20px; opacity: 0.05;
+      position: absolute; top: 0; left: 0; right: 0; bottom: 0; z-index: 0; pointer-events: none;
+    }
+    .hide-scrollbar::-webkit-scrollbar { display: none; }
+    .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    
+    /* Smooth gallery item transitions */
+    .gallery-item {
+      transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1), transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .gallery-item.hidden {
+      display: none;
+      opacity: 0;
+      transform: scale(0.95);
+    }
+  </style>
+</head>
+<body class="font-body antialiased selection:bg-primary-container selection:text-on-surface relative pt-20">
+
+  <!-- Nav -->
+  <nav class="glass-nav fixed w-full z-50 top-0 border-b border-surface-dim">
+    <div class="max-w-[1200px] mx-auto px-4 lg:px-8 h-20 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-2 text-primary font-display font-bold text-2xl md:text-3xl">
+        <span class="material-symbols-outlined text-3xl">local_fire_department</span>
+        Spice & Soul
+      </a>
+      <div class="hidden md:flex items-center gap-8 text-on-surface font-label text-sm uppercase tracking-wider font-semibold">
+        <a href="menu.html" class="hover:text-primary transition">Menu</a>
+        <a href="about.html" class="hover:text-primary transition">About Us</a>
+        <a href="reservations.html" class="hover:text-primary transition">Reservations</a>
+        <a href="gallery.html" class="text-primary transition">Gallery</a>
+        <a href="contact.html" class="hover:text-primary transition">Contact</a>
+      </div>
+      <a href="reservations.html" class="gold-button hidden md:inline-flex px-6 py-2.5 rounded text-sm font-bold uppercase tracking-wider text-on-surface">Book Table</a>
+      <button class="md:hidden text-on-surface"><span class="material-symbols-outlined text-3xl">menu</span></button>
+    </div>
+  </nav>
+
+  <!-- Hero Banner -->
+  <header class="relative py-20 bg-surface-container overflow-hidden text-center border-b border-outline-variant">
+    <div class="mandala-pattern"></div>
+    <div class="relative z-10 max-w-4xl mx-auto px-4">
+      <h1 class="font-display text-5xl md:text-6xl text-on-surface mb-8">A Feast for the Eyes</h1>
+      
+      <!-- Filter Tabs -->
+      <div class="flex overflow-x-auto hide-scrollbar gap-3 justify-start md:justify-center pb-2 items-center" id="filter-tabs">
+        <button data-filter="all" class="px-6 py-2 rounded-full bg-primary text-white font-label text-xs uppercase tracking-wider whitespace-nowrap transition">All</button>
+        <button data-filter="food" class="px-6 py-2 rounded-full border border-outline text-on-surface-variant hover:bg-surface-dim font-label text-xs uppercase tracking-wider whitespace-nowrap transition">Food</button>
+        <button data-filter="ambiance" class="px-6 py-2 rounded-full border border-outline text-on-surface-variant hover:bg-surface-dim font-label text-xs uppercase tracking-wider whitespace-nowrap transition">Ambiance</button>
+        <button data-filter="events" class="px-6 py-2 rounded-full border border-outline text-on-surface-variant hover:bg-surface-dim font-label text-xs uppercase tracking-wider whitespace-nowrap transition">Events</button>
+        <button data-filter="chefs-table" class="px-6 py-2 rounded-full border border-outline text-on-surface-variant hover:bg-surface-dim font-label text-xs uppercase tracking-wider whitespace-nowrap transition">Chef's Table</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Gallery Grid -->
+  <section class="py-16 max-w-[1400px] mx-auto px-4 lg:px-8">
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6" id="gallery-grid">
+      
+      <!-- Item 1 -->
+      <div class="gallery-item overflow-hidden rounded-xl shadow-md relative group aspect-[4/3] cursor-pointer" data-category="food">
+        <img src="assets/images/hero_dining_food.png" alt="Grand Indian Feast Spread" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end p-4">
+          <h3 class="font-display text-xl text-white">The Grand Indian Feast</h3>
+        </div>
+      </div>
+      
+      <!-- Item 2 -->
+      <div class="gallery-item overflow-hidden rounded-xl shadow-md relative group aspect-[4/3] cursor-pointer" data-category="food">
+        <img src="assets/images/1603894584373-5ac82b2ae398.jpg" alt="Butter Chicken in copper handi" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end p-4">
+          <h3 class="font-display text-xl text-white">Butter Chicken in Copper Handi</h3>
+        </div>
+      </div>
+
+      <!-- Item 3 -->
+      <div class="gallery-item overflow-hidden rounded-xl shadow-md relative group aspect-[4/3] cursor-pointer" data-category="ambiance">
+        <img src="assets/images/1517248135467-4c7edcad34c4.jpg" alt="Restaurant Interior Dusk" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end p-4">
+          <h3 class="font-display text-xl text-white">Ambiance at Dusk</h3>
+        </div>
+      </div>
+
+      <!-- Item 4 -->
+      <div class="gallery-item overflow-hidden rounded-xl shadow-md relative group aspect-[4/3] cursor-pointer" data-category="food">
+        <img src="assets/images/1546833999-b9f581a1996d.jpg" alt="Dal Makhani slow cooked" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end p-4">
+          <h3 class="font-display text-xl text-white">Slow-Simmered Dal Makhani</h3>
+        </div>
+      </div>
+
+      <!-- Item 5 -->
+      <div class="gallery-item overflow-hidden rounded-xl shadow-md relative group aspect-[4/3] cursor-pointer" data-category="food">
+        <img src="assets/images/1563379091339-03246963d96c.jpg" alt="Dum Biryani" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end p-4">
+          <h3 class="font-display text-xl text-white">Aromatic Dum Biryani</h3>
+        </div>
+      </div>
+
+      <!-- Item 6 -->
+      <div class="gallery-item overflow-hidden rounded-xl shadow-md relative group aspect-[4/3] cursor-pointer" data-category="ambiance">
+        <img src="assets/images/1544148103-0773bf10d330.jpg" alt="Dining Table Setting" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end p-4">
+          <h3 class="font-display text-xl text-white">Elegant Candlelit Setting</h3>
+        </div>
+      </div>
+
+      <!-- Item 7 -->
+      <div class="gallery-item overflow-hidden rounded-xl shadow-md relative group aspect-[4/3] cursor-pointer" data-category="chefs-table">
+        <img src="assets/images/1583394838336-acd977736f90.jpg" alt="Chef Plating Fine Dining" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end p-4">
+          <h3 class="font-display text-xl text-white">Precision Plating</h3>
+        </div>
+      </div>
+
+      <!-- Item 8 -->
+      <div class="gallery-item overflow-hidden rounded-xl shadow-md relative group aspect-[4/3] cursor-pointer" data-category="events">
+        <img src="assets/images/1585937421612-70a008356fbe.jpg" alt="Events Feast" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end p-4">
+          <h3 class="font-display text-xl text-white">The Grand Celebration</h3>
+        </div>
+      </div>
+
+      <!-- Item 9 -->
+      <div class="gallery-item overflow-hidden rounded-xl shadow-md relative group aspect-[4/3] cursor-pointer" data-category="food">
+        <img src="assets/images/1626202488801-447a1ecb94a6.jpg" alt="Spice Infused Cocktails" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end p-4">
+          <h3 class="font-display text-xl text-white">Spice-Infused Cocktails</h3>
+        </div>
+      </div>
+
+      <!-- Item 10 -->
+      <div class="gallery-item overflow-hidden rounded-xl shadow-md relative group aspect-[4/3] cursor-pointer" data-category="food">
+        <img src="assets/images/1512152272829-e3139592d56f.jpg" alt="Bread in Tandoor" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end p-4">
+          <h3 class="font-display text-xl text-white">Tandoori Baking</h3>
+        </div>
+      </div>
+
+      <!-- Item 11 -->
+      <div class="gallery-item overflow-hidden rounded-xl shadow-md relative group aspect-[4/3] cursor-pointer" data-category="food">
+        <img src="assets/images/1601050690597-df0568f70950.jpg" alt="Saffron Dessert" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end p-4">
+          <h3 class="font-display text-xl text-white">Saffron Gulab Jamun</h3>
+        </div>
+      </div>
+
+      <!-- Item 12 -->
+      <div class="gallery-item overflow-hidden rounded-xl shadow-md relative group aspect-[4/3] cursor-pointer" data-category="food">
+        <img src="assets/images/1565557623262-b51c2513a641.jpg" alt="Palak Paneer" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end p-4">
+          <h3 class="font-display text-xl text-white">Creamy Palak Paneer</h3>
+        </div>
+      </div>
+
+      <!-- Item 13 -->
+      <div class="gallery-item overflow-hidden rounded-xl shadow-md relative group aspect-[4/3] cursor-pointer" data-category="chefs-table">
+        <img src="assets/images/1596450514735-a11c15f58cbf.jpg" alt="Wine Pairings" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end p-4">
+          <h3 class="font-display text-xl text-white">Curated Wine Selection</h3>
+        </div>
+      </div>
+
+      <!-- Item 14 -->
+      <div class="gallery-item overflow-hidden rounded-xl shadow-md relative group aspect-[4/3] cursor-pointer" data-category="events">
+        <img src="assets/images/1524661135-423995f22d0b.jpg" alt="Dining Celebration" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end p-4">
+          <h3 class="font-display text-xl text-white">Private Banquets</h3>
+        </div>
+      </div>
+
+      <!-- Item 15 -->
+      <div class="gallery-item overflow-hidden rounded-xl shadow-md relative group aspect-[4/3] cursor-pointer" data-category="ambiance">
+        <img src="assets/images/1555396273-367ea4eb4db5.jpg" alt="Heritage Arch Hall" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end p-4">
+          <h3 class="font-display text-xl text-white">Heritage Arch Dining</h3>
+        </div>
+      </div>
+
+      <!-- Item 16 -->
+      <div class="gallery-item overflow-hidden rounded-xl shadow-md relative group aspect-[4/3] cursor-pointer" data-category="ambiance">
+        <img src="assets/images/1559339352-11d035aa65de.jpg" alt="Main Restaurant Lounge" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end p-4">
+          <h3 class="font-display text-xl text-white">Royal Main Hall</h3>
+        </div>
+      </div>
+
+      <!-- Item 17 -->
+      <div class="gallery-item overflow-hidden rounded-xl shadow-md relative group aspect-[4/3] cursor-pointer" data-category="events">
+        <img src="assets/images/1559847844-5315695dadae.jpg" alt="Private Party Event" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end p-4">
+          <h3 class="font-display text-xl text-white">Exclusive Soirées</h3>
+        </div>
+      </div>
+
+      <!-- Item 18 -->
+      <div class="gallery-item overflow-hidden rounded-xl shadow-md relative group aspect-[4/3] cursor-pointer" data-category="chefs-table">
+        <img src="assets/images/1571115177098-24c42d5e056c.jpg" alt="Cooking Masterclass" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end p-4">
+          <h3 class="font-display text-xl text-white">Kitchen Masterclasses</h3>
+        </div>
+      </div>
+
+      <!-- Item 19 -->
+      <div class="gallery-item overflow-hidden rounded-xl shadow-md relative group aspect-[4/3] cursor-pointer" data-category="chefs-table">
+        <img src="assets/images/1577219491135-ce391730fb2c.jpg" alt="Chef Priya at Work" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end p-4">
+          <h3 class="font-display text-xl text-white">Sous Chef Station</h3>
+        </div>
+      </div>
+
+      <!-- Item 20 -->
+      <div class="gallery-item overflow-hidden rounded-xl shadow-md relative group aspect-[4/3] cursor-pointer" data-category="events">
+        <img src="assets/images/1581299894007-aaa502973624.jpg" alt="Michelin Gala Dinner" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end p-4">
+          <h3 class="font-display text-xl text-white">Michelin Star Celebrations</h3>
+        </div>
+      </div>
+
+      <!-- Item 21 -->
+      <div class="gallery-item overflow-hidden rounded-xl shadow-md relative group aspect-[4/3] cursor-pointer" data-category="chefs-table">
+        <img src="assets/images/1583394205465-4f7f6ec4a0af.jpg" alt="Backstage Kitchen Team" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end p-4">
+          <h3 class="font-display text-xl text-white">Behind The Scenes</h3>
+        </div>
+      </div>
+
+      <!-- Item 22 -->
+      <div class="gallery-item overflow-hidden rounded-xl shadow-md relative group aspect-[4/3] cursor-pointer" data-category="food">
+        <img src="assets/images/1589302168068-964664d93dc0.jpg" alt="Traditional Curry Spread" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end p-4">
+          <h3 class="font-display text-xl text-white">Signature Curry Spread</h3>
+        </div>
+      </div>
+
+      <!-- Item 23 -->
+      <div class="gallery-item overflow-hidden rounded-xl shadow-md relative group aspect-[4/3] cursor-pointer" data-category="ambiance">
+        <img src="assets/images/1595273670150-bd0c3c392e46.jpg" alt="Premium Wine Cellar" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end p-4">
+          <h3 class="font-display text-xl text-white">Private Reserve Cellar</h3>
+        </div>
+      </div>
+
+      <!-- Item 24 -->
+      <div class="gallery-item overflow-hidden rounded-xl shadow-md relative group aspect-[4/3] cursor-pointer" data-category="ambiance">
+        <img src="assets/images/1596645399583-93fb990422d3.jpg" alt="Organic Spice Gardens" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end p-4">
+          <h3 class="font-display text-xl text-white">Our Spice Farms</h3>
+        </div>
+      </div>
+
+      <!-- Item 25 -->
+      <div class="gallery-item overflow-hidden rounded-xl shadow-md relative group aspect-[4/3] cursor-pointer" data-category="events">
+        <img src="assets/images/1599487488170-d11ec9c172f0.jpg" alt="Indian Festival Buffet Setup" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end p-4">
+          <h3 class="font-display text-xl text-white">Festival Banqueting</h3>
+        </div>
+      </div>
+
+      <!-- Item 26 -->
+      <div class="gallery-item overflow-hidden rounded-xl shadow-md relative group aspect-[4/3] cursor-pointer" data-category="chefs-table">
+        <img src="assets/images/1600565193348-f74bd3c7ccdf.jpg" alt="Pastry Dessert Plating" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end p-4">
+          <h3 class="font-display text-xl text-white">Pastry Station Artistry</h3>
+        </div>
+      </div>
+
+      <!-- Item 27 -->
+      <div class="gallery-item overflow-hidden rounded-xl shadow-md relative group aspect-[4/3] cursor-pointer" data-category="chefs-table">
+        <img src="assets/images/1605809778105-0f6990497555.jpg" alt="Chef Arjun Kapoor Portrait" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end p-4">
+          <h3 class="font-display text-xl text-white">Chef Arjun Kapoor</h3>
+        </div>
+      </div>
+
+      <!-- Item 28 -->
+      <div class="gallery-item overflow-hidden rounded-xl shadow-md relative group aspect-[4/3] cursor-pointer" data-category="food">
+        <img src="assets/images/1621343756247-495cc17855b4.jpg" alt="Tandoori master preparations" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end p-4">
+          <h3 class="font-display text-xl text-white">Tandoori Naan Prep</h3>
+        </div>
+      </div>
+
+      <!-- Item 29 -->
+      <div class="gallery-item overflow-hidden rounded-xl shadow-md relative group aspect-[4/3] cursor-pointer" data-category="food">
+        <img src="assets/images/1626074961559-0f6244f6c449.jpg" alt="Paneer Tikka Platter" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end p-4">
+          <h3 class="font-display text-xl text-white">Sizzling Paneer Tikka</h3>
+        </div>
+      </div>
+
+      <!-- Item 30 -->
+      <div class="gallery-item overflow-hidden rounded-xl shadow-md relative group aspect-[4/3] cursor-pointer" data-category="food">
+        <img src="assets/images/1631515243349-e0cb75fb8d3a.jpg" alt="Artisanal Indian Snacks Platter" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end p-4">
+          <h3 class="font-display text-xl text-white">Signature Indian Starters</h3>
+        </div>
+      </div>
+
+      <!-- Item 31 -->
+      <div class="gallery-item overflow-hidden rounded-xl shadow-md relative group aspect-[4/3] cursor-pointer" data-category="ambiance">
+        <img src="assets/images/1654922207993-2952fec328ae.jpg" alt="Luxe Cocktail Bar Lounge" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end p-4">
+          <h3 class="font-display text-xl text-white">The Cocktail Lounge</h3>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-surface-dim py-16 border-t border-outline-variant">
+    <div class="max-w-[1200px] mx-auto px-4 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-10 md:gap-8 mb-12">
+        <div class="col-span-1 md:col-span-1">
+          <a href="index.html" class="flex items-center gap-2 text-primary font-display font-bold text-2xl mb-4">
+            <span class="material-symbols-outlined">local_fire_department</span>
+            Spice & Soul
+          </a>
+          <p class="text-on-surface-variant text-sm font-label uppercase tracking-widest mb-6">Where Heritage Meets Haute Cuisine</p>
+          <div class="flex gap-4">
+            <a href="#" class="text-on-surface hover:text-primary transition"><span class="material-symbols-outlined">photo_camera</span></a>
+            <a href="#" class="text-on-surface hover:text-primary transition"><span class="material-symbols-outlined">thumb_up</span></a>
+            <a href="#" class="text-on-surface hover:text-primary transition"><span class="material-symbols-outlined">alternate_email</span></a>
+          </div>
+        </div>
+        
+        <div>
+          <h4 class="font-label text-sm uppercase font-bold tracking-widest text-on-surface mb-6">Explore</h4>
+          <ul class="space-y-3 text-on-surface-variant text-sm">
+            <li><a href="menu.html" class="hover:text-primary transition">Menu</a></li>
+            <li><a href="about.html" class="hover:text-primary transition">About Us</a></li>
+            <li><a href="reservations.html" class="hover:text-primary transition">Reservations</a></li>
+            <li><a href="gallery.html" class="hover:text-primary transition">Gallery</a></li>
+            <li><a href="reviews.html" class="hover:text-primary transition">Reviews</a></li>
+            <li><a href="blog.html" class="hover:text-primary transition">Blog</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h4 class="font-label text-sm uppercase font-bold tracking-widest text-on-surface mb-6">Contact</h4>
+          <ul class="space-y-3 text-on-surface-variant text-sm">
+            <li class="flex items-start gap-2"><span class="material-symbols-outlined text-[18px]">location_on</span> 12, Rajpath Lane, Colaba, Mumbai</li>
+            <li class="flex items-center gap-2"><span class="material-symbols-outlined text-[18px]">call</span> +91-22-4567-8900</li>
+            <li class="flex items-center gap-2"><span class="material-symbols-outlined text-[18px]">mail</span> dine@spiceandsoul.in</li>
+          </ul>
+        </div>
+        
+        <div>
+          <h4 class="font-label text-sm uppercase font-bold tracking-widest text-on-surface mb-6">Hours</h4>
+          <ul class="space-y-3 text-on-surface-variant text-sm">
+            <li>Mon–Thu: 12:00 PM – 11:00 PM</li>
+            <li>Fri–Sun: 12:00 PM – Midnight</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="pt-8 border-t border-outline-variant text-center text-on-surface-variant text-sm">
+        <p>&copy; 2025 Spice & Soul. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const tabs = document.querySelectorAll("#filter-tabs button");
+      const items = document.querySelectorAll(".gallery-item");
+
+      tabs.forEach(tab => {
+        tab.addEventListener("click", () => {
+          // Reset styling for all tabs
+          tabs.forEach(t => {
+            t.className = "px-6 py-2 rounded-full border border-outline text-on-surface-variant hover:bg-surface-dim font-label text-xs uppercase tracking-wider whitespace-nowrap transition";
+          });
+
+          // Set active styling for the clicked tab
+          tab.className = "px-6 py-2 rounded-full bg-primary text-white font-label text-xs uppercase tracking-wider whitespace-nowrap transition";
+
+          const filter = tab.getAttribute("data-filter");
+
+          items.forEach(item => {
+            const category = item.getAttribute("data-category");
+            if (filter === "all" || category === filter) {
+              item.classList.remove("hidden");
+              // Trigger smooth transition
+              setTimeout(() => {
+                item.style.opacity = "1";
+                item.style.transform = "scale(1)";
+              }, 50);
+            } else {
+              item.style.opacity = "0";
+              item.style.transform = "scale(0.95)";
+              setTimeout(() => {
+                item.classList.add("hidden");
+              }, 400);
+            }
+          });
+        });
+      });
+    });
+  </script>
+</body>
+</html>

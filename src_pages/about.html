@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us | Spice & Soul</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Playfair+Display:ital,wght@0,600;0,700;0,900;1,600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#8f4e00",
+            "on-primary": "#ffffff",
+            "primary-container": "#ff9933",
+            "on-primary-container": "#693800",
+            "secondary": "#755b00",
+            "on-secondary": "#ffffff",
+            "secondary-container": "#fecb32",
+            "background": "#fff8f5",
+            "surface": "#fff8f5",
+            "surface-dim": "#e8d7cb",
+            "on-surface": "#231a13",
+            "on-surface-variant": "#554336",
+            "outline": "#887364",
+            "inverse-surface": "#392e27",
+            "tertiary": "#006685",
+            "error": "#ba1a1a",
+          },
+          fontFamily: {
+            "display": ["Playfair Display", "serif"],
+            "headline": ["Playfair Display", "serif"],
+            "body": ["Montserrat", "sans-serif"],
+            "label": ["Montserrat", "sans-serif"],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body { background-color: #fff8f5; color: #231a13; }
+    .glass-nav { backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); background: rgba(255, 244, 225, 0.75) !important; border-bottom: 1px solid rgba(254, 203, 50, 0.35) !important; box-shadow: 0 4px 30px rgba(143, 78, 0, 0.05); }
+    .gold-button {
+      background: linear-gradient(135deg, #ff9933 0%, #ffcc33 100%);
+      box-shadow: 0 4px 15px rgba(255, 153, 51, 0.3);
+      transition: all 0.3s ease;
+    }
+    .gold-button:hover { transform: scale(1.02); }
+    .hero-gradient { background: linear-gradient(rgba(143, 78, 0, 0.6), rgba(35, 26, 19, 0.8)); }
+    .mandala-pattern {
+      background-image: radial-gradient(#8f4e00 0.5px, transparent 0.5px), radial-gradient(#8f4e00 0.5px, #fff8f5 0.5px);
+      background-size: 40px 40px; background-position: 0 0, 20px 20px; opacity: 0.05;
+      position: absolute; top: 0; left: 0; right: 0; bottom: 0; z-index: 0; pointer-events: none;
+    }
+    .arch-frame { border-radius: 9999px 9999px 0 0; }
+
+    /* Scroll Reveal & Royal Golden Styles */
+    .reveal-element {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .reveal-element.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .reveal-left {
+      opacity: 0;
+      transform: translateX(-50px);
+      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .reveal-left.active {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    .reveal-right {
+      opacity: 0;
+      transform: translateX(50px);
+      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .reveal-right.active {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    
+    .timeline-bg {
+      background: linear-gradient(180deg, #0a0601 0%, #150d03 50%, #080501 100%);
+    }
+    .gold-gradient-text {
+      background: linear-gradient(135deg, #ffe082 0%, #fecb32 50%, #c59b27 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .gold-glow {
+      text-shadow: 0 0 10px rgba(254, 203, 50, 0.3);
+    }
+    .timeline-line-glow {
+      background: linear-gradient(to bottom, transparent, #fecb32 15%, #ff9933 50%, #fecb32 85%, transparent);
+      box-shadow: 0 0 8px rgba(254, 203, 50, 0.4);
+    }
+    .pulse-gold {
+      box-shadow: 0 0 0 0 rgba(254, 203, 50, 0.7);
+      animation: pulseGoldAnim 2s infinite;
+    }
+    @keyframes pulseGoldAnim {
+      0% {
+        transform: translate(-50%, -50%) scale(0.95);
+        box-shadow: 0 0 0 0 rgba(254, 203, 50, 0.7);
+      }
+      70% {
+        transform: translate(-50%, -50%) scale(1.1);
+        box-shadow: 0 0 0 12px rgba(254, 203, 50, 0);
+      }
+      100% {
+        transform: translate(-50%, -50%) scale(0.95);
+        box-shadow: 0 0 0 0 rgba(254, 203, 50, 0);
+      }
+    }
+    
+    /* Interactive Floating Year Images on Hover */
+    .timeline-image-float {
+      transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+      transform: translateY(20px) scale(0.9) rotate(-2deg);
+      pointer-events: none;
+    }
+    .timeline-item-group:hover .timeline-image-float {
+      opacity: 1 !important;
+      transform: translateY(0) scale(1) rotate(0deg);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), 0 0 20px rgba(254, 203, 50, 0.2);
+    }
+  </style>
+</head>
+<body class="font-body antialiased selection:bg-primary-container selection:text-on-surface relative">
+
+  <!-- Nav -->
+  <nav class="glass-nav fixed w-full z-50 top-0 border-b border-surface-dim">
+    <div class="max-w-[1200px] mx-auto px-4 lg:px-8 h-20 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-2 text-primary font-display font-bold text-2xl md:text-3xl">
+        <span class="material-symbols-outlined text-3xl">local_fire_department</span>
+        Spice & Soul
+      </a>
+      <div class="hidden md:flex items-center gap-8 text-on-surface font-label text-sm uppercase tracking-wider font-semibold">
+        <a href="menu.html" class="hover:text-primary transition">Menu</a>
+        <a href="about.html" class="text-primary transition">About Us</a>
+        <a href="reservations.html" class="hover:text-primary transition">Reservations</a>
+        <a href="gallery.html" class="hover:text-primary transition">Gallery</a>
+        <a href="reviews.html" class="hover:text-primary transition">Reviews</a>
+        <a href="contact.html" class="hover:text-primary transition">Contact</a>
+      </div>
+      <a href="reservations.html" class="gold-button hidden md:inline-flex px-6 py-2.5 rounded text-sm font-bold uppercase tracking-wider text-on-surface">Book Table</a>
+      <button class="md:hidden text-on-surface"><span class="material-symbols-outlined text-3xl">menu</span></button>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="relative h-[60vh] min-h-[400px] flex items-center justify-center overflow-hidden">
+    <div class="absolute inset-0 z-0">
+      <img src="assets/images/1559339352-11d035aa65de.jpg" alt="Restaurant Interior" class="w-full h-full object-cover" />
+      <div class="absolute inset-0 hero-gradient"></div>
+    </div>
+    <div class="relative z-10 text-center px-4 max-w-4xl mt-20">
+      <p class="font-label text-sm uppercase tracking-widest text-primary-container mb-4">Discover</p>
+      <h1 class="font-display font-bold text-white text-5xl md:text-6xl lg:text-[72px] leading-tight tracking-tight drop-shadow-lg">
+        Our Story
+      </h1>
+    </div>
+  </header>
+
+  <!-- Brand Story Section -->
+  <section class="py-20 md:py-28 bg-surface relative">
+    <div class="mandala-pattern"></div>
+    <div class="max-w-[1200px] mx-auto px-4 lg:px-8 relative z-10">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-24 items-center">
+        <div>
+          <h2 class="font-display italic text-3xl md:text-4xl text-primary leading-relaxed border-l-4 border-primary pl-8">
+            "Food is not just nourishment — it is memory, it is culture, it is love."
+          </h2>
+        </div>
+        <div>
+          <p class="text-on-surface-variant text-lg leading-relaxed mb-6">
+            Founded in 2008 by Chef Arjun Kapoor, Spice & Soul was born from a singular vision: to honor the magnificent culinary diversity of India in a setting befitting its royal heritage.
+          </p>
+          <p class="text-on-surface-variant text-lg leading-relaxed">
+            What began as a small family recipe has grown into a celebrated dining institution, earning two Michelin stars and the hearts of guests from across the world.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Our Philosophy Section -->
+  <section class="py-24 bg-surface border-y border-surface-dim overflow-hidden">
+    <div class="max-w-[1200px] mx-auto px-4 lg:px-8">
+      <div class="text-center mb-24">
+        <p class="font-label text-sm uppercase tracking-widest text-primary mb-3">Our Core Pillars</p>
+        <h2 class="font-display text-4xl md:text-5xl text-on-surface font-bold">Culinary Philosophy</h2>
+        <div class="w-24 h-1 bg-primary-container mx-auto mt-6"></div>
+      </div>
+
+      <!-- Tier 1: Farm to Table -->
+      <div class="flex flex-col md:flex-row items-center gap-12 md:gap-16 mb-28 reveal-element">
+        <div class="w-full md:w-1/2 relative group reveal-left">
+          <div class="absolute -inset-2 bg-gradient-to-tr from-primary/10 to-transparent rounded-2xl -z-10 group-hover:scale-105 transition duration-500"></div>
+          <div class="h-[450px] overflow-hidden rounded-2xl shadow-xl">
+            <img src="assets/images/1596645399583-93fb990422d3.jpg" alt="Farm to Table" class="w-full h-full object-cover hover:scale-105 transition duration-700">
+          </div>
+        </div>
+        <div class="w-full md:w-1/2 reveal-right">
+          <span class="font-label text-xs uppercase tracking-widest text-primary font-bold bg-primary/5 px-3 py-1.5 rounded-full">Pillar One</span>
+          <h3 class="font-display text-3xl md:text-4xl text-on-surface mt-4 mb-6 font-bold">Farm to Table</h3>
+          <p class="text-on-surface-variant text-lg leading-relaxed mb-6">
+            Every spice, grain, and herb at Spice & Soul tells a story of the soil it was grown in. We bypass industrial supply chains to partner directly with family-owned spice estates in Kerala and heritage wheat farms in Rajasthan.
+          </p>
+          <ul class="space-y-4">
+            <li class="flex items-start gap-3">
+              <span class="material-symbols-outlined text-primary mt-1">check_circle</span>
+              <div>
+                <strong class="text-on-surface block font-semibold">100% Organic Spices</strong>
+                <span class="text-on-surface-variant text-sm">Harvested at the peak of flavor and stone-ground by hand.</span>
+              </div>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="material-symbols-outlined text-primary mt-1">check_circle</span>
+              <div>
+                <strong class="text-on-surface block font-semibold">Ethical Sourcing</strong>
+                <span class="text-on-surface-variant text-sm">Direct-trade relations ensuring fair prices and sustainability for farmers.</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Tier 2: Heirloom Recipes -->
+      <div class="flex flex-col md:flex-row-reverse items-center gap-12 md:gap-16 mb-28 reveal-element">
+        <div class="w-full md:w-1/2 relative group reveal-right">
+          <div class="absolute -inset-2 bg-gradient-to-tr from-primary/10 to-transparent rounded-2xl -z-10 group-hover:scale-105 transition duration-500"></div>
+          <div class="h-[450px] overflow-hidden rounded-2xl shadow-xl">
+            <img src="assets/images/1603894584373-5ac82b2ae398.jpg" alt="Heirloom Recipes" class="w-full h-full object-cover hover:scale-105 transition duration-700">
+          </div>
+        </div>
+        <div class="w-full md:w-1/2 reveal-left">
+          <span class="font-label text-xs uppercase tracking-widest text-primary font-bold bg-primary/5 px-3 py-1.5 rounded-full">Pillar Two</span>
+          <h3 class="font-display text-3xl md:text-4xl text-on-surface mt-4 mb-6 font-bold">Heirloom Recipes</h3>
+          <p class="text-on-surface-variant text-lg leading-relaxed mb-6">
+            Our kitchen is a sanctuary of time-honored culinary secrets. We do not write down our master spice-blend ratios; they are passed down through oral tradition and intensive apprenticeship, preserving the pure soul of regional Indian home cooking.
+          </p>
+          <ul class="space-y-4">
+            <li class="flex items-start gap-3">
+              <span class="material-symbols-outlined text-primary mt-1">check_circle</span>
+              <div>
+                <strong class="text-on-surface block font-semibold">Ancestral Formulas</strong>
+                <span class="text-on-surface-variant text-sm">Four generations of secret family spice mixes (masalas).</span>
+              </div>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="material-symbols-outlined text-primary mt-1">check_circle</span>
+              <div>
+                <strong class="text-on-surface block font-semibold">Traditional Cooking</strong>
+                <span class="text-on-surface-variant text-sm">Slow-simmered in copper degchis and roasted in hand-crafted clay tandoors.</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Tier 3: Modern Refinement -->
+      <div class="flex flex-col md:flex-row items-center gap-12 md:gap-16 reveal-element">
+        <div class="w-full md:w-1/2 relative group reveal-left">
+          <div class="absolute -inset-2 bg-gradient-to-tr from-primary/10 to-transparent rounded-2xl -z-10 group-hover:scale-105 transition duration-500"></div>
+          <div class="h-[450px] overflow-hidden rounded-2xl shadow-xl">
+            <img src="assets/images/1517248135467-4c7edcad34c4.jpg" alt="Modern Refinement" class="w-full h-full object-cover hover:scale-105 transition duration-700">
+          </div>
+        </div>
+        <div class="w-full md:w-1/2 reveal-right">
+          <span class="font-label text-xs uppercase tracking-widest text-primary font-bold bg-primary/5 px-3 py-1.5 rounded-full">Pillar Three</span>
+          <h3 class="font-display text-3xl md:text-4xl text-on-surface mt-4 mb-6 font-bold">Modern Refinement</h3>
+          <p class="text-on-surface-variant text-lg leading-relaxed mb-6">
+            While we respect our heritage, we are not bound by it. We blend traditional flavors with modern culinary science, creating multisensory dining experiences that surprise and delight the contemporary global palate.
+          </p>
+          <ul class="space-y-4">
+            <li class="flex items-start gap-3">
+              <span class="material-symbols-outlined text-primary mt-1">check_circle</span>
+              <div>
+                <strong class="text-on-surface block font-semibold">Contemporary Plating</strong>
+                <span class="text-on-surface-variant text-sm">Aesthetic presentation designed to captivate visual senses.</span>
+              </div>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="material-symbols-outlined text-primary mt-1">check_circle</span>
+              <div>
+                <strong class="text-on-surface block font-semibold">Multisensory Tasting</strong>
+                <span class="text-on-surface-variant text-sm">Balanced textures and temperatures that redefine familiar dishes.</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Meet the Chef Section -->
+  <section class="py-20 md:py-28 bg-surface">
+    <div class="max-w-[1200px] mx-auto px-4 lg:px-8">
+      <div class="flex flex-col md:flex-row gap-12 lg:gap-20 items-center">
+        <div class="flex-1 w-full max-w-md relative">
+          <div class="absolute -inset-4 border border-primary/20 arch-frame z-0 translate-y-4 translate-x-4"></div>
+          <img src="assets/images/1605809778105-0f6990497555.jpg" alt="Chef Arjun Kapoor" class="w-full arch-frame shadow-2xl relative z-10 object-cover aspect-[3/4] grayscale-[20%] hover:grayscale-0 transition duration-500">
+        </div>
+        <div class="flex-1">
+          <p class="font-label text-sm uppercase tracking-widest text-primary mb-2">Executive Chef & Founder</p>
+          <h2 class="font-display text-4xl md:text-5xl text-on-surface mb-6">Chef Arjun Kapoor</h2>
+          <p class="text-on-surface-variant text-lg leading-relaxed mb-8">
+            "With over 25 years in India's finest kitchens and training at Le Cordon Bleu Paris, Chef Arjun returns to his roots with a mission to elevate traditional Indian cuisine to the global fine-dining stage."
+          </p>
+          <div class="space-y-4">
+            <div class="flex items-center gap-4 text-on-surface-variant">
+              <span class="material-symbols-outlined text-secondary">workspace_premium</span>
+              <span class="font-semibold">Michelin Star 2019, 2022</span>
+            </div>
+            <div class="flex items-center gap-4 text-on-surface-variant">
+              <span class="material-symbols-outlined text-secondary">workspace_premium</span>
+              <span class="font-semibold">Best Indian Restaurant — Times Food Awards</span>
+            </div>
+            <div class="flex items-center gap-4 text-on-surface-variant">
+              <span class="material-symbols-outlined text-secondary">workspace_premium</span>
+              <span class="font-semibold">Asia's 50 Best Restaurants 2023</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>  <!-- Timeline Section -->
+  <section class="py-28 timeline-bg text-white relative overflow-hidden">
+    <div class="mandala-pattern opacity-[0.03]"></div>
+    <div class="max-w-[1100px] mx-auto px-4 lg:px-8 relative z-10">
+      
+      <div class="text-center mb-24 reveal-element">
+        <p class="font-label text-sm uppercase tracking-widest text-secondary-container font-bold mb-3">Our Legacy</p>
+        <h2 class="font-display text-4xl md:text-5xl font-bold gold-gradient-text gold-glow">Our Journey</h2>
+        <div class="w-24 h-1 bg-secondary-container mx-auto mt-6"></div>
+      </div>
+      
+      <div class="relative ml-4 md:mx-auto">
+        <!-- Glowing vertical timeline line -->
+        <div class="md:absolute md:top-0 md:bottom-0 md:left-1/2 md:w-[2px] timeline-line-glow md:-translate-x-1/2 hidden md:block"></div>
+        <div class="absolute top-0 bottom-0 left-4 w-[2px] timeline-line-glow md:hidden"></div>
+        
+        <!-- Milestone 1 (2008) - Text Left, Image Right -->
+        <div class="mb-24 relative flex flex-col md:flex-row md:justify-between items-center w-full timeline-item-group cursor-pointer reveal-element">
+          <div class="hidden md:block w-5/12 text-right pr-12 reveal-left">
+            <h3 class="font-display text-7xl font-extrabold gold-gradient-text gold-glow mb-2">2008</h3>
+            <h4 class="font-display text-2xl text-secondary-container font-semibold">The Genesis</h4>
+          </div>
+          <!-- Center Dot -->
+          <div class="absolute left-4 md:left-1/2 w-4 h-4 bg-secondary-container rounded-full md:-translate-x-1/2 z-10 border-4 border-[#0a0601] shadow-[0_0_15px_#fecb32] group-hover:scale-125 transition-transform duration-300"></div>
+          <!-- Floating Image on Right (Desktop) -->
+          <div class="timeline-image-float opacity-0 absolute left-1/2 translate-x-12 w-80 h-52 rounded-2xl border border-secondary-container/20 overflow-hidden z-20 pointer-events-none hidden md:block">
+            <img src="assets/images/1555396273-367ea4eb4db5.jpg" alt="2008 Genesis" class="w-full h-full object-cover">
+          </div>
+          <!-- Right side content on desktop, mobile details -->
+          <div class="pl-12 md:pl-12 md:w-5/12 text-left reveal-right w-full">
+            <h3 class="font-display text-4xl font-extrabold gold-gradient-text gold-glow md:hidden mb-2">2008</h3>
+            <h4 class="font-display text-xl text-secondary-container font-semibold md:hidden mb-3">The Genesis</h4>
+            <p class="text-white/80 text-lg leading-relaxed">
+              Chef Arjun Kapoor establishes a modest 30-seat eatery in Mumbai's historic Colaba district. Infusing family secrets with refined cooking techniques, Spice & Soul immediately sets a new benchmark for regional Indian gastronomy.
+            </p>
+            <div class="mt-4 md:hidden rounded-xl overflow-hidden shadow-lg border border-secondary-container/10">
+              <img src="assets/images/1555396273-367ea4eb4db5.jpg" alt="2008 Genesis" class="w-full h-48 object-cover">
+            </div>
+          </div>
+        </div>
+        
+        <!-- Milestone 2 (2012) - Text Right, Image Left -->
+        <div class="mb-24 relative flex flex-col md:flex-row-reverse md:justify-between items-center w-full timeline-item-group cursor-pointer reveal-element">
+          <div class="hidden md:block w-5/12 text-left pl-12 reveal-right">
+            <h3 class="font-display text-7xl font-extrabold gold-gradient-text gold-glow mb-2">2012</h3>
+            <h4 class="font-display text-2xl text-secondary-container font-semibold">National Expansion</h4>
+          </div>
+          <!-- Center Dot -->
+          <div class="absolute left-4 md:left-1/2 w-4 h-4 bg-secondary-container rounded-full md:-translate-x-1/2 z-10 border-4 border-[#0a0601] shadow-[0_0_15px_#fecb32] group-hover:scale-125 transition-transform duration-300"></div>
+          <!-- Floating Image on Left (Desktop) -->
+          <div class="timeline-image-float opacity-0 absolute right-1/2 -translate-x-12 w-80 h-52 rounded-2xl border border-secondary-container/20 overflow-hidden z-20 pointer-events-none hidden md:block">
+            <img src="assets/images/1517248135467-4c7edcad34c4.jpg" alt="2012 Expansion" class="w-full h-full object-cover">
+          </div>
+          <!-- Left side content on desktop, mobile details -->
+          <div class="pl-12 md:pr-12 md:pl-0 md:w-5/12 text-left md:text-right reveal-left w-full">
+            <h3 class="font-display text-4xl font-extrabold gold-gradient-text gold-glow md:hidden mb-2">2012</h3>
+            <h4 class="font-display text-xl text-secondary-container font-semibold md:hidden mb-3">National Expansion</h4>
+            <p class="text-white/80 text-lg leading-relaxed">
+              Expanding our horizon, we open a flagship dining parlor in New Delhi. Designed with Mughal-inspired arches and marble interiors, the Delhi branch cements Spice & Soul's reputation as a national destination for luxury dining.
+            </p>
+            <div class="mt-4 md:hidden rounded-xl overflow-hidden shadow-lg border border-secondary-container/10">
+              <img src="assets/images/1517248135467-4c7edcad34c4.jpg" alt="2012 Expansion" class="w-full h-48 object-cover">
+            </div>
+          </div>
+        </div>
+
+        <!-- Milestone 3 (2019) - Text Left, Image Right -->
+        <div class="mb-24 relative flex flex-col md:flex-row md:justify-between items-center w-full timeline-item-group cursor-pointer reveal-element">
+          <div class="hidden md:block w-5/12 text-right pr-12 reveal-left">
+            <h3 class="font-display text-7xl font-extrabold gold-gradient-text gold-glow mb-2">2019</h3>
+            <h4 class="font-display text-2xl text-secondary-container font-semibold">The Michelin Star</h4>
+          </div>
+          <!-- Center Dot -->
+          <div class="absolute left-4 md:left-1/2 w-4 h-4 bg-secondary-container rounded-full md:-translate-x-1/2 z-10 border-4 border-[#0a0601] shadow-[0_0_15px_#fecb32] group-hover:scale-125 transition-transform duration-300"></div>
+          <!-- Floating Image on Right (Desktop) -->
+          <div class="timeline-image-float opacity-0 absolute left-1/2 translate-x-12 w-80 h-52 rounded-2xl border border-secondary-container/20 overflow-hidden z-20 pointer-events-none hidden md:block">
+            <img src="assets/images/1581299894007-aaa502973624.jpg" alt="2019 Michelin" class="w-full h-full object-cover">
+          </div>
+          <!-- Right side content on desktop, mobile details -->
+          <div class="pl-12 md:pl-12 md:w-5/12 text-left reveal-right w-full">
+            <h3 class="font-display text-4xl font-extrabold gold-gradient-text gold-glow md:hidden mb-2">2019</h3>
+            <h4 class="font-display text-xl text-secondary-container font-semibold md:hidden mb-3">The Michelin Star</h4>
+            <p class="text-white/80 text-lg leading-relaxed">
+              Spice & Soul makes culinary history by receiving its first Michelin Star. Celebrated for our uncompromising flavor depth and artistic food plating, we gain recognition on the international gastronomic stage.
+            </p>
+            <div class="mt-4 md:hidden rounded-xl overflow-hidden shadow-lg border border-secondary-container/10">
+              <img src="assets/images/1581299894007-aaa502973624.jpg" alt="2019 Michelin" class="w-full h-48 object-cover">
+            </div>
+          </div>
+        </div>
+
+        <!-- Milestone 4 (2022) - Text Right, Image Left -->
+        <div class="mb-24 relative flex flex-col md:flex-row-reverse md:justify-between items-center w-full timeline-item-group cursor-pointer reveal-element">
+          <div class="hidden md:block w-5/12 text-left pl-12 reveal-right">
+            <h3 class="font-display text-7xl font-extrabold gold-gradient-text gold-glow mb-2">2022</h3>
+            <h4 class="font-display text-2xl text-secondary-container font-semibold">Dual Accolades</h4>
+          </div>
+          <!-- Center Dot -->
+          <div class="absolute left-4 md:left-1/2 w-4 h-4 bg-secondary-container rounded-full md:-translate-x-1/2 z-10 border-4 border-[#0a0601] shadow-[0_0_15px_#fecb32] group-hover:scale-125 transition-transform duration-300"></div>
+          <!-- Floating Image on Left (Desktop) -->
+          <div class="timeline-image-float opacity-0 absolute right-1/2 -translate-x-12 w-80 h-52 rounded-2xl border border-secondary-container/20 overflow-hidden z-20 pointer-events-none hidden md:block">
+            <img src="assets/images/1559339352-11d035aa65de.jpg" alt="2022 Dual Accolades" class="w-full h-full object-cover">
+          </div>
+          <!-- Left side content on desktop, mobile details -->
+          <div class="pl-12 md:pr-12 md:pl-0 md:w-5/12 text-left md:text-right reveal-left w-full">
+            <h3 class="font-display text-4xl font-extrabold gold-gradient-text gold-glow md:hidden mb-2">2022</h3>
+            <h4 class="font-display text-xl text-secondary-container font-semibold md:hidden mb-3">Dual Accolades</h4>
+            <p class="text-white/80 text-lg leading-relaxed">
+              We are honored with our second Michelin Star. This achievement reflects our kitchen team's consistent precision and dedication to presenting traditional recipes in bold, innovative structures.
+            </p>
+            <div class="mt-4 md:hidden rounded-xl overflow-hidden shadow-lg border border-secondary-container/10">
+              <img src="assets/images/1559339352-11d035aa65de.jpg" alt="2022 Dual Accolades" class="w-full h-48 object-cover">
+            </div>
+          </div>
+        </div>
+
+        <!-- Milestone 5 (2024) - Text Left, Image Right -->
+        <div class="relative flex flex-col md:flex-row md:justify-between items-center w-full timeline-item-group cursor-pointer reveal-element">
+          <div class="hidden md:block w-5/12 text-right pr-12 reveal-left">
+            <h3 class="font-display text-7xl font-extrabold gold-gradient-text gold-glow mb-2">2024</h3>
+            <h4 class="font-display text-2xl text-secondary-container font-semibold">Global Stage</h4>
+          </div>
+          <!-- Center Dot -->
+          <div class="absolute left-4 md:left-1/2 w-4 h-4 bg-secondary-container rounded-full md:-translate-x-1/2 z-10 border-4 border-[#0a0601] shadow-[0_0_15px_#fecb32] group-hover:scale-125 transition-transform duration-300"></div>
+          <!-- Floating Image on Right (Desktop) -->
+          <div class="timeline-image-float opacity-0 absolute left-1/2 translate-x-12 w-80 h-52 rounded-2xl border border-secondary-container/20 overflow-hidden z-20 pointer-events-none hidden md:block">
+            <img src="assets/images/1544148103-0773bf10d330.jpg" alt="2024 Expansion" class="w-full h-full object-cover">
+          </div>
+          <!-- Right side content on desktop, mobile details -->
+          <div class="pl-12 md:pl-12 md:w-5/12 text-left reveal-right w-full">
+            <h3 class="font-display text-4xl font-extrabold gold-gradient-text gold-glow md:hidden mb-2">2024</h3>
+            <h4 class="font-display text-xl text-secondary-container font-semibold md:hidden mb-3">Global Stage</h4>
+            <p class="text-white/80 text-lg leading-relaxed">
+              We mark our international debut in London's Mayfair district. Bringing single-origin spices and heirloom techniques to Europe, Spice & Soul begins its journey of representing luxury Indian heritage globally.
+            </p>
+            <div class="mt-4 md:hidden rounded-xl overflow-hidden shadow-lg border border-secondary-container/10">
+              <img src="assets/images/1544148103-0773bf10d330.jpg" alt="2024 Expansion" class="w-full h-48 object-cover">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Our Team Section -->
+  <section class="py-20 md:py-28 bg-surface">
+    <div class="max-w-[1200px] mx-auto px-4 lg:px-8 text-center">
+      <h2 class="font-display text-4xl text-on-surface mb-12">The Team</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 gap-y-12">
+        
+        <div class="group">
+          <div class="aspect-[3/4] overflow-hidden rounded-t-full mb-4 border-2 border-transparent group-hover:border-primary transition duration-300">
+            <img src="assets/images/1577219491135-ce391730fb2c.jpg" alt="Sous Chef" class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition duration-500">
+          </div>
+          <h3 class="font-display text-xl font-bold text-on-surface">Priya Sharma</h3>
+          <p class="text-primary font-label text-sm uppercase tracking-wider mt-1">Sous Chef</p>
+        </div>
+        
+        <div class="group">
+          <div class="aspect-[3/4] overflow-hidden rounded-t-full mb-4 border-2 border-transparent group-hover:border-primary transition duration-300">
+            <img src="assets/images/1595273670150-bd0c3c392e46.jpg" alt="Sommelier" class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition duration-500">
+          </div>
+          <h3 class="font-display text-xl font-bold text-on-surface">James Wright</h3>
+          <p class="text-primary font-label text-sm uppercase tracking-wider mt-1">Sommelier</p>
+        </div>
+
+        <div class="group">
+          <div class="aspect-[3/4] overflow-hidden rounded-t-full mb-4 border-2 border-transparent group-hover:border-primary transition duration-300">
+            <img src="assets/images/1600565193348-f74bd3c7ccdf.jpg" alt="Pastry Chef" class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition duration-500">
+          </div>
+          <h3 class="font-display text-xl font-bold text-on-surface">Meera Desai</h3>
+          <p class="text-primary font-label text-sm uppercase tracking-wider mt-1">Pastry Chef</p>
+        </div>
+        
+        <div class="group">
+          <div class="aspect-[3/4] overflow-hidden rounded-t-full mb-4 border-2 border-transparent group-hover:border-primary transition duration-300">
+            <img src="assets/images/1581299894007-aaa502973624.jpg" alt="Maître D'" class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition duration-500">
+          </div>
+          <h3 class="font-display text-xl font-bold text-on-surface">Anil Kumar</h3>
+          <p class="text-primary font-label text-sm uppercase tracking-wider mt-1">Maître D'</p>
+        </div>
+
+        <div class="group">
+          <div class="aspect-[3/4] overflow-hidden rounded-t-full mb-4 border-2 border-transparent group-hover:border-primary transition duration-300">
+            <img src="assets/images/1583394205465-4f7f6ec4a0af.jpg" alt="Head Baker" class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition duration-500">
+          </div>
+          <h3 class="font-display text-xl font-bold text-on-surface">Rahul Singh</h3>
+          <p class="text-primary font-label text-sm uppercase tracking-wider mt-1">Head Baker</p>
+        </div>
+
+        <div class="group">
+          <div class="aspect-[3/4] overflow-hidden rounded-t-full mb-4 border-2 border-transparent group-hover:border-primary transition duration-300">
+            <img src="assets/images/1621343756247-495cc17855b4.jpg" alt="Tandoor Master" class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition duration-500">
+          </div>
+          <h3 class="font-display text-xl font-bold text-on-surface">Sanjay Patel</h3>
+          <p class="text-primary font-label text-sm uppercase tracking-wider mt-1">Tandoor Master</p>
+        </div>
+
+        <div class="group">
+          <div class="aspect-[3/4] overflow-hidden rounded-t-full mb-4 border-2 border-transparent group-hover:border-primary transition duration-300">
+            <img src="assets/images/1583394838336-acd977736f90.jpg" alt="Spice Blender" class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition duration-500">
+          </div>
+          <h3 class="font-display text-xl font-bold text-on-surface">Zara Khan</h3>
+          <p class="text-primary font-label text-sm uppercase tracking-wider mt-1">Spice Blender</p>
+        </div>
+
+        <div class="group">
+          <div class="aspect-[3/4] overflow-hidden rounded-t-full mb-4 border-2 border-transparent group-hover:border-primary transition duration-300">
+            <img src="assets/images/1654922207993-2952fec328ae.jpg" alt="Mixologist" class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition duration-500">
+          </div>
+          <h3 class="font-display text-xl font-bold text-on-surface">David Chen</h3>
+          <p class="text-primary font-label text-sm uppercase tracking-wider mt-1">Head Mixologist</p>
+        </div>
+
+        <div class="group">
+          <div class="aspect-[3/4] overflow-hidden rounded-t-full mb-4 border-2 border-transparent group-hover:border-primary transition duration-300">
+            <img src="assets/images/1581299894007-aaa502973624.jpg" alt="Restaurant Manager" class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition duration-500">
+          </div>
+          <h3 class="font-display text-xl font-bold text-on-surface">Karan Verma</h3>
+          <p class="text-primary font-label text-sm uppercase tracking-wider mt-1">Restaurant Manager</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-surface-dim py-16 border-t border-outline-variant">
+    <div class="max-w-[1200px] mx-auto px-4 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-10 md:gap-8 mb-12">
+        <div class="col-span-1 md:col-span-1">
+          <a href="index.html" class="flex items-center gap-2 text-primary font-display font-bold text-2xl mb-4">
+            <span class="material-symbols-outlined">local_fire_department</span>
+            Spice & Soul
+          </a>
+          <p class="text-on-surface-variant text-sm font-label uppercase tracking-widest mb-6">Where Heritage Meets Haute Cuisine</p>
+          <div class="flex gap-4">
+            <a href="#" class="text-on-surface hover:text-primary transition"><span class="material-symbols-outlined">photo_camera</span></a>
+            <a href="#" class="text-on-surface hover:text-primary transition"><span class="material-symbols-outlined">thumb_up</span></a>
+            <a href="#" class="text-on-surface hover:text-primary transition"><span class="material-symbols-outlined">alternate_email</span></a>
+          </div>
+        </div>
+        
+        <div>
+          <h4 class="font-label text-sm uppercase font-bold tracking-widest text-on-surface mb-6">Explore</h4>
+          <ul class="space-y-3 text-on-surface-variant text-sm">
+            <li><a href="menu.html" class="hover:text-primary transition">Menu</a></li>
+            <li><a href="about.html" class="hover:text-primary transition">About Us</a></li>
+            <li><a href="reservations.html" class="hover:text-primary transition">Reservations</a></li>
+            <li><a href="gallery.html" class="hover:text-primary transition">Gallery</a></li>
+            <li><a href="reviews.html" class="hover:text-primary transition">Reviews</a></li>
+            <li><a href="blog.html" class="hover:text-primary transition">Blog</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h4 class="font-label text-sm uppercase font-bold tracking-widest text-on-surface mb-6">Contact</h4>
+          <ul class="space-y-3 text-on-surface-variant text-sm">
+            <li class="flex items-start gap-2"><span class="material-symbols-outlined text-[18px]">location_on</span> 12, Rajpath Lane, Colaba, Mumbai</li>
+            <li class="flex items-center gap-2"><span class="material-symbols-outlined text-[18px]">call</span> +91-22-4567-8900</li>
+            <li class="flex items-center gap-2"><span class="material-symbols-outlined text-[18px]">mail</span> dine@spiceandsoul.in</li>
+          </ul>
+        </div>
+        
+        <div>
+          <h4 class="font-label text-sm uppercase font-bold tracking-widest text-on-surface mb-6">Hours</h4>
+          <ul class="space-y-3 text-on-surface-variant text-sm">
+            <li>Mon–Thu: 12:00 PM – 11:00 PM</li>
+            <li>Fri–Sun: 12:00 PM – Midnight</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="pt-8 border-t border-outline-variant text-center text-on-surface-variant text-sm">
+        <p>&copy; 2025 Spice & Soul. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.1
+      };
+
+      const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+            const children = entry.target.querySelectorAll('.reveal-left, .reveal-right');
+            children.forEach(child => child.classList.add('active'));
+            observer.unobserve(entry.target);
+          }
+        });
+      }, observerOptions);
+
+      const revealElements = document.querySelectorAll('.reveal-element');
+      revealElements.forEach(el => observer.observe(el));
+    });
+  </script>
+</body>
+</html>

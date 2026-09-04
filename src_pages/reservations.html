@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reservations | Spice & Soul</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Playfair+Display:ital,wght@0,600;0,700;0,900;1,600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#8f4e00",
+            "on-primary": "#ffffff",
+            "primary-container": "#ff9933",
+            "on-primary-container": "#693800",
+            "secondary": "#755b00",
+            "on-secondary": "#ffffff",
+            "secondary-container": "#fecb32",
+            "background": "#fff8f5",
+            "surface": "#fff8f5",
+            "surface-dim": "#e8d7cb",
+            "on-surface": "#231a13",
+            "on-surface-variant": "#554336",
+            "outline": "#887364",
+            "inverse-surface": "#392e27",
+            "tertiary": "#006685",
+            "error": "#ba1a1a",
+          },
+          fontFamily: {
+            "display": ["Playfair Display", "serif"],
+            "headline": ["Playfair Display", "serif"],
+            "body": ["Montserrat", "sans-serif"],
+            "label": ["Montserrat", "sans-serif"],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body { background-color: #fff8f5; color: #231a13; }
+    .glass-nav { backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); background: rgba(255, 244, 225, 0.75) !important; border-bottom: 1px solid rgba(254, 203, 50, 0.35) !important; box-shadow: 0 4px 30px rgba(143, 78, 0, 0.05); }
+    .gold-button {
+      background: linear-gradient(135deg, #ff9933 0%, #ffcc33 100%);
+      box-shadow: 0 4px 15px rgba(255, 153, 51, 0.3);
+      transition: all 0.3s ease;
+    }
+    .gold-button:hover { transform: scale(1.02); }
+    .hero-gradient { background: linear-gradient(rgba(143, 78, 0, 0.7), rgba(35, 26, 19, 0.9)); }
+    .mandala-pattern {
+      background-image: radial-gradient(#8f4e00 0.5px, transparent 0.5px), radial-gradient(#8f4e00 0.5px, #fff8f5 0.5px);
+      background-size: 40px 40px; background-position: 0 0, 20px 20px; opacity: 0.05;
+      position: absolute; top: 0; left: 0; right: 0; bottom: 0; z-index: 0; pointer-events: none;
+    }
+    
+    /* Form Styling */
+    .form-input {
+      width: 100%;
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid #dbc2b0;
+      padding: 0.75rem 0;
+      font-family: 'Montserrat', sans-serif;
+      color: #231a13;
+      transition: border-color 0.3s;
+    }
+    .form-input:focus {
+      outline: none;
+      border-bottom-color: #ff9933;
+      box-shadow: none;
+    }
+    .form-label {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #887364;
+      margin-bottom: 0.25rem;
+      display: block;
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body class="font-body antialiased selection:bg-primary-container selection:text-on-surface relative">
+
+  <!-- Nav -->
+  <nav class="glass-nav fixed w-full z-50 top-0 border-b border-surface-dim">
+    <div class="max-w-[1200px] mx-auto px-4 lg:px-8 h-20 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-2 text-primary font-display font-bold text-2xl md:text-3xl">
+        <span class="material-symbols-outlined text-3xl">local_fire_department</span>
+        Spice & Soul
+      </a>
+      <div class="hidden md:flex items-center gap-8 text-on-surface font-label text-sm uppercase tracking-wider font-semibold">
+        <a href="menu.html" class="hover:text-primary transition">Menu</a>
+        <a href="about.html" class="hover:text-primary transition">About Us</a>
+        <a href="reservations.html" class="text-primary transition">Reservations</a>
+        <a href="gallery.html" class="hover:text-primary transition">Gallery</a>
+        <a href="reviews.html" class="hover:text-primary transition">Reviews</a>
+        <a href="contact.html" class="hover:text-primary transition">Contact</a>
+      </div>
+      <a href="reservations.html" class="gold-button hidden md:inline-flex px-6 py-2.5 rounded text-sm font-bold uppercase tracking-wider text-on-surface">Book Table</a>
+      <button class="md:hidden text-on-surface"><span class="material-symbols-outlined text-3xl">menu</span></button>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="relative h-[60vh] min-h-[400px] flex items-center justify-center overflow-hidden">
+    <div class="absolute inset-0 z-0">
+      <img src="assets/images/1544148103-0773bf10d330.jpg" alt="Candlelit Table Setting" class="w-full h-full object-cover" />
+      <div class="absolute inset-0 hero-gradient"></div>
+    </div>
+    <div class="relative z-10 text-center px-4 max-w-4xl mt-20">
+      <h1 class="font-display font-bold text-white text-5xl md:text-6xl lg:text-[72px] leading-tight tracking-tight drop-shadow-lg mb-6">
+        Reserve Your Experience
+      </h1>
+      <p class="font-display italic text-lg md:text-2xl text-inverse-on-surface mb-10 drop-shadow-md">
+        "Every evening is a curated journey. Secure your table and let us craft an unforgettable evening for you."
+      </p>
+    </div>
+  </header>
+
+  <!-- Content Section -->
+  <section class="py-20 md:py-28 bg-surface relative">
+    <div class="mandala-pattern"></div>
+    <div class="max-w-[1200px] mx-auto px-4 lg:px-8 relative z-10 flex flex-col lg:flex-row gap-16 lg:gap-24">
+      
+      <!-- Form -->
+      <div class="flex-1 max-w-[600px] mx-auto lg:mx-0 w-full bg-white p-8 md:p-12 rounded-lg shadow-sm border border-surface-dim">
+        <h2 class="font-display text-3xl text-on-surface mb-8">Make a Reservation</h2>
+        
+        <form class="space-y-6">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+              <label class="form-label">Full Name</label>
+              <input type="text" class="form-input" placeholder="Arjun Kapoor" required>
+            </div>
+            <div>
+              <label class="form-label">Email Address</label>
+              <input type="email" class="form-input" placeholder="arjun@example.com" required>
+            </div>
+          </div>
+          
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+              <label class="form-label">Phone Number</label>
+              <input type="tel" class="form-input" placeholder="+91 98765 43210" required>
+            </div>
+            <div>
+              <label class="form-label">Number of Guests</label>
+              <select class="form-input text-on-surface-variant cursor-pointer">
+                <option value="1">1 Person</option>
+                <option value="2" selected>2 People</option>
+                <option value="3">3 People</option>
+                <option value="4">4 People</option>
+                <option value="5">5 People</option>
+                <option value="6">6 People</option>
+                <option value="7">7+ People (Private Events)</option>
+              </select>
+            </div>
+          </div>
+          
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+              <label class="form-label">Date</label>
+              <input type="date" class="form-input text-on-surface-variant" required>
+            </div>
+            <div>
+              <label class="form-label">Time</label>
+              <select class="form-input text-on-surface-variant cursor-pointer">
+                <option>12:00 PM</option><option>12:30 PM</option><option>1:00 PM</option>
+                <option>1:30 PM</option><option>2:00 PM</option><option>2:30 PM</option>
+                <option>7:00 PM</option><option selected>7:30 PM</option><option>8:00 PM</option>
+                <option>8:30 PM</option><option>9:00 PM</option><option>9:30 PM</option>
+                <option>10:00 PM</option>
+              </select>
+            </div>
+          </div>
+
+          <div>
+            <label class="form-label">Occasion</label>
+            <select class="form-input text-on-surface-variant cursor-pointer">
+              <option>None</option>
+              <option>Birthday</option>
+              <option>Anniversary</option>
+              <option>Business Dinner</option>
+              <option>Proposal</option>
+              <option>Other</option>
+            </select>
+          </div>
+
+          <div>
+            <label class="form-label">Special Requests / Allergies</label>
+            <textarea class="form-input resize-none" rows="3" placeholder="Please let us know of any dietary requirements..."></textarea>
+          </div>
+
+          <button type="submit" class="gold-button w-full py-4 mt-4 rounded text-sm font-bold uppercase tracking-wider">Confirm Reservation</button>
+        </form>
+      </div>
+
+      <!-- Side Info -->
+      <div class="lg:w-[400px]">
+        <div class="sticky top-32 space-y-12">
+          
+          <div>
+            <span class="inline-block px-3 py-1 bg-surface-dim text-on-surface border border-outline-variant font-label text-xs uppercase tracking-wider rounded-full mb-6">
+              Private Dining Available
+            </span>
+            <h3 class="font-display text-2xl text-on-surface mb-6">Visit Us</h3>
+            <ul class="space-y-4 text-on-surface-variant">
+              <li class="flex items-start gap-4">
+                <span class="material-symbols-outlined text-primary mt-1">location_on</span>
+                <div>
+                  <strong class="block text-on-surface font-semibold">Address</strong>
+                  12, Rajpath Lane,<br>Colaba, Mumbai 400001
+                </div>
+              </li>
+              <li class="flex items-start gap-4">
+                <span class="material-symbols-outlined text-primary mt-1">call</span>
+                <div>
+                  <strong class="block text-on-surface font-semibold">Phone</strong>
+                  +91-22-4567-8900
+                </div>
+              </li>
+              <li class="flex items-start gap-4">
+                <span class="material-symbols-outlined text-primary mt-1">mail</span>
+                <div>
+                  <strong class="block text-on-surface font-semibold">Email</strong>
+                  dine@spiceandsoul.in
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 class="font-display text-2xl text-on-surface mb-6">Opening Hours</h3>
+            <ul class="space-y-2 text-on-surface-variant">
+              <li class="flex justify-between border-b border-surface-dim pb-2">
+                <span>Mon – Thu</span>
+                <span class="font-semibold text-on-surface">12:00 PM – 11:00 PM</span>
+              </li>
+              <li class="flex justify-between border-b border-surface-dim pb-2">
+                <span>Fri – Sun</span>
+                <span class="font-semibold text-on-surface">12:00 PM – Midnight</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="bg-surface-dim p-6 rounded-lg border border-outline-variant text-sm text-on-surface-variant italic">
+            <span class="material-symbols-outlined text-primary float-left mr-3 text-3xl">info</span>
+            "We confirm all reservations within 2 hours via email. For parties of 7 or more, please contact us directly for private dining options."
+          </div>
+
+        </div>
+      </div>
+      
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-surface-dim py-16 border-t border-outline-variant">
+    <div class="max-w-[1200px] mx-auto px-4 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-10 md:gap-8 mb-12">
+        <div class="col-span-1 md:col-span-1">
+          <a href="index.html" class="flex items-center gap-2 text-primary font-display font-bold text-2xl mb-4">
+            <span class="material-symbols-outlined">local_fire_department</span>
+            Spice & Soul
+          </a>
+          <p class="text-on-surface-variant text-sm font-label uppercase tracking-widest mb-6">Where Heritage Meets Haute Cuisine</p>
+          <div class="flex gap-4">
+            <a href="#" class="text-on-surface hover:text-primary transition"><span class="material-symbols-outlined">photo_camera</span></a>
+            <a href="#" class="text-on-surface hover:text-primary transition"><span class="material-symbols-outlined">thumb_up</span></a>
+            <a href="#" class="text-on-surface hover:text-primary transition"><span class="material-symbols-outlined">alternate_email</span></a>
+          </div>
+        </div>
+        
+        <div>
+          <h4 class="font-label text-sm uppercase font-bold tracking-widest text-on-surface mb-6">Explore</h4>
+          <ul class="space-y-3 text-on-surface-variant text-sm">
+            <li><a href="menu.html" class="hover:text-primary transition">Menu</a></li>
+            <li><a href="about.html" class="hover:text-primary transition">About Us</a></li>
+            <li><a href="reservations.html" class="hover:text-primary transition">Reservations</a></li>
+            <li><a href="gallery.html" class="hover:text-primary transition">Gallery</a></li>
+            <li><a href="reviews.html" class="hover:text-primary transition">Reviews</a></li>
+            <li><a href="blog.html" class="hover:text-primary transition">Blog</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h4 class="font-label text-sm uppercase font-bold tracking-widest text-on-surface mb-6">Contact</h4>
+          <ul class="space-y-3 text-on-surface-variant text-sm">
+            <li class="flex items-start gap-2"><span class="material-symbols-outlined text-[18px]">location_on</span> 12, Rajpath Lane, Colaba, Mumbai</li>
+            <li class="flex items-center gap-2"><span class="material-symbols-outlined text-[18px]">call</span> +91-22-4567-8900</li>
+            <li class="flex items-center gap-2"><span class="material-symbols-outlined text-[18px]">mail</span> dine@spiceandsoul.in</li>
+          </ul>
+        </div>
+        
+        <div>
+          <h4 class="font-label text-sm uppercase font-bold tracking-widest text-on-surface mb-6">Hours</h4>
+          <ul class="space-y-3 text-on-surface-variant text-sm">
+            <li>Mon–Thu: 12:00 PM – 11:00 PM</li>
+            <li>Fri–Sun: 12:00 PM – Midnight</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="pt-8 border-t border-outline-variant text-center text-on-surface-variant text-sm">
+        <p>&copy; 2025 Spice & Soul. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

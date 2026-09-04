@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Events & Offers | Spice & Soul</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Playfair+Display:ital,wght@0,600;0,700;0,900;1,600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#8f4e00",
+            "on-primary": "#ffffff",
+            "primary-container": "#ff9933",
+            "on-primary-container": "#693800",
+            "secondary": "#755b00",
+            "on-secondary": "#ffffff",
+            "secondary-container": "#fecb32",
+            "background": "#fff8f5",
+            "surface": "#fff8f5",
+            "surface-dim": "#e8d7cb",
+            "on-surface": "#231a13",
+            "on-surface-variant": "#554336",
+            "outline": "#887364",
+            "inverse-surface": "#392e27",
+            "tertiary": "#006685",
+            "error": "#ba1a1a",
+          },
+          fontFamily: {
+            "display": ["Playfair Display", "serif"],
+            "headline": ["Playfair Display", "serif"],
+            "body": ["Montserrat", "sans-serif"],
+            "label": ["Montserrat", "sans-serif"],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body { background-color: #fff8f5; color: #231a13; }
+    .glass-nav { backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); background: rgba(255, 244, 225, 0.75) !important; border-bottom: 1px solid rgba(254, 203, 50, 0.35) !important; box-shadow: 0 4px 30px rgba(143, 78, 0, 0.05); }
+    .gold-button {
+      background: linear-gradient(135deg, #ff9933 0%, #ffcc33 100%);
+      box-shadow: 0 4px 15px rgba(255, 153, 51, 0.3);
+      transition: all 0.3s ease;
+    }
+    .gold-button:hover { transform: scale(1.02); }
+    .mandala-pattern {
+      background-image: radial-gradient(#8f4e00 0.5px, transparent 0.5px), radial-gradient(#8f4e00 0.5px, #fff8f5 0.5px);
+      background-size: 40px 40px; background-position: 0 0, 20px 20px; opacity: 0.05;
+      position: absolute; top: 0; left: 0; right: 0; bottom: 0; z-index: 0; pointer-events: none;
+    }
+    .ghost-card { transition: all 0.3s ease; border: 1px solid #dbc2b0; background: #fff; }
+    .ghost-card:hover { border-color: #ff9933; transform: translateY(-4px); box-shadow: 0 10px 25px rgba(255, 153, 51, 0.05); }
+    .timeline-line { position: absolute; left: 50%; transform: translateX(-50%); width: 1px; background: #887364; top: 0; bottom: 0; }
+  </style>
+</head>
+<body class="font-body antialiased selection:bg-primary-container selection:text-on-surface relative pt-20">
+
+  <!-- Nav -->
+  <nav class="glass-nav fixed w-full z-50 top-0 border-b border-surface-dim">
+    <div class="max-w-[1200px] mx-auto px-4 lg:px-8 h-20 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-2 text-primary font-display font-bold text-2xl md:text-3xl">
+        <span class="material-symbols-outlined text-3xl">local_fire_department</span>
+        Spice & Soul
+      </a>
+      <div class="hidden md:flex items-center gap-8 text-on-surface font-label text-sm uppercase tracking-wider font-semibold">
+        <a href="menu.html" class="hover:text-primary transition">Menu</a>
+        <a href="about.html" class="hover:text-primary transition">About Us</a>
+        <a href="reservations.html" class="hover:text-primary transition">Reservations</a>
+        <a href="gallery.html" class="hover:text-primary transition">Gallery</a>
+        <a href="reviews.html" class="hover:text-primary transition">Reviews</a>
+        <a href="contact.html" class="hover:text-primary transition">Contact</a>
+      </div>
+      <a href="reservations.html" class="gold-button hidden md:inline-flex px-6 py-2.5 rounded text-sm font-bold uppercase tracking-wider text-on-surface">Book Table</a>
+      <button class="md:hidden text-on-surface"><span class="material-symbols-outlined text-3xl">menu</span></button>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="relative py-24 bg-inverse-surface overflow-hidden text-center text-primary-container">
+    <div class="mandala-pattern opacity-10"></div>
+    <div class="relative z-10 max-w-2xl mx-auto px-4">
+      <h1 class="font-display text-5xl md:text-6xl text-primary-container mb-6">Events & Special Offers</h1>
+      <p class="text-inverse-on-surface/80 text-lg">Curated dining experiences and upcoming celebrations at Spice & Soul.</p>
+    </div>
+  </header>
+
+  <!-- Current Offers Section -->
+  <section class="py-20 md:py-28 bg-surface">
+    <div class="max-w-[1200px] mx-auto px-4 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="font-display text-4xl text-on-surface mb-4">Current Experiences</h2>
+        <div class="w-16 h-1 bg-primary mx-auto"></div>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Offer 1 -->
+        <div class="ghost-card rounded-lg overflow-hidden group flex flex-col relative border border-outline-variant">
+          <div class="h-48 overflow-hidden relative">
+            <img src="assets/images/1596645399583-93fb990422d3.jpg" alt="Weekend Brunch Buffet" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+          </div>
+          <div class="p-8 flex-1 flex flex-col text-center">
+            <h3 class="font-display text-2xl font-bold text-on-surface mb-2">Weekend Brunch Buffet</h3>
+            <p class="font-label text-sm uppercase tracking-wider text-on-surface-variant font-semibold mb-4">Saturdays & Sundays 12–3pm</p>
+            <p class="text-on-surface-variant flex-1 mb-6">Unlimited access to 40+ dishes, live chaat counters, and endless mimosas.</p>
+            <p class="font-display text-2xl text-primary mb-6">₹1499 <span class="text-sm text-on-surface-variant font-body">/person</span></p>
+            <a href="reservations.html" class="block w-full py-3 rounded border border-primary text-primary font-bold uppercase tracking-wider hover:bg-primary hover:text-white transition text-sm">Reserve Now</a>
+          </div>
+        </div>
+
+        <!-- Offer 2 -->
+        <div class="ghost-card rounded-lg overflow-hidden group flex flex-col relative border border-outline-variant">
+          <div class="absolute top-0 right-0 bg-primary text-white text-[10px] uppercase font-label px-3 py-1 tracking-wider rounded-bl-lg z-10">Most Popular</div>
+          <div class="h-48 overflow-hidden relative">
+            <img src="assets/images/1583394838336-acd977736f90.jpg" alt="Chef's Tasting Menu" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+          </div>
+          <div class="p-8 flex-1 flex flex-col text-center">
+            <h3 class="font-display text-2xl font-bold text-on-surface mb-2">Chef's Tasting Menu</h3>
+            <p class="font-label text-sm uppercase tracking-wider text-on-surface-variant font-semibold mb-4">7-Course | Every Friday</p>
+            <p class="text-on-surface-variant flex-1 mb-6">A curated journey through India's spice regions, perfectly paired with fine wines.</p>
+            <p class="font-display text-2xl text-primary mb-6">₹3500 <span class="text-sm text-on-surface-variant font-body">/person</span></p>
+            <a href="reservations.html" class="block w-full py-3 rounded border border-primary text-primary font-bold uppercase tracking-wider hover:bg-primary hover:text-white transition text-sm">Reserve Now</a>
+          </div>
+        </div>
+
+        <!-- Offer 3 -->
+        <div class="ghost-card rounded-lg overflow-hidden group flex flex-col relative border border-outline-variant">
+          <div class="h-48 overflow-hidden relative">
+            <img src="assets/images/1544148103-0773bf10d330.jpg" alt="Romantic Candle-lit Dinner" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+          </div>
+          <div class="p-8 flex-1 flex flex-col text-center">
+            <h3 class="font-display text-2xl font-bold text-on-surface mb-2">Romantic Candle-lit Dinner</h3>
+            <p class="font-label text-sm uppercase tracking-wider text-on-surface-variant font-semibold mb-4">Weekdays for 2</p>
+            <p class="text-on-surface-variant flex-1 mb-6">Private seating, custom multi-course menu, rose décor, and a complimentary bottle of sparkling wine.</p>
+            <p class="font-display text-2xl text-primary mb-6">₹4999 <span class="text-sm text-on-surface-variant font-body">/for 2</span></p>
+            <a href="reservations.html" class="block w-full py-3 rounded border border-primary text-primary font-bold uppercase tracking-wider hover:bg-primary hover:text-white transition text-sm">Reserve Now</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Upcoming Events Section -->
+  <section class="py-28 timeline-bg text-white relative overflow-hidden">
+    <div class="mandala-pattern opacity-[0.03]"></div>
+    <div class="max-w-[1100px] mx-auto px-4 lg:px-8 relative z-10">
+      <div class="text-center mb-24">
+        <p class="font-label text-sm uppercase tracking-widest text-secondary-container font-bold mb-3">Live Experiences</p>
+        <h2 class="font-display text-4xl md:text-5xl font-bold gold-gradient-text gold-glow">Upcoming Events</h2>
+        <div class="w-24 h-1 bg-secondary-container mx-auto mt-6"></div>
+      </div>
+
+      <div class="relative ml-4 md:mx-auto">
+        <div class="md:absolute md:top-0 md:bottom-0 md:left-1/2 md:w-[2px] timeline-line-glow md:-translate-x-1/2 hidden md:block"></div>
+        <div class="absolute top-0 bottom-0 left-4 w-[2px] timeline-line-glow md:hidden"></div>
+        
+        <!-- Event 1 -->
+        <div class="mb-24 relative flex flex-col md:flex-row md:justify-between items-center w-full timeline-item-group cursor-pointer reveal-element">
+          <div class="hidden md:block w-5/12 text-right pr-12 reveal-left">
+            <h3 class="font-display text-7xl font-extrabold gold-gradient-text gold-glow mb-2">NOV 1</h3>
+            <h4 class="font-display text-2xl text-secondary-container font-semibold">Diwali Grand Celebration</h4>
+          </div>
+          <!-- Center Dot -->
+          <div class="absolute left-4 md:left-1/2 w-4 h-4 bg-secondary-container rounded-full md:-translate-x-1/2 z-10 border-4 border-[#0a0601] shadow-[0_0_15px_#fecb32] group-hover:scale-125 transition-transform duration-300"></div>
+          <!-- Floating Image on Right (Desktop) -->
+          <div class="timeline-image-float opacity-0 absolute left-1/2 translate-x-12 w-80 h-52 rounded-2xl border border-secondary-container/20 overflow-hidden z-20 pointer-events-none hidden md:block">
+            <img src="assets/images/1585937421612-70a008356fbe.jpg" alt="Diwali Grand Celebration" class="w-full h-full object-cover">
+          </div>
+          <!-- Right side content on desktop, mobile details -->
+          <div class="pl-12 md:pl-12 md:w-5/12 text-left reveal-right w-full">
+            <h3 class="font-display text-4xl font-extrabold gold-gradient-text gold-glow md:hidden mb-2">NOV 1</h3>
+            <h4 class="font-display text-xl text-secondary-container font-semibold md:hidden mb-3">Diwali Grand Celebration</h4>
+            <p class="text-white/80 text-lg leading-relaxed">
+              A festival of lights, featuring a lavish 10-course feast, live classical music, and traditional decor.
+            </p>
+            <div class="mt-4 md:hidden rounded-xl overflow-hidden shadow-lg border border-secondary-container/10">
+              <img src="assets/images/1585937421612-70a008356fbe.jpg" alt="Diwali Grand Celebration" class="w-full h-48 object-cover">
+            </div>
+          </div>
+        </div>
+
+        <!-- Event 2 -->
+        <div class="mb-24 relative flex flex-col md:flex-row-reverse md:justify-between items-center w-full timeline-item-group cursor-pointer reveal-element">
+          <div class="hidden md:block w-5/12 text-left pl-12 reveal-right">
+            <h3 class="font-display text-7xl font-extrabold gold-gradient-text gold-glow mb-2">SATURDAY</h3>
+            <h4 class="font-display text-2xl text-secondary-container font-semibold">Mughal Feast Night</h4>
+          </div>
+          <!-- Center Dot -->
+          <div class="absolute left-4 md:left-1/2 w-4 h-4 bg-secondary-container rounded-full md:-translate-x-1/2 z-10 border-4 border-[#0a0601] shadow-[0_0_15px_#fecb32] group-hover:scale-125 transition-transform duration-300"></div>
+          <!-- Floating Image on Left (Desktop) -->
+          <div class="timeline-image-float opacity-0 absolute right-1/2 -translate-x-12 w-80 h-52 rounded-2xl border border-secondary-container/20 overflow-hidden z-20 pointer-events-none hidden md:block">
+            <img src="assets/images/1631515243349-e0cb75fb8d3a.jpg" alt="Mughal Feast Night" class="w-full h-full object-cover">
+          </div>
+          <!-- Left side content on desktop, mobile details -->
+          <div class="pl-12 md:pr-12 md:pl-0 md:w-5/12 text-left md:text-right reveal-left w-full">
+            <h3 class="font-display text-4xl font-extrabold gold-gradient-text gold-glow md:hidden mb-2">SATURDAY</h3>
+            <h4 class="font-display text-xl text-secondary-container font-semibold md:hidden mb-3">Mughal Feast Night</h4>
+            <p class="text-white/80 text-lg leading-relaxed">
+              Step back in time to the era of emperors. Enjoy robust dum biryanis, slow-cooked curries, and ghazal performances.
+            </p>
+            <div class="mt-4 md:hidden rounded-xl overflow-hidden shadow-lg border border-secondary-container/10">
+              <img src="assets/images/1631515243349-e0cb75fb8d3a.jpg" alt="Mughal Feast Night" class="w-full h-48 object-cover">
+            </div>
+          </div>
+        </div>
+
+        <!-- Event 3 -->
+        <div class="mb-24 relative flex flex-col md:flex-row md:justify-between items-center w-full timeline-item-group cursor-pointer reveal-element">
+          <div class="hidden md:block w-5/12 text-right pr-12 reveal-left">
+            <h3 class="font-display text-7xl font-extrabold gold-gradient-text gold-glow mb-2">DEC 15</h3>
+            <h4 class="font-display text-2xl text-secondary-container font-semibold">Cooking Masterclass</h4>
+          </div>
+          <!-- Center Dot -->
+          <div class="absolute left-4 md:left-1/2 w-4 h-4 bg-secondary-container rounded-full md:-translate-x-1/2 z-10 border-4 border-[#0a0601] shadow-[0_0_15px_#fecb32] group-hover:scale-125 transition-transform duration-300"></div>
+          <!-- Floating Image on Right (Desktop) -->
+          <div class="timeline-image-float opacity-0 absolute left-1/2 translate-x-12 w-80 h-52 rounded-2xl border border-secondary-container/20 overflow-hidden z-20 pointer-events-none hidden md:block">
+            <img src="assets/images/1583394838336-acd977736f90.jpg" alt="Cooking Masterclass" class="w-full h-full object-cover">
+          </div>
+          <!-- Right side content on desktop, mobile details -->
+          <div class="pl-12 md:pl-12 md:w-5/12 text-left reveal-right w-full">
+            <h3 class="font-display text-4xl font-extrabold gold-gradient-text gold-glow md:hidden mb-2">DEC 15</h3>
+            <h4 class="font-display text-xl text-secondary-container font-semibold md:hidden mb-3">Cooking Masterclass</h4>
+            <p class="text-white/80 text-lg leading-relaxed">
+              Join Chef Arjun Kapoor in the kitchen. Learn the secrets behind our signature dishes followed by a communal lunch.
+            </p>
+            <div class="mt-4 md:hidden rounded-xl overflow-hidden shadow-lg border border-secondary-container/10">
+              <img src="assets/images/1583394838336-acd977736f90.jpg" alt="Cooking Masterclass" class="w-full h-48 object-cover">
+            </div>
+          </div>
+        </div>
+
+        <!-- Event 4 -->
+        <div class="relative flex flex-col md:flex-row-reverse md:justify-between items-center w-full timeline-item-group cursor-pointer reveal-element">
+          <div class="hidden md:block w-5/12 text-left pl-12 reveal-right">
+            <h3 class="font-display text-7xl font-extrabold gold-gradient-text gold-glow mb-2">DEC 31</h3>
+            <h4 class="font-display text-2xl text-secondary-container font-semibold">New Year's Eve Gala</h4>
+          </div>
+          <!-- Center Dot -->
+          <div class="absolute left-4 md:left-1/2 w-4 h-4 bg-secondary-container rounded-full md:-translate-x-1/2 z-10 border-4 border-[#0a0601] shadow-[0_0_15px_#fecb32] group-hover:scale-125 transition-transform duration-300"></div>
+          <!-- Floating Image on Left (Desktop) -->
+          <div class="timeline-image-float opacity-0 absolute right-1/2 -translate-x-12 w-80 h-52 rounded-2xl border border-secondary-container/20 overflow-hidden z-20 pointer-events-none hidden md:block">
+            <img src="assets/images/1544148103-0773bf10d330.jpg" alt="New Year's Eve Gala" class="w-full h-full object-cover">
+          </div>
+          <!-- Left side content on desktop, mobile details -->
+          <div class="pl-12 md:pr-12 md:pl-0 md:w-5/12 text-left md:text-right reveal-left w-full">
+            <h3 class="font-display text-4xl font-extrabold gold-gradient-text gold-glow md:hidden mb-2">DEC 31</h3>
+            <h4 class="font-display text-xl text-secondary-container font-semibold md:hidden mb-3">New Year's Eve Gala</h4>
+            <p class="text-white/80 text-lg leading-relaxed">
+              Ring in the new year with an opulent dining experience, midnight champagne toast, and live DJ.
+            </p>
+            <div class="mt-4 md:hidden rounded-xl overflow-hidden shadow-lg border border-secondary-container/10">
+              <img src="assets/images/1544148103-0773bf10d330.jpg" alt="New Year's Eve Gala" class="w-full h-48 object-cover">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Private Event Enquiry CTA -->
+  <section class="py-20 bg-inverse-surface relative text-center px-4">
+    <div class="relative z-10 max-w-3xl mx-auto">
+      <h2 class="font-display text-4xl text-inverse-on-surface mb-6">Planning a private celebration?</h2>
+      <p class="text-inverse-on-surface/80 text-lg mb-8">
+        From corporate dinners to intimate weddings, our team is ready to curate a bespoke experience for your special day.
+      </p>
+      <a href="contact.html" class="gold-button inline-block px-8 py-3.5 rounded text-sm font-bold uppercase tracking-wider">Get in Touch</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-surface-dim py-16 border-t border-outline-variant">
+    <div class="max-w-[1200px] mx-auto px-4 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-10 md:gap-8 mb-12">
+        <div class="col-span-1 md:col-span-1">
+          <a href="index.html" class="flex items-center gap-2 text-primary font-display font-bold text-2xl mb-4">
+            <span class="material-symbols-outlined">local_fire_department</span>
+            Spice & Soul
+          </a>
+          <p class="text-on-surface-variant text-sm font-label uppercase tracking-widest mb-6">Where Heritage Meets Haute Cuisine</p>
+          <div class="flex gap-4">
+            <a href="#" class="text-on-surface hover:text-primary transition"><span class="material-symbols-outlined">photo_camera</span></a>
+            <a href="#" class="text-on-surface hover:text-primary transition"><span class="material-symbols-outlined">thumb_up</span></a>
+            <a href="#" class="text-on-surface hover:text-primary transition"><span class="material-symbols-outlined">alternate_email</span></a>
+          </div>
+        </div>
+        
+        <div>
+          <h4 class="font-label text-sm uppercase font-bold tracking-widest text-on-surface mb-6">Explore</h4>
+          <ul class="space-y-3 text-on-surface-variant text-sm">
+            <li><a href="menu.html" class="hover:text-primary transition">Menu</a></li>
+            <li><a href="about.html" class="hover:text-primary transition">About Us</a></li>
+            <li><a href="reservations.html" class="hover:text-primary transition">Reservations</a></li>
+            <li><a href="gallery.html" class="hover:text-primary transition">Gallery</a></li>
+            <li><a href="reviews.html" class="hover:text-primary transition">Reviews</a></li>
+            <li><a href="blog.html" class="hover:text-primary transition">Blog</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h4 class="font-label text-sm uppercase font-bold tracking-widest text-on-surface mb-6">Contact</h4>
+          <ul class="space-y-3 text-on-surface-variant text-sm">
+            <li class="flex items-start gap-2"><span class="material-symbols-outlined text-[18px]">location_on</span> 12, Rajpath Lane, Colaba, Mumbai</li>
+            <li class="flex items-center gap-2"><span class="material-symbols-outlined text-[18px]">call</span> +91-22-4567-8900</li>
+            <li class="flex items-center gap-2"><span class="material-symbols-outlined text-[18px]">mail</span> dine@spiceandsoul.in</li>
+          </ul>
+        </div>
+        
+        <div>
+          <h4 class="font-label text-sm uppercase font-bold tracking-widest text-on-surface mb-6">Hours</h4>
+          <ul class="space-y-3 text-on-surface-variant text-sm">
+            <li>Mon–Thu: 12:00 PM – 11:00 PM</li>
+            <li>Fri–Sun: 12:00 PM – Midnight</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="pt-8 border-t border-outline-variant text-center text-on-surface-variant text-sm">
+        <p>&copy; 2025 Spice & Soul. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
