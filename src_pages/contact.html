@@ -123,7 +123,7 @@
             <span class="material-symbols-outlined text-primary text-3xl mt-1">location_on</span>
             <div>
               <h3 class="font-display text-2xl font-bold text-on-surface mb-1">Address</h3>
-              <p class="text-on-surface-variant text-lg">12, Rajpath Lane,<br>Colaba, Mumbai 400001</p>
+              <p class="text-on-surface-variant text-lg">146, Sirsi Rd, Hanuman Nagar Extension,<br>Officers Campus, Khatipura, Jaipur, Rajasthan 302012</p>
             </div>
           </div>
           
@@ -131,7 +131,7 @@
             <span class="material-symbols-outlined text-primary text-3xl mt-1">call</span>
             <div>
               <h3 class="font-display text-2xl font-bold text-on-surface mb-1">Phone</h3>
-              <p class="text-on-surface-variant text-lg">+91-22-4567-8900</p>
+              <p class="text-on-surface-variant text-lg">+91-141-2789-4560 / +91-98765-43210</p>
             </div>
           </div>
           
@@ -200,14 +200,81 @@
         </div>
       </div>
 
-      <!-- Right Column (Map) -->
-      <div class="h-full min-h-[500px] flex flex-col">
-        <div class="bg-surface-dim flex-1 rounded-lg border border-outline-variant relative overflow-hidden flex flex-col items-center justify-center text-center p-8 group">
-          <span class="material-symbols-outlined text-primary text-6xl mb-4 group-hover:scale-110 transition duration-500">map</span>
-          <h3 class="font-display text-2xl text-on-surface mb-2">Interactive Map</h3>
-          <p class="text-on-surface-variant mb-6">Explore our location in the heart of Mumbai's culinary district.</p>
-          <a href="#" class="px-8 py-3 rounded border border-primary text-primary font-bold uppercase tracking-wider text-sm hover:bg-primary hover:text-white transition">Get Directions</a>
-          <div class="absolute inset-0 bg-[url('assets/images/1524661135-423995f22d0b.jpg')] bg-cover bg-center opacity-10 pointer-events-none mix-blend-multiply"></div>
+      <!-- Right Column (Map Section) -->
+      <div class="h-full min-h-[580px] flex flex-col">
+        <div class="bg-white rounded-2xl border border-surface-dim shadow-md overflow-hidden flex flex-col h-full">
+          
+          <!-- Map Header & View Switcher -->
+          <div class="p-4 sm:p-5 bg-surface-container/60 border-b border-surface-dim flex flex-wrap items-center justify-between gap-3">
+            <div class="flex items-center gap-2.5">
+              <span class="material-symbols-outlined text-primary text-2xl">location_on</span>
+              <div>
+                <h3 class="font-display font-bold text-lg text-on-surface leading-tight">Find Us in Jaipur</h3>
+                <p class="text-xs text-on-surface-variant">Hanuman Nagar Ext., Khatipura, Jaipur</p>
+              </div>
+            </div>
+
+            <!-- View Switcher Tabs -->
+            <div class="flex items-center bg-surface-dim/70 p-1 rounded-lg gap-1 border border-outline-variant/30 text-xs font-label uppercase font-semibold tracking-wider">
+              <button type="button" onclick="switchMapView('local')" id="map-tab-local" class="map-tab-btn px-3 py-1.5 rounded-md bg-primary text-white shadow-xs transition">
+                Street View
+              </button>
+              <button type="button" onclick="switchMapView('city')" id="map-tab-city" class="map-tab-btn px-3 py-1.5 rounded-md text-on-surface-variant hover:text-primary transition">
+                Jaipur City
+              </button>
+              <button type="button" onclick="switchMapView('region')" id="map-tab-region" class="map-tab-btn px-3 py-1.5 rounded-md text-on-surface-variant hover:text-primary transition">
+                Regional
+              </button>
+            </div>
+          </div>
+
+          <!-- Map Image Display Container -->
+          <div class="relative flex-1 min-h-[380px] sm:min-h-[440px] bg-[#eef2f5] overflow-hidden group">
+            
+            <!-- Map Images -->
+            <img id="map-img-local" src="assets/images/map_jaipur_local.png" alt="Spice & Soul Street Map Location - Sirsi Rd, Khatipura, Jaipur" class="w-full h-full object-cover object-center absolute inset-0 transition-opacity duration-300 opacity-100 z-10" />
+            <img id="map-img-city" src="assets/images/map_jaipur_city.png" alt="Spice & Soul Jaipur City Map Location" class="w-full h-full object-cover object-center absolute inset-0 transition-opacity duration-300 opacity-0 pointer-events-none" />
+            <img id="map-img-region" src="assets/images/map_india_overview.png" alt="Spice & Soul Regional Overview Map" class="w-full h-full object-cover object-center absolute inset-0 transition-opacity duration-300 opacity-0 pointer-events-none" />
+
+            <!-- Floating Restaurant Badge on Map -->
+            <div class="absolute bottom-4 left-4 right-4 sm:right-auto sm:max-w-[340px] z-20 bg-surface/95 backdrop-blur-md p-4 rounded-xl border border-surface-dim shadow-xl">
+              <div class="flex items-start justify-between gap-2 mb-1.5">
+                <div class="flex items-center gap-1.5">
+                  <span class="material-symbols-outlined text-primary text-xl" style="font-variation-settings:'FILL' 1">local_fire_department</span>
+                  <span class="font-display font-bold text-on-surface text-base">Spice &amp; Soul</span>
+                </div>
+                <div class="flex items-center gap-1 bg-[#fff3e0] text-[#e65100] px-2 py-0.5 rounded-full text-xs font-bold border border-[#ffe082]">
+                  <span class="material-symbols-outlined text-xs" style="font-variation-settings:'FILL' 1">star</span>
+                  4.7
+                </div>
+              </div>
+              <p class="text-xs text-on-surface-variant leading-relaxed mb-3">
+                146, Sirsi Rd, Hanuman Nagar Extension, Khatipura, Jaipur 302012
+              </p>
+              <div class="flex items-center gap-2">
+                <a href="https://www.google.com/maps/search/?api=1&query=Spice+%26+Soul,+146,+Sirsi+Rd,+Hanuman+Nagar+Extension,+Officers+Campus,+Khatipura,+Jaipur,+Rajasthan+302012" target="_blank" rel="noopener noreferrer" class="gold-button inline-flex items-center justify-center gap-1.5 flex-1 py-2 px-3 rounded-lg text-xs font-bold uppercase tracking-wider text-[#3b1900] no-underline">
+                  <span class="material-symbols-outlined text-[16px]">directions</span>
+                  Get Directions
+                </a>
+                <button type="button" onclick="navigator.clipboard.writeText('Spice & Soul, 146, Sirsi Rd, Hanuman Nagar Extension, Officers Campus, Khatipura, Jaipur, Rajasthan 302012'); alert('Address copied to clipboard!');" class="p-2 rounded-lg border border-outline-variant hover:bg-surface-dim text-on-surface-variant transition" title="Copy Address">
+                  <span class="material-symbols-outlined text-[18px]">content_copy</span>
+                </button>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Quick Navigation Info Footer -->
+          <div class="p-4 bg-surface-container/40 border-t border-surface-dim flex items-center justify-between text-xs text-on-surface-variant">
+            <span class="flex items-center gap-1.5">
+              <span class="material-symbols-outlined text-primary text-base">near_me</span>
+              Landmarks: Near Khatipura Rd &amp; DMART
+            </span>
+            <a href="https://www.google.com/maps/search/?api=1&query=Spice+%26+Soul,+146,+Sirsi+Rd,+Hanuman+Nagar+Extension,+Officers+Campus,+Khatipura,+Jaipur,+Rajasthan+302012" target="_blank" rel="noopener noreferrer" class="text-primary font-semibold hover:underline flex items-center gap-0.5">
+              Open Full Map <span class="material-symbols-outlined text-xs">open_in_new</span>
+            </a>
+          </div>
+
         </div>
       </div>
       
@@ -246,8 +313,8 @@
         <div>
           <h4 class="font-label text-sm uppercase font-bold tracking-widest text-on-surface mb-6">Contact</h4>
           <ul class="space-y-3 text-on-surface-variant text-sm">
-            <li class="flex items-start gap-2"><span class="material-symbols-outlined text-[18px]">location_on</span> 12, Rajpath Lane, Colaba, Mumbai</li>
-            <li class="flex items-center gap-2"><span class="material-symbols-outlined text-[18px]">call</span> +91-22-4567-8900</li>
+            <li class="flex items-start gap-2"><span class="material-symbols-outlined text-[18px]">location_on</span> 146, Sirsi Rd, Hanuman Nagar Ext., Khatipura, Jaipur 302012</li>
+            <li class="flex items-center gap-2"><span class="material-symbols-outlined text-[18px]">call</span> +91-141-2789-4560</li>
             <li class="flex items-center gap-2"><span class="material-symbols-outlined text-[18px]">mail</span> dine@spiceandsoul.in</li>
           </ul>
         </div>
