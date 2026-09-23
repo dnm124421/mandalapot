@@ -135,6 +135,48 @@
       transform: translateY(0) scale(1) rotate(0deg);
       box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), 0 0 20px rgba(254, 203, 50, 0.2);
     }
+
+    /* ── Team Member Hover Glow Animation ─────────────── */
+    .team-card {
+      transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    .team-card:hover {
+      transform: translateY(-8px);
+    }
+    .team-img-frame {
+      position: relative;
+      overflow: hidden;
+      border-radius: 1.25rem 1.25rem 0.5rem 0.5rem;
+      border: 2px solid rgba(254, 203, 50, 0.3);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      background: #140b04;
+    }
+    .team-card:hover .team-img-frame {
+      border-color: #ff9933;
+      box-shadow: 0 0 25px rgba(255, 153, 51, 0.65), 0 0 50px rgba(254, 203, 50, 0.35), 0 16px 32px rgba(143, 78, 0, 0.25);
+      animation: teamGlowPulse 2s ease-in-out infinite alternate;
+    }
+    .team-card img {
+      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .team-card:hover img {
+      transform: scale(1.07);
+    }
+    @keyframes teamGlowPulse {
+      0% {
+        box-shadow: 0 0 20px rgba(255, 153, 51, 0.5), 0 0 40px rgba(254, 203, 50, 0.25);
+        border-color: #ff9933;
+      }
+      50% {
+        box-shadow: 0 0 32px rgba(255, 153, 51, 0.8), 0 0 65px rgba(254, 203, 50, 0.5);
+        border-color: #fecb32;
+      }
+      100% {
+        box-shadow: 0 0 20px rgba(255, 153, 51, 0.5), 0 0 40px rgba(254, 203, 50, 0.25);
+        border-color: #ff9933;
+      }
+    }
   </style>
 </head>
 <body class="font-body antialiased selection:bg-primary-container selection:text-on-surface relative">
@@ -481,81 +523,106 @@
   </section>
 
   <!-- Our Team Section -->
-  <section class="py-20 md:py-28 bg-surface">
-    <div class="max-w-[1200px] mx-auto px-4 lg:px-8 text-center">
-      <h2 class="font-display text-4xl text-on-surface mb-12">The Team</h2>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 gap-y-12">
+  <section id="team-section" class="py-20 md:py-28 bg-surface relative overflow-hidden">
+    <div class="mandala-pattern"></div>
+    <div class="max-w-[1300px] mx-auto px-4 lg:px-8 text-center relative z-10">
+      <p class="font-label text-sm uppercase tracking-widest text-primary font-bold mb-3">Custodians of Flavor</p>
+      <h2 class="font-display text-4xl md:text-5xl text-on-surface font-bold mb-4">Meet Our Masters</h2>
+      <p class="text-on-surface-variant max-w-2xl mx-auto mb-16 text-base">
+        The artisans, tandoor virtuosos, and culinary visionaries who breathe soul and royal tradition into every dish.
+      </p>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 gap-y-12 items-stretch justify-center">
         
-        <div class="group">
-          <div class="aspect-[3/4] overflow-hidden rounded-t-full mb-4 border-2 border-transparent group-hover:border-primary transition duration-300">
-            <img src="assets/images/1577219491135-ce391730fb2c.jpg" alt="Sous Chef" class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition duration-500">
+        <!-- Member 1: Ram Singh -->
+        <div class="team-card group flex flex-col items-center">
+          <div class="team-img-frame w-full aspect-[3/4] mb-4">
+            <img src="assets/images/team_ram_singh.jpg" alt="Ram Singh - Head of Royal Hospitality" class="w-full h-full object-cover object-top" />
+            <div class="absolute top-3 right-3 bg-black/60 backdrop-blur-xs text-[#fecb32] text-[10px] font-bold font-label uppercase px-2.5 py-1 rounded-full border border-[#fecb32]/40">
+              Hospitality
+            </div>
           </div>
-          <h3 class="font-display text-xl font-bold text-on-surface">Priya Sharma</h3>
-          <p class="text-primary font-label text-sm uppercase tracking-wider mt-1">Sous Chef</p>
-        </div>
-        
-        <div class="group">
-          <div class="aspect-[3/4] overflow-hidden rounded-t-full mb-4 border-2 border-transparent group-hover:border-primary transition duration-300">
-            <img src="assets/images/1595273670150-bd0c3c392e46.jpg" alt="Sommelier" class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition duration-500">
-          </div>
-          <h3 class="font-display text-xl font-bold text-on-surface">James Wright</h3>
-          <p class="text-primary font-label text-sm uppercase tracking-wider mt-1">Sommelier</p>
+          <h3 class="font-display text-xl font-bold text-on-surface group-hover:text-primary transition-colors">Ram Singh</h3>
+          <p class="text-primary font-label text-xs uppercase tracking-wider font-semibold mt-1">Head of Royal Hospitality</p>
+          <p class="text-xs text-on-surface-variant mt-2 max-w-[240px]">Ensuring every guest experiences the timeless warmth of Indian royal welcoming.</p>
         </div>
 
-        <div class="group">
-          <div class="aspect-[3/4] overflow-hidden rounded-t-full mb-4 border-2 border-transparent group-hover:border-primary transition duration-300">
-            <img src="assets/images/1600565193348-f74bd3c7ccdf.jpg" alt="Pastry Chef" class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition duration-500">
+        <!-- Member 2: Chef Mahendra -->
+        <div class="team-card group flex flex-col items-center">
+          <div class="team-img-frame w-full aspect-[3/4] mb-4">
+            <img src="assets/images/team_chef_mahendra.jpg" alt="Chef Mahendra - Tandoor & Charcoal Grill Master" class="w-full h-full object-cover object-top" />
+            <div class="absolute top-3 right-3 bg-black/60 backdrop-blur-xs text-[#fecb32] text-[10px] font-bold font-label uppercase px-2.5 py-1 rounded-full border border-[#fecb32]/40">
+              Tandoor
+            </div>
           </div>
-          <h3 class="font-display text-xl font-bold text-on-surface">Meera Desai</h3>
-          <p class="text-primary font-label text-sm uppercase tracking-wider mt-1">Pastry Chef</p>
-        </div>
-        
-        <div class="group">
-          <div class="aspect-[3/4] overflow-hidden rounded-t-full mb-4 border-2 border-transparent group-hover:border-primary transition duration-300">
-            <img src="assets/images/1581299894007-aaa502973624.jpg" alt="Maître D'" class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition duration-500">
-          </div>
-          <h3 class="font-display text-xl font-bold text-on-surface">Anil Kumar</h3>
-          <p class="text-primary font-label text-sm uppercase tracking-wider mt-1">Maître D'</p>
+          <h3 class="font-display text-xl font-bold text-on-surface group-hover:text-primary transition-colors">Chef Mahendra</h3>
+          <p class="text-primary font-label text-xs uppercase tracking-wider font-semibold mt-1">Master of Charcoal Grills</p>
+          <p class="text-xs text-on-surface-variant mt-2 max-w-[240px]">Over two decades perfecting the art of live-fire clay oven roasts and kebabs.</p>
         </div>
 
-        <div class="group">
-          <div class="aspect-[3/4] overflow-hidden rounded-t-full mb-4 border-2 border-transparent group-hover:border-primary transition duration-300">
-            <img src="assets/images/1583394205465-4f7f6ec4a0af.jpg" alt="Head Baker" class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition duration-500">
+        <!-- Member 3: Chef Gurpreet Singh -->
+        <div class="team-card group flex flex-col items-center">
+          <div class="team-img-frame w-full aspect-[3/4] mb-4">
+            <img src="assets/images/team_chef_gurpreet.jpg" alt="Chef Gurpreet Singh - Executive Mughlai & Tandoor Specialist" class="w-full h-full object-cover object-top" />
+            <div class="absolute top-3 right-3 bg-black/60 backdrop-blur-xs text-[#fecb32] text-[10px] font-bold font-label uppercase px-2.5 py-1 rounded-full border border-[#fecb32]/40">
+              Mughlai Master
+            </div>
           </div>
-          <h3 class="font-display text-xl font-bold text-on-surface">Rahul Singh</h3>
-          <p class="text-primary font-label text-sm uppercase tracking-wider mt-1">Head Baker</p>
+          <h3 class="font-display text-xl font-bold text-on-surface group-hover:text-primary transition-colors">Chef Gurpreet Singh</h3>
+          <p class="text-primary font-label text-xs uppercase tracking-wider font-semibold mt-1">Executive Mughlai Specialist</p>
+          <p class="text-xs text-on-surface-variant mt-2 max-w-[240px]">Championing authentic frontier marinades and heirloom slow-cooked delicacies.</p>
         </div>
 
-        <div class="group">
-          <div class="aspect-[3/4] overflow-hidden rounded-t-full mb-4 border-2 border-transparent group-hover:border-primary transition duration-300">
-            <img src="assets/images/1621343756247-495cc17855b4.jpg" alt="Tandoor Master" class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition duration-500">
+        <!-- Member 4: Chef Iqbal -->
+        <div class="team-card group flex flex-col items-center">
+          <div class="team-img-frame w-full aspect-[3/4] mb-4">
+            <img src="assets/images/team_chef_iqbal.jpg" alt="Chef Iqbal - Master Halwai & Traditional Desserts" class="w-full h-full object-cover object-top" />
+            <div class="absolute top-3 right-3 bg-black/60 backdrop-blur-xs text-[#fecb32] text-[10px] font-bold font-label uppercase px-2.5 py-1 rounded-full border border-[#fecb32]/40">
+              Halwai Master
+            </div>
           </div>
-          <h3 class="font-display text-xl font-bold text-on-surface">Sanjay Patel</h3>
-          <p class="text-primary font-label text-sm uppercase tracking-wider mt-1">Tandoor Master</p>
+          <h3 class="font-display text-xl font-bold text-on-surface group-hover:text-primary transition-colors">Chef Iqbal</h3>
+          <p class="text-primary font-label text-xs uppercase tracking-wider font-semibold mt-1">Master Halwai &amp; Desserts</p>
+          <p class="text-xs text-on-surface-variant mt-2 max-w-[240px]">Crafting saffron jalebis, slow-churned rabdi, and iconic artisanal sweets.</p>
         </div>
 
-        <div class="group">
-          <div class="aspect-[3/4] overflow-hidden rounded-t-full mb-4 border-2 border-transparent group-hover:border-primary transition duration-300">
-            <img src="assets/images/1583394838336-acd977736f90.jpg" alt="Spice Blender" class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition duration-500">
+        <!-- Member 5: Bhanwar Singh -->
+        <div class="team-card group flex flex-col items-center">
+          <div class="team-img-frame w-full aspect-[3/4] mb-4">
+            <img src="assets/images/team_bhanwar_singh.jpg" alt="Bhanwar Singh - Heritage Chai & Beverage Artisan" class="w-full h-full object-cover object-top" />
+            <div class="absolute top-3 right-3 bg-black/60 backdrop-blur-xs text-[#fecb32] text-[10px] font-bold font-label uppercase px-2.5 py-1 rounded-full border border-[#fecb32]/40">
+              Heritage Artisan
+            </div>
           </div>
-          <h3 class="font-display text-xl font-bold text-on-surface">Zara Khan</h3>
-          <p class="text-primary font-label text-sm uppercase tracking-wider mt-1">Spice Blender</p>
+          <h3 class="font-display text-xl font-bold text-on-surface group-hover:text-primary transition-colors">Bhanwar Singh</h3>
+          <p class="text-primary font-label text-xs uppercase tracking-wider font-semibold mt-1">Heritage Tea &amp; Beverage Artisan</p>
+          <p class="text-xs text-on-surface-variant mt-2 max-w-[240px]">Serving smoked clay-pot kulhad chai infused with hand-crushed Rajasthani spices.</p>
         </div>
 
-        <div class="group">
-          <div class="aspect-[3/4] overflow-hidden rounded-t-full mb-4 border-2 border-transparent group-hover:border-primary transition duration-300">
-            <img src="assets/images/1654922207993-2952fec328ae.jpg" alt="Mixologist" class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition duration-500">
+        <!-- Member 6: Chef Arjun Kapoor -->
+        <div class="team-card group flex flex-col items-center">
+          <div class="team-img-frame w-full aspect-[3/4] mb-4">
+            <img src="assets/images/1577219491135-ce391730fb2c.jpg" alt="Chef Arjun Kapoor - Founder & Executive Chef" class="w-full h-full object-cover object-center" />
+            <div class="absolute top-3 right-3 bg-black/60 backdrop-blur-xs text-[#fecb32] text-[10px] font-bold font-label uppercase px-2.5 py-1 rounded-full border border-[#fecb32]/40">
+              Executive Founder
+            </div>
           </div>
-          <h3 class="font-display text-xl font-bold text-on-surface">David Chen</h3>
-          <p class="text-primary font-label text-sm uppercase tracking-wider mt-1">Head Mixologist</p>
+          <h3 class="font-display text-xl font-bold text-on-surface group-hover:text-primary transition-colors">Chef Arjun Kapoor</h3>
+          <p class="text-primary font-label text-xs uppercase tracking-wider font-semibold mt-1">Founder &amp; Executive Chef</p>
+          <p class="text-xs text-on-surface-variant mt-2 max-w-[240px]">Visionary behind Spice &amp; Soul's Michelin-awarded modern Indian gastronomic journey.</p>
         </div>
 
-        <div class="group">
-          <div class="aspect-[3/4] overflow-hidden rounded-t-full mb-4 border-2 border-transparent group-hover:border-primary transition duration-300">
-            <img src="assets/images/1581299894007-aaa502973624.jpg" alt="Restaurant Manager" class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition duration-500">
+        <!-- Member 7: Priya Sharma -->
+        <div class="team-card group flex flex-col items-center">
+          <div class="team-img-frame w-full aspect-[3/4] mb-4">
+            <img src="assets/images/1595273670150-bd0c3c392e46.jpg" alt="Priya Sharma - Head Sous Chef & Master Blender" class="w-full h-full object-cover object-center" />
+            <div class="absolute top-3 right-3 bg-black/60 backdrop-blur-xs text-[#fecb32] text-[10px] font-bold font-label uppercase px-2.5 py-1 rounded-full border border-[#fecb32]/40">
+              Sous Chef
+            </div>
           </div>
-          <h3 class="font-display text-xl font-bold text-on-surface">Karan Verma</h3>
-          <p class="text-primary font-label text-sm uppercase tracking-wider mt-1">Restaurant Manager</p>
+          <h3 class="font-display text-xl font-bold text-on-surface group-hover:text-primary transition-colors">Priya Sharma</h3>
+          <p class="text-primary font-label text-xs uppercase tracking-wider font-semibold mt-1">Head Sous Chef &amp; Master Blender</p>
+          <p class="text-xs text-on-surface-variant mt-2 max-w-[240px]">Curating rare regional botanical blends and orchestrating precise kitchen execution.</p>
         </div>
 
       </div>
